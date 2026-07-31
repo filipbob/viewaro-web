@@ -93,7 +93,7 @@ Full deploy / TLS renewal / update procedure: **[deploy/README.md](deploy/README
 ## Notes
 
 - The logo (`public/logo.png`) is the Viewaro app icon master, owned by
-  Filip Bobinac.
+  ITQuotes.
 - Support email on `/support` is `support@itquotes.hr` — make sure the
   mailbox exists before store submission.
 - Legal pages carry a "Last updated" date — bump it when editing them.

@@ -53,10 +53,39 @@ EOF
 sudo chmod +x /etc/letsencrypt/renewal-hooks/deploy/reload-viewaro.sh
 ```
 
-## Updating the site
+## Releasing (CI/CD)
+
+`.github/workflows/deploy.yml` deploys automatically — but only on a
+**version tag**, not on every push to `main`. Merging to `main` alone ships
+nothing; pushing a `v*` tag is the release:
+
+```sh
+git checkout main && git pull
+git tag v1.0.1
+git push origin v1.0.1
+```
+
+That SSHes into oracle-server (key in the `DEPLOY_SSH_KEY` secret, a
+dedicated deploy-only key — not the personal `oracle_key`) and runs:
 
 ```sh
 cd ~/app/viewaro-web
-git pull
+git fetch --tags -f
+git checkout <the pushed tag>
+docker compose up -d --build
+```
+
+This leaves the server's checkout in detached HEAD at that tag — expected,
+it's a deploy target, not a working copy. Watch it run with
+`gh run watch -R filipbob/viewaro-web`.
+
+## Updating the site manually
+
+Same as what CI does, run by hand (skips the tag requirement — useful for a
+quick fix without cutting a release):
+
+```sh
+cd ~/app/viewaro-web
+git checkout main && git pull
 docker compose up -d --build
 ```

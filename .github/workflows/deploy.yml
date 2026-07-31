@@ -1,0 +1,29 @@
+name: Deploy
+
+# Deploys are tag-triggered, not merge-triggered: merging to main just
+# updates main, it doesn't ship anything. Pushing a version tag (v1.2.0)
+# is the actual "release" and is what the server checks out and runs.
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy tag to oracle-server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            set -e
+            cd ~/app/viewaro-web
+            git fetch --tags -f
+            git checkout "${GITHUB_REF_NAME}"
+            docker compose up -d --build
+          envs: GITHUB_REF_NAME
+        env:
+          GITHUB_REF_NAME: ${{ github.ref_name }}

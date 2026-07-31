@@ -29,7 +29,7 @@ export default function SiteFooter() {
           </nav>
         </div>
         <div className="mt-10 flex flex-col items-start gap-2 border-t border-white/[0.06] pt-6 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>&copy; 2026 Filip Bobinac. All rights reserved.</span>
+          <span>&copy; 2026 ITQuotes. All rights reserved.</span>
           <a
             href="https://itquotes.hr"
             className="transition-colors hover:text-zinc-300"
