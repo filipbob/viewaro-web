@@ -121,86 +121,138 @@ const pt: Dictionary = {
     privacy: {
       title: "Política de privacidade",
       metaDescription: "Como o Viewaro trata os teus dados.",
-      updated: "30 de julho de 2026",
+      updated: "31 de julho de 2026",
       sections: [
         {
           paragraphs: [
-            "O Viewaro é construído sobre um princípio simples: **o teu conteúdo é da tua responsabilidade.** A app é um leitor de playlists que tu forneces — não temos interesse no que vês, e a app é concebida para que assim se mantenha.",
-          ],
-        },
-        {
-          heading: "O que o Viewaro guarda no teu dispositivo",
-          list: [
-            "**Fontes de playlist** — os URLs M3U, dados do servidor Xtream Codes e canais adicionados manualmente que configuras. As credenciais são guardadas no armazenamento seguro do sistema operativo (Keychain nas plataformas Apple, armazenamento baseado em Keystore no Android).",
-            "**Preferências** — favoritos, canais vistos recentemente, definições de layout e reprodução, PIN do controlo parental.",
-            "**Dados do guia de programação** — dados EPG (XMLTV) transferidos do URL que configuras, guardados localmente em cache.",
-          ],
-        },
-        {
-          paragraphs: [
-            "A reprodução acontece diretamente entre o teu dispositivo e os servidores da tua playlist. Os teus streams nunca passam por nós, nem são gravados ou reportados a nós.",
-          ],
-        },
-        {
-          heading: "Conta opcional e sincronização na nuvem",
-          paragraphs: [
-            "O Viewaro funciona totalmente sem conta. Se optares por criar uma (para sincronizar fontes, favoritos e definições entre dispositivos), guardamos:",
+            "O Viewaro é fornecido pela **ITQuotes** (\"Viewaro\", \"nós\" ou \"nosso\"). Esta Política de Privacidade explica como a app Viewaro para macOS e o site de suporte Viewaro tratam a informação.",
           ],
         },
         {
           list: [
-            "o teu endereço de email (ou o identificador fornecido pelo Iniciar sessão com Apple/Google);",
-            "os dados sincronizados em si: as tuas fontes, favoritos e definições.",
+            "Email: [support@itquotes.hr](mailto:support@itquotes.hr)",
+            "Morada postal: Zagreb, Croácia",
           ],
         },
         {
+          heading: "Resumo",
           paragraphs: [
-            "Estes dados são usados exclusivamente para fornecer a sincronização. Podes eliminar a tua conta e todos os dados sincronizados a qualquer momento a partir da app.",
+            "O Viewaro é um leitor IPTV onde trazes o teu próprio conteúdo. Não fornece canais, playlists ou subscrições de media. Os dados de playlist e as preferências de reprodução são guardados localmente no teu Mac. Não usamos rastreadores publicitários e não vendemos dados pessoais.",
+            "Se as subscrições estiverem ativadas na versão que utilizas, a Apple processa o pagamento e a RevenueCat processa informação limitada de compra e técnica para validar a compra e determinar se as funcionalidades Premium estão disponíveis.",
           ],
         },
         {
-          heading: "Compras",
-          paragraphs: [
-            "As subscrições são processadas pela Apple (App Store) ou Google (Google Play). Nunca vemos os teus dados de pagamento. Usamos o RevenueCat, um serviço de gestão de subscrições, para validar direitos de compra; este recebe um identificador de utilizador anónimo da app e recibos de compra, não a tua identidade.",
-          ],
+          heading: "O que o Viewaro guarda no teu Mac",
+          paragraphs: ["O Viewaro pode guardar localmente o seguinte:"],
         },
         {
-          heading: "Análise",
-          paragraphs: [
-            "Podemos recolher estatísticas de uso anónimas e agregadas (como que ecrãs são usados ou se ocorrem erros de reprodução) para melhorar a app. Estas estatísticas não contêm informação pessoal, identificadores de conta, nem nada sobre o conteúdo das tuas playlists ou o que vês.",
-          ],
-        },
-        {
-          heading: "O que não fazemos",
           list: [
-            "Não vendemos nem partilhamos os teus dados com terceiros para fins de marketing.",
-            "Não rastreamos o que vês.",
-            "Não mostramos anúncios nem usamos SDKs de publicidade.",
-            "Não recolhemos a tua localização.",
+            "nomes e endereços de playlist que introduzes",
+            "credenciais ou tokens de playlist contidos nesses endereços",
+            "informação do catálogo de canais importado",
+            "definições da app e preferências relacionadas com a reprodução",
+            "um identificador de subscrição anónimo e o estado de direito em cache quando as subscrições estão ativadas",
           ],
         },
         {
-          heading: "Retenção e eliminação de dados",
           paragraphs: [
-            "Os dados no dispositivo permanecem no teu dispositivo e são removidos quando eliminas a app. Os dados da conta são mantidos apenas enquanto a tua conta existir — eliminar a tua conta a partir da app remove-os permanentemente.",
+            "Os endereços de playlist sensíveis são guardados num cofre local encriptado. A chave do cofre é protegida pelo Chaveiro (Keychain) do macOS. Esta informação não é enviada para servidores da Viewaro ou da ITQuotes.",
+            "Podes remover fontes importadas a partir da app. O macOS pode reter itens do Chaveiro após a remoção de uma aplicação, pelo que desinstalar a app não é um método garantido de apagar todos os itens do Chaveiro.",
+          ],
+        },
+        {
+          heading: "Ligações de rede ao teu fornecedor",
+          paragraphs: [
+            "Quando importas uma playlist ou reproduzes um stream, o teu Mac liga-se diretamente ao endereço que forneceste. Esse fornecedor pode receber informação normalmente incluída numa ligação de rede, como o teu endereço IP, a hora do pedido, o caminho solicitado e quaisquer credenciais incluídas no URL do fornecedor.",
+            "Não controlamos o teu fornecedor nem recebemos esses pedidos. Aplicam-se a própria política de privacidade e os termos do teu fornecedor. O Viewaro exige HTTPS para os caminhos atuais de playlist e AVPlayer e não transmite credenciais de playlist por HTTP não encriptado.",
+          ],
+        },
+        {
+          heading: "Demo HLS da Apple",
+          paragraphs: [
+            "A demonstração de reprodução integrada liga-se diretamente a uma amostra HLS pública alojada pela Apple. A Apple pode receber informação padrão de pedidos de rede, como o teu endereço IP e a hora do pedido, nos termos de privacidade da Apple.",
+          ],
+        },
+        {
+          heading: "Compras e RevenueCat",
+          paragraphs: [
+            "As compras são feitas através do sistema de compras integradas da Apple. Nunca recebemos os dados do teu cartão de pagamento ou conta bancária.",
+            "Quando as subscrições estão ativadas, o Viewaro usa a RevenueCat para validar recibos da Apple e fornecer o estado de direito Premium. A RevenueCat pode processar:",
+          ],
+        },
+        {
+          list: [
+            "um ID de utilizador de app anónimo gerado aleatoriamente",
+            "o recibo da Apple e o histórico de compras ou subscrições",
+            "tipo de dispositivo, informação do sistema operativo, versão da app e hora da última atividade",
+          ],
+        },
+        {
+          paragraphs: [
+            "Esta informação é usada para validação de compras, prevenção de fraude, funcionalidade de subscrição e análise agregada de subscrições. O Viewaro não envia endereços de playlist, credenciais de fornecedor, nomes de canais ou histórico de visualização para a RevenueCat. Não usamos dados da RevenueCat para rastreamento publicitário entre apps.",
+            "Consulta a [Política de Privacidade da RevenueCat](https://www.revenuecat.com/privacy) para as suas práticas de processamento, retenção e transferência internacional.",
+          ],
+        },
+        {
+          heading: "Comunicações de suporte",
+          paragraphs: [
+            "Se contactares o suporte, recebemos a informação que escolheres fornecer, como o teu endereço de email, mensagem, versão da app e detalhes de diagnóstico. Nunca envies URLs de playlist, nomes de utilizador, palavras-passe, tokens ou outras credenciais de fornecedor.",
+            "Usamos a informação de suporte para responder ao teu pedido, investigar problemas e cumprir obrigações legais. Retemo-la apenas pelo tempo razoavelmente necessário para esses fins.",
+          ],
+        },
+        {
+          heading: "Análise, publicidade e rastreamento",
+          paragraphs: [
+            "O Viewaro não inclui SDKs publicitários nem análise comportamental na versão atual. Não rastreamos a tua atividade entre apps ou sites e não vendemos dados pessoais.",
+            "A informação de compra processada pela RevenueCat é usada apenas conforme descrito na secção Compras e RevenueCat acima. Esta política e a declaração de privacidade da App Store serão atualizadas antes de ativar qualquer análise ou SDK de terceiros materialmente diferente.",
+          ],
+        },
+        {
+          heading: "Partilha de dados",
+          paragraphs: ["Só partilhamos informação quando necessário:"],
+        },
+        {
+          list: [
+            "com a Apple para processar compras e distribuir a app",
+            "com a RevenueCat para validar compras e gerir direitos de subscrição",
+            "com fornecedores de serviços usados para operar o site de suporte público ou o email",
+            "quando exigido por lei ou necessário para proteger utilizadores, os nossos direitos ou o público",
+          ],
+        },
+        {
+          paragraphs: [
+            "Não autorizamos fornecedores de serviços a usar informação do Viewaro para a sua própria publicidade.",
+          ],
+        },
+        {
+          heading: "As tuas escolhas e direitos",
+          paragraphs: [
+            "Podes remover playlists e outros dados locais da app através dos controlos do Viewaro. Podes gerir ou cancelar uma subscrição Apple nas definições da tua conta Apple. Podes contactar-nos para perguntar sobre informação de suporte que temos sobre ti ou para exercer direitos disponíveis ao abrigo da lei de privacidade aplicável.",
+            "Como os dados de playlist e reprodução permanecem no teu Mac, geralmente não conseguimos aceder, exportar ou eliminar esses dados locais remotamente.",
           ],
         },
         {
           heading: "Crianças",
           paragraphs: [
-            "O Viewaro não é dirigido a crianças. A funcionalidade de controlo parental existe para que os adultos possam restringir o acesso a canais em ecrãs partilhados.",
+            "O Viewaro não é dirigido a crianças e não recolhe conscientemente informação pessoal de crianças. Os utilizadores são responsáveis por garantir que o conteúdo a que acedem é apropriado e legal.",
+          ],
+        },
+        {
+          heading: "Segurança",
+          paragraphs: [
+            "Usamos medidas técnicas concebidas para proteger informação, incluindo a App Sandbox do macOS, a proteção do Chaveiro e armazenamento local encriptado para segredos de playlist. Nenhuma medida de segurança pode garantir proteção absoluta.",
           ],
         },
         {
           heading: "Alterações",
           paragraphs: [
-            "Iremos atualizar esta política à medida que a app evolui, indicando a data da última revisão no topo desta página.",
+            "Atualizaremos esta política à medida que a funcionalidade do Viewaro, os nossos fornecedores de serviços ou obrigações legais mudarem. A versão atual e a data de entrada em vigor serão publicadas nesta página.",
           ],
         },
         {
           heading: "Contacto",
           paragraphs: [
-            "Perguntas sobre privacidade? Visita a nossa [página de suporte](/support) ou escreve-nos — os detalhes estão lá.",
+            "Perguntas ou pedidos sobre privacidade podem ser enviados para [support@itquotes.hr](mailto:support@itquotes.hr) ou para ITQuotes, Zagreb, Croácia.",
           ],
         },
       ],
@@ -208,56 +260,103 @@ const pt: Dictionary = {
     terms: {
       title: "Termos de utilização",
       metaDescription: "Termos de utilização da app Viewaro.",
-      updated: "30 de julho de 2026",
+      updated: "31 de julho de 2026",
       sections: [
         {
           paragraphs: [
-            "Estes termos aplicam-se à aplicação Viewaro em todas as plataformas suportadas (iPhone, iPad, Mac, Apple TV, Android e Android TV). Ao usar o Viewaro, aceitas estes termos.",
+            "Estes Termos de Utilização (\"Termos\") aplicam-se à app Viewaro para macOS e ao site de suporte relacionado, fornecidos pela **ITQuotes** (\"Viewaro\", \"nós\" ou \"nosso\").",
           ],
         },
         {
-          heading: "1. O Viewaro é um leitor, não um serviço de conteúdo",
+          heading: "Termos de licença da Apple",
           paragraphs: [
-            "O Viewaro **não** fornece, vende, aloja ou inclui quaisquer canais de televisão, streams, vídeos ou outro conteúdo multimédia. A app reproduz conteúdo exclusivamente a partir de fontes que **tu** configuras — as tuas próprias playlists, servidores e subscrições de fornecedores terceiros.",
-            "És o único responsável pelas fontes que adicionas e por garantir que tens o direito legal de aceder e ver esse conteúdo no teu país. O Viewaro e o seu criador não têm qualquer afiliação com nenhum fornecedor de conteúdo e não aceitam responsabilidade por conteúdo de terceiros, a sua legalidade, disponibilidade ou qualidade.",
+            "A app é licenciada através da Mac App Store, não vendida. A menos que um contrato de licença de utilizador final personalizado seja apresentado na App Store Connect, o [EULA padrão da Apple](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) rege a licença da app. Estes Termos complementam o EULA padrão da Apple para serviços específicos do Viewaro e uso aceitável. Os direitos obrigatórios do consumidor no teu país permanecem inalterados.",
           ],
         },
         {
-          heading: "2. Licença",
+          heading: "Traz o teu próprio conteúdo",
           paragraphs: [
-            "Concedemos-te uma licença pessoal, não exclusiva e intransmissível para usar o Viewaro em dispositivos que possuis ou controlas, conforme permitido pelos termos da App Store ou Google Play através dos quais o obtiveste. Nas plataformas Apple, aplica-se o [Contrato de Licença de Utilizador Final de Aplicações Licenciadas](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) padrão da Apple, onde não substituído por estes termos.",
+            "O Viewaro é um leitor multimédia. Não fornece, aloja, vende, recomenda nem verifica canais de televisão, playlists, subscrições de media ou credenciais de acesso.",
+            "Só podes usar o Viewaro com fontes e conteúdo aos quais estejas legalmente autorizado a aceder. És responsável por:",
           ],
         },
         {
-          heading: "3. Subscrições",
-          paragraphs: [
-            "Algumas funcionalidades podem exigir uma subscrição paga. As subscrições são cobradas através da tua conta App Store ou Google Play, renovam-se automaticamente a menos que canceladas pelo menos 24 horas antes do fim do período atual, e podem ser geridas ou canceladas nas definições de conta da tua loja. Os preços são apresentados na app antes da compra. Os reembolsos são geridos pela Apple ou Google de acordo com as respetivas políticas.",
-          ],
-        },
-        {
-          heading: "4. Utilização aceitável",
           list: [
-            "Não uses o Viewaro para aceder a conteúdo que não tens o direito legal de ver.",
-            "Não tentes fazer engenharia inversa, revender ou redistribuir a app.",
-            "Não uses a app de forma alguma que viole a lei aplicável.",
+            "a legalidade e exatidão dos endereços de playlist e credenciais que introduzes",
+            "obter todas as subscrições, licenças e permissões necessárias",
+            "cumprir os termos do teu fornecedor e a lei aplicável",
+            "garantir que o conteúdo é apropriado para cada pessoa que usa o teu Mac",
           ],
         },
         {
-          heading: "5. Isenção de garantia e limitação de responsabilidade",
           paragraphs: [
-            'O Viewaro é fornecido "tal como está" sem garantias de qualquer tipo. Na medida máxima permitida por lei, o criador não é responsável por quaisquer danos decorrentes da tua utilização da app, incluindo os causados por conteúdo de terceiros ou pela indisponibilidade das tuas fontes.',
+            "Não deves usar o Viewaro para infringir direitos de autor, contornar controlos de acesso ou DRM, obter acesso não autorizado a um serviço, partilhar credenciais roubadas ou facilitar a distribuição ilegal.",
           ],
         },
         {
-          heading: "6. Alterações",
+          heading: "Fornecedores e serviços de terceiros",
           paragraphs: [
-            "Podemos atualizar estes termos à medida que a app evolui. A utilização continuada após uma atualização constitui aceitação. A data de revisão é apresentada no topo desta página.",
+            "O Viewaro liga-se diretamente a fornecedores selecionados por ti. Não controlamos esses fornecedores nem garantimos a sua disponibilidade, segurança, legalidade, compatibilidade, conteúdo ou desempenho. A tua relação com cada fornecedor é regida pelos seus próprios termos e política de privacidade.",
+            "A Demo HLS da Apple é uma amostra pública usada apenas para demonstrar a reprodução. Não é um serviço de conteúdo do Viewaro.",
           ],
         },
         {
-          heading: "7. Contacto",
+          heading: "Funcionalidades gratuitas e Premium",
           paragraphs: [
-            "Perguntas sobre estes termos? Visita a nossa [página de suporte](/support).",
+            "O Viewaro pode oferecer um conjunto de funcionalidades gratuitas e funcionalidades Premium opcionais através de uma subscrição de renovação automática. Antes da compra, a app mostrará:",
+          ],
+        },
+        {
+          list: [
+            "a funcionalidade Premium incluída",
+            "a duração da subscrição",
+            "o preço localizado",
+            "se se aplica uma oferta experimental ou introdutória",
+            "que a subscrição se renova automaticamente até ser cancelada",
+          ],
+        },
+        {
+          paragraphs: [
+            "O pagamento é cobrado à tua conta Apple após confirmação. Renovação, faturação, reembolsos e cancelamento são geridos pela Apple segundo os seus termos aplicáveis. Podes gerir ou cancelar a subscrição nas definições da tua conta Apple. Eliminar o Viewaro não cancela automaticamente uma subscrição.",
+            "O acesso Premium depende de uma compra e direito válidos da Apple. O Viewaro fornece uma ação Restaurar Compras para compras elegíveis. Preços, durações e ofertas apresentados pela App Store prevalecem se diferirem do texto do site.",
+          ],
+        },
+        {
+          heading: "Atualizações e disponibilidade",
+          paragraphs: [
+            "Podemos atualizar o Viewaro para adicionar, alterar ou remover funcionalidades, manter a segurança, cumprir a lei ou permanecer compatível com o macOS e serviços de terceiros. Não garantimos que todos os fornecedores, formatos de playlist, codecs ou streams funcionem.",
+            "Podemos suspender o acesso a serviços online específicos do Viewaro quando necessário por motivos de segurança, manutenção, conformidade legal ou prevenção de abusos. Isto não altera os direitos que a Apple concede durante um período de subscrição ativo.",
+          ],
+        },
+        {
+          heading: "Privacidade e segurança",
+          paragraphs: [
+            "O nosso tratamento da informação está descrito na [Política de Privacidade do Viewaro](/pt/privacy). Deves manter as credenciais do fornecedor confidenciais e evitar incluí-las em mensagens de suporte.",
+          ],
+        },
+        {
+          heading: "Isenção de garantia e limitação de responsabilidade",
+          paragraphs: [
+            'O EULA padrão da Apple contém os termos de garantia e responsabilidade aplicáveis à licença da app. Na máxima medida permitida pela lei aplicável, o Viewaro é fornecido "tal como está" e "conforme disponível". Não somos responsáveis por conteúdo de terceiros, interrupções do fornecedor, alterações à playlist ou uso não autorizado de fontes introduzidas por um utilizador.',
+            "Nada nestes Termos exclui ou limita responsabilidade que não possa ser legalmente excluída, nem limita direitos obrigatórios do consumidor.",
+          ],
+        },
+        {
+          heading: "Rescisão",
+          paragraphs: [
+            "Podes deixar de usar o Viewaro a qualquer momento. Os teus direitos ao abrigo destes Termos terminam se os violares materialmente, sujeito à lei aplicável e ao EULA padrão da Apple. As secções que pela sua natureza devam sobreviver à rescisão permanecem em vigor, incluindo disposições de propriedade intelectual, isenção de garantia e responsabilidade.",
+          ],
+        },
+        {
+          heading: "Alterações a estes Termos",
+          paragraphs: [
+            "Podemos atualizar estes Termos quando o Viewaro, a lei aplicável ou os nossos fornecedores de serviços mudarem. A versão atual e a data de entrada em vigor serão publicadas nesta página. Alterações materiais serão comunicadas quando exigido por lei.",
+          ],
+        },
+        {
+          heading: "Contacto",
+          paragraphs: [
+            "Perguntas sobre estes Termos podem ser enviadas para [support@itquotes.hr](mailto:support@itquotes.hr) ou para ITQuotes, Zagreb, Croácia.",
           ],
         },
       ],
@@ -268,44 +367,68 @@ const pt: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "O Viewaro está atualmente em desenvolvimento. Assim que for lançado, esta página será a forma mais rápida de obter ajuda. As perguntas mais comuns são respondidas abaixo — para qualquer outra coisa, contacta-nos.",
+            "O Viewaro é um leitor IPTV nativo para macOS. Reproduz streams compatíveis a partir de uma playlist M3U que forneces. O Viewaro não inclui canais, playlists ou subscrições de serviços de media.",
           ],
         },
         {
           heading: "Contacto",
+          list: [
+            "Email de suporte: [support@itquotes.hr](mailto:support@itquotes.hr)",
+            "Fornecedor: ITQuotes",
+            "Morada postal: Zagreb, Croácia",
+          ],
+        },
+        {
+          paragraphs: ["Ao contactar o suporte, inclui:"],
+        },
+        {
+          list: [
+            "a tua versão do Viewaro",
+            "a tua versão do macOS",
+            "o passo que falhou",
+            "a mensagem de erro exata, se alguma foi mostrada",
+          ],
+        },
+        {
           paragraphs: [
-            "Envia-nos um email para [support@itquotes.hr](mailto:support@itquotes.hr) e inclui o teu dispositivo, versão do sistema operativo e uma breve descrição do problema. Nunca incluas o URL da tua playlist ou credenciais do fornecedor num email.",
+            "Nunca envies URLs de playlist, nomes de utilizador, palavras-passe, tokens, capturas de ecrã com credenciais ou outros segredos do fornecedor.",
           ],
         },
         {
           heading: "Perguntas comuns",
           topics: [
             {
-              q: "A minha playlist não carrega",
-              a: "Confirma o URL com o teu fornecedor — deve apontar para um ficheiro M3U/M3U8 ou um servidor Xtream Codes válido. Se a playlist carregar no browser mas não na app, o teu fornecedor pode estar a bloquear o acesso a partir de apps; contacta-o.",
+              q: "Onde consigo uma playlist?",
+              a: "O Viewaro não vende nem recomenda serviços IPTV. Pede a um fornecedor a cuja utilização estás legalmente autorizado um endereço de playlist M3U compatível.",
             },
             {
-              q: "Um canal não reproduz",
-              a: 'A disponibilidade do stream é controlada inteiramente pelo teu fornecedor. Tenta o mesmo canal mais tarde, ou verifica se funciona no portal do teu fornecedor. A opção "saltar canais avariados" do Viewaro pode ocultar canais que falham repetidamente.',
+              q: "Por que falha uma playlist HTTP?",
+              a: "Endereços de playlist e URLs de stream podem conter credenciais. O Viewaro tenta primeiro HTTPS e não envia essas credenciais por HTTP não encriptado na versão atual. Pede ao teu fornecedor um endereço HTTPS.",
             },
             {
-              q: "O guia de programação está vazio",
-              a: "Os dados EPG vêm de uma fonte XMLTV. Se a tua playlist não indicar uma, adiciona o URL EPG manualmente nas definições da fonte e depois atualiza o guia.",
+              q: "Como verifico se a reprodução funciona?",
+              a: "Abre a TV em direto e usa a Demo HLS da Apple. Reproduz uma amostra pública da Apple sem exigir credenciais de fornecedor.",
             },
             {
-              q: "Como cancelo a minha subscrição?",
-              a: "As subscrições são geridas pela Apple ou Google, não por nós. Em dispositivos Apple: Definições → o teu nome → Subscrições. No Android: Play Store → Pagamentos e subscrições.",
+              q: "O que inclui a versão gratuita?",
+              a: "A versão gratuita suporta uma fonte IPTV e reprodução básica. Se as subscrições estiverem ativadas, o Premium pode desbloquear várias fontes. A app mostra as funcionalidades exatas, a duração e o preço localizado antes da compra.",
             },
             {
-              q: "Como elimino a minha conta?",
-              a: "Na app, abre a secção de conta e escolhe Eliminar conta. Isto remove permanentemente a tua conta e todos os dados sincronizados.",
+              q: "Como restauro ou cancelo o Premium?",
+              a: "Usa Restaurar Compras no Viewaro para restaurar uma compra Apple elegível. Gere ou cancela uma subscrição ativa nas definições de subscrição da tua conta Apple. Eliminar o Viewaro não cancela automaticamente uma subscrição.",
+            },
+            {
+              q: "O Viewaro envia a minha playlist?",
+              a: "O Viewaro guarda a informação da playlist localmente no teu Mac e liga-se diretamente ao endereço do fornecedor que forneceste. Consulta a [Política de Privacidade](/pt/privacy) para mais detalhes.",
             },
           ],
         },
         {
-          heading: "Uma nota sobre conteúdo",
-          paragraphs: [
-            "O Viewaro é apenas um leitor — não inclui canais ou streams, e não podemos ajudar com perguntas sobre o conteúdo, preços ou conta de qualquer fornecedor específico. Para tudo relacionado com os próprios canais, contacta o teu fornecedor.",
+          heading: "Legal",
+          list: [
+            "[Política de Privacidade](/pt/privacy)",
+            "[Termos de Utilização](/pt/terms)",
+            "[EULA padrão da Apple](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/)",
           ],
         },
       ],

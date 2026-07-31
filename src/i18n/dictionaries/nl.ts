@@ -121,86 +121,138 @@ const nl: Dictionary = {
     privacy: {
       title: "Privacybeleid",
       metaDescription: "Hoe Viewaro met je gegevens omgaat.",
-      updated: "30 juli 2026",
+      updated: "31 juli 2026",
       sections: [
         {
           paragraphs: [
-            "Viewaro is gebouwd op een eenvoudig principe: **jouw content is jouw zaak.** De app is een speler voor playlists die jij aanlevert — we hebben geen interesse in wat je kijkt, en de app is zo ontworpen dat dat zo blijft.",
-          ],
-        },
-        {
-          heading: "Wat Viewaro op je apparaat opslaat",
-          list: [
-            "**Playlistbronnen** — de M3U-URL's, Xtream Codes-servergegevens en handmatig toegevoegde zenders die je instelt. Inloggegevens worden opgeslagen in de beveiligde opslag van het besturingssysteem (Keychain op Apple-platforms, Keystore-gebaseerde opslag op Android).",
-            "**Voorkeuren** — favorieten, recent bekeken zenders, lay-out- en afspeelinstellingen, pincode voor ouderlijk toezicht.",
-            "**Programmagidsgegevens** — EPG-gegevens (XMLTV) gedownload van de URL die je instelt, lokaal in cache opgeslagen.",
-          ],
-        },
-        {
-          paragraphs: [
-            "Afspelen gebeurt rechtstreeks tussen je apparaat en de servers in je playlist. Je streams worden nooit via ons doorgestuurd, opgenomen of aan ons gerapporteerd.",
-          ],
-        },
-        {
-          heading: "Optioneel account & cloudsynchronisatie",
-          paragraphs: [
-            "Viewaro werkt volledig zonder account. Als je er een aanmaakt (om bronnen, favorieten en instellingen op meerdere apparaten te synchroniseren), slaan we op:",
+            "Viewaro wordt aangeboden door **ITQuotes** (\"Viewaro\", \"wij\" of \"ons\"). Dit privacybeleid legt uit hoe de Viewaro macOS-app en de Viewaro-supportwebsite met informatie omgaan.",
           ],
         },
         {
           list: [
-            "je e-mailadres (of de identifier van Inloggen met Apple/Google);",
-            "de gesynchroniseerde gegevens zelf: je bronnen, favorieten en instellingen.",
+            "E-mail: [support@itquotes.hr](mailto:support@itquotes.hr)",
+            "Postadres: Zagreb, Kroatië",
           ],
         },
         {
+          heading: "Samenvatting",
           paragraphs: [
-            "Deze gegevens worden uitsluitend gebruikt om synchronisatie mogelijk te maken. Je kunt je account en alle gesynchroniseerde gegevens op elk moment vanuit de app verwijderen.",
+            "Viewaro is een IPTV-speler waarbij je je eigen content meebrengt. De app biedt geen zenders, playlists of media-abonnementen aan. Playlistgegevens en afspeelvoorkeuren worden lokaal op je Mac opgeslagen. We gebruiken geen advertentietrackers en verkopen geen persoonsgegevens.",
+            "Als abonnementen zijn ingeschakeld in de versie die je gebruikt, verwerkt Apple de betaling en verwerkt RevenueCat beperkte aankoop- en technische informatie om de aankoop te valideren en te bepalen of Premium-functies beschikbaar zijn.",
           ],
         },
         {
-          heading: "Aankopen",
-          paragraphs: [
-            "Abonnementen worden verwerkt door Apple (App Store) of Google (Google Play). Wij zien je betaalgegevens nooit. We gebruiken RevenueCat, een dienst voor abonnementsbeheer, om aankooprechten te valideren; deze ontvangt een anonieme app-gebruikers-ID en aankoopbonnen, niet je identiteit.",
-          ],
+          heading: "Wat Viewaro op je Mac opslaat",
+          paragraphs: ["Viewaro kan het volgende lokaal opslaan:"],
         },
         {
-          heading: "Analyse",
-          paragraphs: [
-            "We kunnen anonieme, geaggregeerde gebruiksstatistieken verzamelen (zoals welke schermen worden gebruikt en of er afspeelfouten optreden) om de app te verbeteren. Deze statistieken bevatten geen persoonlijke gegevens, geen accountgegevens, en niets over de inhoud van je playlists of wat je kijkt.",
-          ],
-        },
-        {
-          heading: "Wat we niet doen",
           list: [
-            "We verkopen of delen je gegevens niet met derden voor marketingdoeleinden.",
-            "We volgen niet wat je kijkt.",
-            "We tonen geen advertenties en gebruiken geen advertentie-SDK's.",
-            "We verzamelen je locatie niet.",
+            "playlistnamen en -adressen die je invoert",
+            "playlistgegevens of tokens die in die adressen zijn opgenomen",
+            "geïmporteerde zenderkataloginformatie",
+            "app-instellingen en afspeelgerelateerde voorkeuren",
+            "een anonieme abonnements-ID en gecachte rechtenstatus wanneer abonnementen zijn ingeschakeld",
           ],
         },
         {
-          heading: "Bewaring & verwijdering van gegevens",
           paragraphs: [
-            "Gegevens op het apparaat blijven op je apparaat en worden verwijderd wanneer je de app verwijdert. Accountgegevens worden alleen bewaard zolang je account bestaat — je account verwijderen vanuit de app verwijdert ze permanent.",
+            "Gevoelige playlistadressen worden opgeslagen in een versleutelde lokale kluis. De kluissleutel wordt beschermd door de macOS-sleutelhanger (Keychain). Deze informatie wordt niet verzonden naar Viewaro- of ITQuotes-servers.",
+            "Je kunt geïmporteerde bronnen vanuit de app verwijderen. macOS kan sleutelhangeritems behouden nadat een app is verwijderd, dus het verwijderen van de app is geen gegarandeerde manier om elk sleutelhangeritem te wissen.",
+          ],
+        },
+        {
+          heading: "Netwerkverbindingen met je provider",
+          paragraphs: [
+            "Wanneer je een playlist importeert of een stream afspeelt, maakt je Mac rechtstreeks verbinding met het adres dat je hebt opgegeven. Die provider kan informatie ontvangen die normaal gesproken bij een netwerkverbinding hoort, zoals je IP-adres, het tijdstip van het verzoek, het opgevraagde pad en eventuele inloggegevens in de provider-URL.",
+            "Wij hebben geen controle over je provider en ontvangen die verzoeken niet. Het eigen privacybeleid en de voorwaarden van je provider zijn van toepassing. Viewaro vereist HTTPS voor de huidige playlist- en AVPlayer-paden en verzendt playlistgegevens niet via onversleuteld HTTP.",
+          ],
+        },
+        {
+          heading: "Apple HLS-demo",
+          paragraphs: [
+            "De ingebouwde afspeeldemo maakt rechtstreeks verbinding met een openbaar HLS-voorbeeld dat door Apple wordt gehost. Apple kan hierbij standaard netwerkverzoekinformatie ontvangen, zoals je IP-adres en het tijdstip van het verzoek, onder Apples privacyvoorwaarden.",
+          ],
+        },
+        {
+          heading: "Aankopen en RevenueCat",
+          paragraphs: [
+            "Aankopen worden gedaan via Apples In-App Purchase-systeem. Wij ontvangen nooit je betaalkaart- of bankgegevens.",
+            "Wanneer abonnementen zijn ingeschakeld, gebruikt Viewaro RevenueCat om Apple-bonnen te valideren en de Premium-rechtenstatus te leveren. RevenueCat kan het volgende verwerken:",
+          ],
+        },
+        {
+          list: [
+            "een willekeurig gegenereerde, anonieme App-gebruikers-ID",
+            "Apple-bon en aankoop- of abonnementsgeschiedenis",
+            "apparaattype, besturingssysteeminformatie, app-versie en tijdstip van laatste gebruik",
+          ],
+        },
+        {
+          paragraphs: [
+            "Deze informatie wordt gebruikt voor aankoopvalidatie, fraudepreventie, abonnementsfunctionaliteit en geaggregeerde abonnementsanalyse. Viewaro stuurt geen playlistadressen, providergegevens, zendernamen of kijkgeschiedenis naar RevenueCat. We gebruiken RevenueCat-gegevens niet voor app-overschrijdende advertentietracking.",
+            "Zie [RevenueCats privacybeleid](https://www.revenuecat.com/privacy) voor de verwerkings-, bewarings- en internationale doorgiftepraktijken.",
+          ],
+        },
+        {
+          heading: "Supportcommunicatie",
+          paragraphs: [
+            "Als je contact opneemt met support, ontvangen we de informatie die je kiest te verstrekken, zoals je e-mailadres, bericht, app-versie en diagnostische gegevens. Stuur nooit playlist-URL's, gebruikersnamen, wachtwoorden, tokens of andere providergegevens.",
+            "We gebruiken supportinformatie om je verzoek te beantwoorden, problemen te onderzoeken en aan wettelijke verplichtingen te voldoen. We bewaren deze alleen zolang redelijkerwijs nodig is voor die doeleinden.",
+          ],
+        },
+        {
+          heading: "Analyse, reclame en tracking",
+          paragraphs: [
+            "Viewaro bevat in de huidige versie geen advertentie-SDK's of gedragsanalyse. We volgen je activiteit niet over apps of websites heen en verkopen geen persoonsgegevens.",
+            "Door RevenueCat verwerkte aankoopinformatie wordt alleen gebruikt zoals beschreven in de sectie Aankopen en RevenueCat hierboven. Dit beleid en de App Store-privacyverklaring worden bijgewerkt voordat een wezenlijk andere analyse- of externe SDK wordt ingeschakeld.",
+          ],
+        },
+        {
+          heading: "Gegevens delen",
+          paragraphs: ["We delen informatie alleen wanneer nodig:"],
+        },
+        {
+          list: [
+            "met Apple om aankopen te verwerken en de app te distribueren",
+            "met RevenueCat om aankopen te valideren en abonnementsrechten te beheren",
+            "met dienstverleners die de openbare supportwebsite of e-mail beheren",
+            "wanneer dit wettelijk vereist is of noodzakelijk is om gebruikers, onze rechten of het publiek te beschermen",
+          ],
+        },
+        {
+          paragraphs: [
+            "We geven dienstverleners geen toestemming om Viewaro-informatie voor hun eigen reclame te gebruiken.",
+          ],
+        },
+        {
+          heading: "Jouw keuzes en rechten",
+          paragraphs: [
+            "Je kunt playlists en andere lokale app-gegevens verwijderen via de bedieningselementen van Viewaro. Je kunt een Apple-abonnement beheren of opzeggen in je Apple-accountinstellingen. Je kunt contact met ons opnemen om te vragen naar supportinformatie die we over je bewaren, of om rechten uit te oefenen die onder toepasselijk privacyrecht beschikbaar zijn.",
+            "Omdat playlist- en afspeelgegevens op je Mac blijven, kunnen we die lokale gegevens over het algemeen niet op afstand benaderen, exporteren of verwijderen.",
           ],
         },
         {
           heading: "Kinderen",
           paragraphs: [
-            "Viewaro is niet gericht op kinderen. Ouderlijk toezicht bestaat zodat volwassenen de toegang tot zenders op gedeelde schermen kunnen beperken.",
+            "Viewaro is niet gericht op kinderen en verzamelt niet bewust persoonsgegevens van kinderen. Gebruikers zijn zelf verantwoordelijk voor het waarborgen dat de content die zij bekijken passend en rechtmatig is.",
+          ],
+        },
+        {
+          heading: "Beveiliging",
+          paragraphs: [
+            "We gebruiken technische maatregelen ontworpen om informatie te beschermen, waaronder de macOS App Sandbox, sleutelhangerbeveiliging en versleutelde lokale opslag voor playlistgeheimen. Geen enkele beveiligingsmaatregel kan absolute bescherming garanderen.",
           ],
         },
         {
           heading: "Wijzigingen",
           paragraphs: [
-            "We zullen dit beleid bijwerken naarmate de app zich ontwikkelt en de datum van de laatste herziening bovenaan deze pagina vermelden.",
+            "We werken dit beleid bij wanneer de functionaliteit van Viewaro, onze dienstverleners of wettelijke verplichtingen veranderen. De huidige versie en ingangsdatum worden op deze pagina gepubliceerd.",
           ],
         },
         {
           heading: "Contact",
           paragraphs: [
-            "Vragen over privacy? Bezoek onze [supportpagina](/support) of schrijf ons — de gegevens staan daar vermeld.",
+            "Vragen of privacyverzoeken kun je sturen naar [support@itquotes.hr](mailto:support@itquotes.hr) of naar ITQuotes, Zagreb, Kroatië.",
           ],
         },
       ],
@@ -208,56 +260,103 @@ const nl: Dictionary = {
     terms: {
       title: "Gebruiksvoorwaarden",
       metaDescription: "Gebruiksvoorwaarden voor de Viewaro-app.",
-      updated: "30 juli 2026",
+      updated: "31 juli 2026",
       sections: [
         {
           paragraphs: [
-            "Deze voorwaarden gelden voor de Viewaro-applicatie op alle ondersteunde platforms (iPhone, iPad, Mac, Apple TV, Android en Android TV). Door Viewaro te gebruiken, ga je hiermee akkoord.",
+            "Deze gebruiksvoorwaarden (\"Voorwaarden\") zijn van toepassing op de Viewaro macOS-app en de bijbehorende supportwebsite, aangeboden door **ITQuotes** (\"Viewaro\", \"wij\" of \"ons\").",
           ],
         },
         {
-          heading: "1. Viewaro is een speler, geen contentdienst",
+          heading: "Apple-licentievoorwaarden",
           paragraphs: [
-            "Viewaro biedt, verkoopt, host of bundelt **geen** televisiezenders, streams, video's of andere mediacontent. De app speelt uitsluitend content af van bronnen die **jij** instelt — je eigen playlists, servers en abonnementen van externe providers.",
-            "Jij bent als enige verantwoordelijk voor de bronnen die je toevoegt en ervoor te zorgen dat je het wettelijke recht hebt om die content in jouw land te bekijken. Viewaro en de ontwikkelaar hebben geen banden met enige contentprovider en aanvaarden geen aansprakelijkheid voor content van derden, de rechtmatigheid, beschikbaarheid of kwaliteit ervan.",
+            "De app wordt gelicentieerd via de Mac App Store, niet verkocht. Tenzij App Store Connect een aangepaste licentieovereenkomst voor eindgebruikers toont, is Apples standaard [EULA](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) van toepassing op de applicatielicentie. Deze Voorwaarden vullen de Apple-standaard-EULA aan voor Viewaro-specifieke diensten en aanvaardbaar gebruik. Dwingende consumentenrechten in jouw land blijven onaangetast.",
           ],
         },
         {
-          heading: "2. Licentie",
+          heading: "Breng je eigen content mee",
           paragraphs: [
-            "We verlenen je een persoonlijke, niet-exclusieve, niet-overdraagbare licentie om Viewaro te gebruiken op apparaten die je bezit of beheert, zoals toegestaan door de App Store- of Google Play-voorwaarden waaronder je de app hebt verkregen. Op Apple-platforms is Apples standaard [licentieovereenkomst voor eindgebruikers van gelicentieerde toepassingen](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) van toepassing, voor zover niet vervangen door deze voorwaarden.",
+            "Viewaro is een mediaspeler. De app biedt geen televisiezenders, playlists, media-abonnementen of toegangsgegevens aan, verkoopt, beveelt of verifieert deze niet.",
+            "Je mag Viewaro alleen gebruiken met bronnen en content waartoe je wettelijk gemachtigd bent. Jij bent verantwoordelijk voor:",
           ],
         },
         {
-          heading: "3. Abonnementen",
-          paragraphs: [
-            "Sommige functies vereisen mogelijk een betaald abonnement. Abonnementen worden gefactureerd via je App Store- of Google Play-account, worden automatisch verlengd tenzij minstens 24 uur voor het einde van de huidige periode wordt opgezegd, en kunnen worden beheerd of opgezegd in de accountinstellingen van je store. Prijzen worden in de app getoond vóór aankoop. Terugbetalingen worden afgehandeld door Apple of Google volgens hun beleid.",
-          ],
-        },
-        {
-          heading: "4. Aanvaardbaar gebruik",
           list: [
-            "Gebruik Viewaro niet om toegang te krijgen tot content waarvoor je wettelijk geen recht hebt.",
-            "Probeer de app niet te reverse-engineeren, door te verkopen of te herdistribueren.",
-            "Gebruik de app niet op een manier die geldende wetgeving overtreedt.",
+            "de rechtmatigheid en juistheid van de playlistadressen en inloggegevens die je invoert",
+            "het verkrijgen van alle benodigde abonnementen, licenties en toestemmingen",
+            "naleving van de voorwaarden van je provider en toepasselijk recht",
+            "ervoor zorgen dat content geschikt is voor iedereen die je Mac gebruikt",
           ],
         },
         {
-          heading: "5. Vrijwaring & beperking van aansprakelijkheid",
           paragraphs: [
-            'Viewaro wordt geleverd "zoals het is", zonder enige garantie. Voor zover wettelijk toegestaan, is de ontwikkelaar niet aansprakelijk voor schade die voortvloeit uit je gebruik van de app, inclusief schade door content van derden of de onbeschikbaarheid van je bronnen.',
+            "Je mag Viewaro niet gebruiken om auteursrecht te schenden, toegangscontroles of DRM te omzeilen, onbevoegd toegang te krijgen tot een dienst, gestolen inloggegevens te delen of illegale distributie te faciliteren.",
           ],
         },
         {
-          heading: "6. Wijzigingen",
+          heading: "Externe providers en diensten",
           paragraphs: [
-            "We kunnen deze voorwaarden bijwerken naarmate de app zich ontwikkelt. Voortgezet gebruik na een update geldt als aanvaarding. De herzieningsdatum staat bovenaan deze pagina.",
+            "Viewaro maakt rechtstreeks verbinding met providers die jij selecteert. Wij hebben geen controle over deze providers en garanderen niet hun beschikbaarheid, veiligheid, rechtmatigheid, compatibiliteit, content of prestaties. Jouw relatie met elke provider wordt beheerst door diens eigen voorwaarden en privacybeleid.",
+            "De Apple HLS-demo is een openbaar voorbeeld dat uitsluitend dient om afspelen te demonstreren. Het is geen Viewaro-contentdienst.",
           ],
         },
         {
-          heading: "7. Contact",
+          heading: "Gratis en Premium-functies",
           paragraphs: [
-            "Vragen over deze voorwaarden? Bezoek onze [supportpagina](/support).",
+            "Viewaro kan een gratis functieset en optionele Premium-functies aanbieden via een automatisch verlengbaar abonnement. Vóór aankoop toont de app:",
+          ],
+        },
+        {
+          list: [
+            "de inbegrepen Premium-functionaliteit",
+            "de duur van het abonnement",
+            "de gelokaliseerde prijs",
+            "of een proef- of introductieaanbieding van toepassing is",
+            "dat het abonnement automatisch wordt verlengd totdat het wordt opgezegd",
+          ],
+        },
+        {
+          paragraphs: [
+            "De betaling wordt na bevestiging in rekening gebracht bij je Apple-account. Verlenging, facturering, terugbetalingen en opzegging worden afgehandeld door Apple onder diens toepasselijke voorwaarden. Je kunt het abonnement beheren of opzeggen in je Apple-accountinstellingen. Het verwijderen van Viewaro zegt een abonnement niet automatisch op.",
+            "Premium-toegang is afhankelijk van een geldige Apple-aankoop en -recht. Viewaro biedt een actie \"Aankopen herstellen\" voor in aanmerking komende aankopen. Prijzen, looptijden en aanbiedingen die door de App Store worden getoond, zijn leidend als ze afwijken van de tekst op de website.",
+          ],
+        },
+        {
+          heading: "Updates en beschikbaarheid",
+          paragraphs: [
+            "We kunnen Viewaro bijwerken om functionaliteit toe te voegen, te wijzigen of te verwijderen, de beveiliging te handhaven, aan de wet te voldoen of compatibel te blijven met macOS en externe diensten. We garanderen niet dat elke provider, elk playlistformaat, elke codec of stream werkt.",
+            "We kunnen de toegang tot Viewaro-specifieke onlinediensten opschorten wanneer dit nodig is voor beveiliging, onderhoud, wettelijke naleving of misbruikpreventie. Dit verandert niets aan de rechten die Apple biedt voor een actieve abonnementsperiode.",
+          ],
+        },
+        {
+          heading: "Privacy en beveiliging",
+          paragraphs: [
+            "Onze omgang met informatie wordt beschreven in het [Viewaro-privacybeleid](/nl/privacy). Je moet providergegevens vertrouwelijk houden en niet opnemen in supportberichten.",
+          ],
+        },
+        {
+          heading: "Vrijwaring en beperking van aansprakelijkheid",
+          paragraphs: [
+            'De Apple-standaard-EULA bevat de garantie- en aansprakelijkheidsvoorwaarden die van toepassing zijn op de applicatielicentie. Voor zover maximaal toegestaan door toepasselijk recht, wordt Viewaro geleverd op een "zoals het is" en "zoals beschikbaar" basis. Wij zijn niet verantwoordelijk voor content van derden, provideruitval, playlistwijzigingen of onbevoegd gebruik van door een gebruiker ingevoerde bronnen.',
+            "Niets in deze Voorwaarden sluit aansprakelijkheid uit of beperkt deze die wettelijk niet kan worden uitgesloten, of beperkt dwingende consumentenrechten.",
+          ],
+        },
+        {
+          heading: "Beëindiging",
+          paragraphs: [
+            "Je kunt op elk moment stoppen met het gebruik van Viewaro. Jouw rechten onder deze Voorwaarden eindigen als je deze wezenlijk schendt, onder voorbehoud van toepasselijk recht en de Apple-standaard-EULA. Bepalingen die naar hun aard van toepassing moeten blijven na beëindiging, blijven van kracht, waaronder bepalingen over intellectueel eigendom, vrijwaring en aansprakelijkheid.",
+          ],
+        },
+        {
+          heading: "Wijzigingen in deze Voorwaarden",
+          paragraphs: [
+            "We kunnen deze Voorwaarden bijwerken wanneer Viewaro, toepasselijk recht of onze dienstverleners veranderen. De huidige versie en ingangsdatum worden op deze pagina gepubliceerd. Wezenlijke wijzigingen worden gecommuniceerd wanneer wettelijk vereist.",
+          ],
+        },
+        {
+          heading: "Contact",
+          paragraphs: [
+            "Vragen over deze Voorwaarden kun je sturen naar [support@itquotes.hr](mailto:support@itquotes.hr) of naar ITQuotes, Zagreb, Kroatië.",
           ],
         },
       ],
@@ -268,44 +367,68 @@ const nl: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaro wordt momenteel ontwikkeld. Zodra de app lanceert, is deze pagina de snelste manier om hulp te krijgen. Veelgestelde vragen worden hieronder beantwoord — neem voor al het andere contact op.",
+            "Viewaro is een native IPTV-speler voor macOS. Hij speelt compatibele streams af van een M3U-playlist die jij aanlevert. Viewaro bevat geen zenders, playlists of media-abonnementen.",
           ],
         },
         {
           heading: "Contact",
+          list: [
+            "Support-e-mail: [support@itquotes.hr](mailto:support@itquotes.hr)",
+            "Aanbieder: ITQuotes",
+            "Postadres: Zagreb, Kroatië",
+          ],
+        },
+        {
+          paragraphs: ["Vermeld bij het contacteren van support:"],
+        },
+        {
+          list: [
+            "je Viewaro-versie",
+            "je macOS-versie",
+            "de stap die mislukte",
+            "de exacte foutmelding, indien getoond",
+          ],
+        },
+        {
           paragraphs: [
-            "Mail ons op [support@itquotes.hr](mailto:support@itquotes.hr) en vermeld je apparaat, besturingssysteemversie en een korte omschrijving van het probleem. Vermeld nooit je playlist-URL of providergegevens in een e-mail.",
+            "Stuur nooit playlist-URL's, gebruikersnamen, wachtwoorden, tokens, screenshots met inloggegevens of andere providergeheimen.",
           ],
         },
         {
           heading: "Veelgestelde vragen",
           topics: [
             {
-              q: "Mijn playlist laadt niet",
-              a: "Controleer de URL bij je provider — deze moet verwijzen naar een M3U-/M3U8-bestand of een geldige Xtream Codes-server. Als de playlist wel in een browser laadt maar niet in de app, blokkeert je provider mogelijk app-toegang; neem contact met hen op.",
+              q: "Waar krijg ik een playlist?",
+              a: "Viewaro verkoopt of beveelt geen IPTV-diensten aan. Vraag een provider waartoe je wettelijk gemachtigd bent om een compatibel M3U-playlistadres.",
             },
             {
-              q: "Een zender speelt niet af",
-              a: 'De beschikbaarheid van een stream wordt volledig bepaald door je provider. Probeer dezelfde zender later opnieuw, of controleer of deze werkt in het portaal van je provider. De optie "defecte zenders overslaan" in Viewaro kan zenders verbergen die herhaaldelijk mislukken.',
+              q: "Waarom mislukt een HTTP-playlist?",
+              a: "Playlistadressen en stream-URL's kunnen inloggegevens bevatten. Viewaro probeert eerst HTTPS en verzendt deze gegevens in de huidige versie niet via onversleuteld HTTP. Vraag je provider om een HTTPS-adres.",
             },
             {
-              q: "De programmagids is leeg",
-              a: "EPG-gegevens komen van een XMLTV-bron. Als je playlist er geen aangeeft, voeg dan de EPG-URL handmatig toe in de bron-instellingen en vernieuw de gids.",
+              q: "Hoe controleer ik of afspelen werkt?",
+              a: "Open Live tv en gebruik de Apple HLS-demo. Deze speelt een openbaar Apple-voorbeeld af zonder dat providergegevens nodig zijn.",
             },
             {
-              q: "Hoe zeg ik mijn abonnement op?",
-              a: "Abonnementen worden beheerd door Apple of Google, niet door ons. Op Apple-apparaten: Instellingen → je naam → Abonnementen. Op Android: Play Store → Betalingen & abonnementen.",
+              q: "Wat bevat de gratis versie?",
+              a: "De gratis versie ondersteunt één IPTV-bron en basisafspelen. Als abonnementen zijn ingeschakeld, kan Premium meerdere bronnen ontgrendelen. De app toont vóór aankoop de exacte functies, duur en gelokaliseerde prijs.",
             },
             {
-              q: "Hoe verwijder ik mijn account?",
-              a: "Open in de app het accountgedeelte en kies Account verwijderen. Dit verwijdert je account en alle gesynchroniseerde gegevens permanent.",
+              q: "Hoe herstel of zeg ik Premium op?",
+              a: "Gebruik Aankopen herstellen in Viewaro om een in aanmerking komende Apple-aankoop te herstellen. Beheer of zeg een actief abonnement op via je Apple-accountabonnementsinstellingen. Het verwijderen van Viewaro zegt een abonnement niet automatisch op.",
+            },
+            {
+              q: "Uploadt Viewaro mijn playlist?",
+              a: "Viewaro slaat playlistinformatie lokaal op je Mac op en maakt rechtstreeks verbinding met het door jou opgegeven provideradres. Zie het [privacybeleid](/nl/privacy) voor details.",
             },
           ],
         },
         {
-          heading: "Een opmerking over content",
-          paragraphs: [
-            "Viewaro is uitsluitend een speler — het bevat geen zenders of streams, en we kunnen niet helpen met vragen over de content, prijzen of accounts van een specifieke provider. Neem voor alles wat de zenders zelf betreft contact op met je provider.",
+          heading: "Juridisch",
+          list: [
+            "[Privacybeleid](/nl/privacy)",
+            "[Gebruiksvoorwaarden](/nl/terms)",
+            "[Apple-standaard-EULA](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/)",
           ],
         },
       ],
