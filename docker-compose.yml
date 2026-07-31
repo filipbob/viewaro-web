@@ -11,8 +11,10 @@ services:
       # nginx config lives outside the image so HTTP -> HTTPS can be swapped
       # in after the TLS cert exists, without a rebuild.
       - ./deploy/nginx:/etc/nginx/conf.d:ro
-      # Bind-mounted so the host's fail2ban (jail.d/nginx.local) can read
-      # access.log / error.log directly — it does not look inside containers.
-      - ./nginx-logs:/var/log/nginx
+      # ../nginx-logs = ~/app/nginx-logs, a sibling of this repo checkout —
+      # matches the logpath already configured in the host's
+      # /etc/fail2ban/jail.d/nginx.local. Do not change without updating that
+      # file too; fail2ban cannot see inside the container's own filesystem.
+      - ../nginx-logs:/var/log/nginx
       - /etc/letsencrypt:/etc/letsencrypt:ro
-      - ./certbot-webroot:/var/www/certbot:ro
+      - ../certbot-webroot:/var/www/certbot:ro
