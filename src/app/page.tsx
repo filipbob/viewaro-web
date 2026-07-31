@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { SVGProps } from "react";
+import Reveal from "@/components/Reveal";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 
@@ -157,67 +158,82 @@ export default function Home() {
             className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-[600px] w-[900px] max-w-full bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.18),transparent_65%)]"
           />
           <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-24 pt-24 text-center sm:pt-32">
-            <Image
-              src="/logo.png"
-              alt="Viewaro"
-              width={84}
-              height={84}
-              priority
-              className="mb-9 rounded-[21px] border border-white/10 shadow-[0_0_80px_-10px_rgba(129,140,248,0.45)]"
-            />
-            <p className="mb-4 text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-              Viewaro Player
-            </p>
-            <h1 className="text-5xl font-black leading-[1.04] tracking-tight sm:text-7xl">
-              Your content.
-              <br />
-              <span className="bg-gradient-to-r from-indigo-300 via-sky-300 to-indigo-200 bg-clip-text text-transparent">
-                Your screen.
-              </span>
-            </h1>
-            <p className="mt-7 max-w-lg text-lg leading-relaxed text-zinc-400">
-              A fast, elegant IPTV player for your phone, your Mac and your TV.
-              Bring your own playlist — Viewaro handles the rest.
-            </p>
-            <div className="mt-9 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-zinc-300">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
-              </span>
-              Coming soon to the App Store &amp; Google Play
-            </div>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-zinc-500">
-              {platforms.map((platform, i) => (
-                <span key={platform} className="flex items-center gap-2">
-                  {i > 0 && <span className="text-zinc-700">&middot;</span>}
-                  {platform}
+            <Reveal>
+              <Image
+                src="/logo.png"
+                alt="Viewaro"
+                width={84}
+                height={84}
+                priority
+                className="animate-float mb-9 rounded-[21px] border border-white/10 shadow-[0_0_80px_-10px_rgba(129,140,248,0.45)]"
+              />
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="mb-4 text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
+                Viewaro Player
+              </p>
+            </Reveal>
+            <Reveal delay={180}>
+              <h1 className="text-5xl font-black leading-[1.04] tracking-tight sm:text-7xl">
+                Your content.
+                <br />
+                <span className="bg-gradient-to-r from-indigo-300 via-sky-300 to-indigo-200 bg-clip-text text-transparent">
+                  Your screen.
                 </span>
-              ))}
-            </div>
+              </h1>
+            </Reveal>
+            <Reveal delay={280}>
+              <p className="mt-7 max-w-lg text-lg leading-relaxed text-zinc-400">
+                A fast, elegant IPTV player for your phone, your Mac and your
+                TV. Bring your own playlist — Viewaro handles the rest.
+              </p>
+            </Reveal>
+            <Reveal delay={380}>
+              <div className="mt-9 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-zinc-300 transition-colors duration-300 hover:border-amber-400/40 hover:bg-white/[0.06]">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
+                </span>
+                Coming soon to the App Store &amp; Google Play
+              </div>
+            </Reveal>
+            <Reveal delay={480}>
+              <div className="mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-zinc-500">
+                {platforms.map((platform, i) => (
+                  <span key={platform} className="flex items-center gap-2">
+                    {i > 0 && <span className="text-zinc-700">&middot;</span>}
+                    <span className="transition-colors duration-300 hover:text-zinc-300">
+                      {platform}
+                    </span>
+                  </span>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 
         {/* Features */}
         <section id="features" className="scroll-mt-24 border-t border-white/[0.06]">
           <div className="mx-auto w-full max-w-5xl px-6 py-24">
-            <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-              Features
-            </p>
-            <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
-              Everything a live TV app should be.
-            </h2>
+            <Reveal>
+              <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
+                Features
+              </p>
+              <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
+                Everything a live TV app should be.
+              </h2>
+            </Reveal>
             <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map(({ icon: Icon, title, body }) => (
-                <div
-                  key={title}
-                  className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 transition-colors hover:border-indigo-400/30 hover:bg-white/[0.04]"
-                >
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-indigo-300 transition-colors group-hover:border-indigo-400/40">
-                    <Icon className="h-5 w-5" />
+              {features.map(({ icon: Icon, title, body }, i) => (
+                <Reveal key={title} delay={(i % 3) * 100}>
+                  <div className="group h-full rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-indigo-400/30 hover:bg-white/[0.04] hover:shadow-[0_12px_40px_-12px_rgba(99,102,241,0.35)]">
+                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-indigo-300 transition-all duration-300 group-hover:scale-110 group-hover:border-indigo-400/40 group-hover:text-indigo-200">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-base font-semibold text-zinc-100">{title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
                   </div>
-                  <h3 className="text-base font-semibold text-zinc-100">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -226,21 +242,27 @@ export default function Home() {
         {/* How it works */}
         <section className="border-t border-white/[0.06]">
           <div className="mx-auto w-full max-w-5xl px-6 py-24">
-            <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-              How it works
-            </p>
-            <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
-              Up and running in a minute.
-            </h2>
+            <Reveal>
+              <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
+                How it works
+              </p>
+              <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
+                Up and running in a minute.
+              </h2>
+            </Reveal>
             <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-3">
-              {steps.map(({ step, title, body }) => (
-                <div key={step} className="text-center sm:text-left">
-                  <span className="bg-gradient-to-r from-indigo-300 to-sky-300 bg-clip-text font-mono text-sm font-bold text-transparent">
-                    {step}
-                  </span>
-                  <h3 className="mt-3 text-lg font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
-                </div>
+              {steps.map(({ step, title, body }, i) => (
+                <Reveal key={step} delay={i * 140}>
+                  <div className="group text-center sm:text-left">
+                    <span className="inline-block bg-gradient-to-r from-indigo-300 to-sky-300 bg-clip-text font-mono text-sm font-bold text-transparent transition-transform duration-300 group-hover:scale-125">
+                      {step}
+                    </span>
+                    <h3 className="mt-3 text-lg font-semibold transition-colors duration-300 group-hover:text-indigo-200">
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -249,26 +271,27 @@ export default function Home() {
         {/* FAQ */}
         <section id="faq" className="scroll-mt-24 border-t border-white/[0.06]">
           <div className="mx-auto w-full max-w-3xl px-6 py-24">
-            <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-              FAQ
-            </p>
-            <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
-              Good questions.
-            </h2>
+            <Reveal>
+              <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
+                FAQ
+              </p>
+              <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
+                Good questions.
+              </h2>
+            </Reveal>
             <div className="mt-12 space-y-3">
-              {faqs.map(({ q, a }) => (
-                <details
-                  key={q}
-                  className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] px-6 py-4 open:bg-white/[0.04]"
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-zinc-100 [&::-webkit-details-marker]:hidden">
-                    {q}
-                    <span className="text-zinc-500 transition-transform group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
-                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">{a}</p>
-                </details>
+              {faqs.map(({ q, a }, i) => (
+                <Reveal key={q} delay={i * 80}>
+                  <details className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] px-6 py-4 transition-colors duration-300 open:bg-white/[0.04] hover:border-indigo-400/25">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-zinc-100 [&::-webkit-details-marker]:hidden">
+                      {q}
+                      <span className="text-zinc-500 transition-transform duration-300 group-open:rotate-45">
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-3 text-sm leading-relaxed text-zinc-400">{a}</p>
+                  </details>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -281,13 +304,17 @@ export default function Home() {
             className="pointer-events-none absolute inset-x-0 bottom-0 mx-auto h-[400px] w-[800px] max-w-full bg-[radial-gradient(ellipse_at_bottom,rgba(99,102,241,0.14),transparent_65%)]"
           />
           <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center gap-4 px-6 py-28 text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">
-              Launching soon.
-            </h2>
-            <p className="max-w-md text-base leading-relaxed text-zinc-400">
-              Viewaro is being built and tested across all five platforms.
-              Check back soon for launch details.
-            </p>
+            <Reveal>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">
+                Launching soon.
+              </h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="max-w-md text-base leading-relaxed text-zinc-400">
+                Viewaro is being built and tested across all five platforms.
+                Check back soon for launch details.
+              </p>
+            </Reveal>
           </div>
         </section>
       </main>
