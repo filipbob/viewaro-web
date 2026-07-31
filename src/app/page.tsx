@@ -104,6 +104,17 @@ const features = [
   },
 ];
 
+const integrations = [
+  {
+    name: "TMDB",
+    body: "Poster art, cast and descriptions for the movies & series catalog.",
+  },
+  {
+    name: "Trakt",
+    body: "Watch history and progress sync, if you already track there.",
+  },
+];
+
 const steps = [
   {
     step: "01",
@@ -232,6 +243,41 @@ export default function Home() {
                     </div>
                     <h3 className="text-base font-semibold text-zinc-100">{title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Integrations (roadmap) */}
+        <section className="border-t border-white/[0.06]">
+          <div className="mx-auto w-full max-w-3xl px-6 py-24 text-center">
+            <Reveal>
+              <p className="text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
+                On the roadmap
+              </p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+                Movies &amp; series are coming.
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-zinc-400">
+                A metadata-enriched catalog on top of Live TV — planned
+                integrations, not live yet.
+              </p>
+            </Reveal>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+              {integrations.map(({ name, body }, i) => (
+                <Reveal key={name} delay={i * 100}>
+                  <div className="group flex w-64 flex-col items-center gap-2 rounded-2xl border border-dashed border-white/[0.12] bg-white/[0.02] px-5 py-6 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/30 hover:bg-white/[0.04]">
+                    <span className="text-sm font-semibold tracking-tight text-zinc-200 transition-colors duration-300 group-hover:text-indigo-200">
+                      {name}
+                    </span>
+                    <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-zinc-500">
+                      Planned
+                    </span>
+                    <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+                      {body}
+                    </p>
                   </div>
                 </Reveal>
               ))}
