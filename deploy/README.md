@@ -1,5 +1,9 @@
 # Deploying viewaro-web (oracle-server)
 
+**Status:** live at https://viewaro.itquotes.hr since 2026-07-31 — the "Issue
+the TLS certificate" step below is done; kept for reference (re-issuing on a
+fresh server, debugging renewal, etc).
+
 Runs as a single Docker container (`nginx:alpine` serving the Next.js static
 export). nginx itself stays containerized, but its access/error logs are
 bind-mounted to `~/app/nginx-logs/` on the host so the host's fail2ban
