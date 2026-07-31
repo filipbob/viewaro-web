@@ -15,6 +15,10 @@ export async function generateMetadata({
   return {
     title: `${dict.legal.support.title} — Viewaro`,
     description: dict.legal.support.metaDescription,
+    openGraph: {
+      title: `${dict.legal.support.title} — Viewaro`,
+      description: dict.legal.support.metaDescription,
+    },
   };
 }
 

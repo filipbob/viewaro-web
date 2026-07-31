@@ -5,6 +5,10 @@ import en from "@/i18n/dictionaries/en";
 export const metadata: Metadata = {
   title: `${en.legal.support.title} — Viewaro`,
   description: en.legal.support.metaDescription,
+  openGraph: {
+    title: `${en.legal.support.title} — Viewaro`,
+    description: en.legal.support.metaDescription,
+  },
 };
 
 export default function SupportPage() {
