@@ -1,16 +1,14 @@
 import Image from "next/image";
 import type { SVGProps } from "react";
-import Reveal from "@/components/Reveal";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import type { AnyLocale } from "@/i18n/locales";
+import type { Dictionary } from "@/i18n/types";
+import Reveal from "./Reveal";
+import SiteFooter from "./SiteFooter";
+import SiteHeader from "./SiteHeader";
 
-const platforms = [
-  "iPhone & iPad",
-  "Mac",
-  "Apple TV",
-  "Android",
-  "Android TV",
-];
+// Product/device names — left untranslated across every locale, matching
+// standard practice for platform badges.
+const platforms = ["iPhone & iPad", "Mac", "Apple TV", "Android", "Android TV"];
 
 function IconGuide(props: SVGProps<SVGSVGElement>) {
   return (
@@ -71,95 +69,20 @@ function IconRemote(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-const features = [
-  {
-    icon: IconGuide,
-    title: "Live TV & guide",
-    body: "An inline programme guide with live progress and what's on next — no separate screen to dig through.",
-  },
-  {
-    icon: IconSource,
-    title: "Any source",
-    body: "Connect an M3U playlist, an Xtream Codes account, or add channels one by one. Mix several sources at once.",
-  },
-  {
-    icon: IconStar,
-    title: "Favorites & search",
-    body: "Build a personal channel list and find anything instantly, across every source you've added.",
-  },
-  {
-    icon: IconCloud,
-    title: "Cloud sync",
-    body: "Sources, favorites and settings follow you from phone to TV. Sign in once, or skip it — guest mode works too.",
-  },
-  {
-    icon: IconLock,
-    title: "Parental controls",
-    body: "Lock individual channels behind a PIN, so the remote can be handed over without worry.",
-  },
-  {
-    icon: IconRemote,
-    title: "Built for every screen",
-    body: "A phone-first player that's just as at home on Apple TV and Android TV, full remote navigation included.",
-  },
-];
+const featureIcons = [IconGuide, IconSource, IconStar, IconCloud, IconLock, IconRemote];
 
-const integrations = [
-  {
-    name: "TMDB",
-    body: "Poster art, cast and descriptions for the movies & series catalog.",
-  },
-  {
-    name: "Trakt",
-    body: "Watch history and progress sync, if you already track there.",
-  },
-];
+export default function HomeContent({
+  locale,
+  dict,
+}: {
+  locale: AnyLocale;
+  dict: Dictionary;
+}) {
+  const { home } = dict;
 
-const steps = [
-  {
-    step: "01",
-    title: "Install Viewaro",
-    body: "On your phone, tablet, Mac or TV. One app, the same experience everywhere.",
-  },
-  {
-    step: "02",
-    title: "Add your playlist",
-    body: "Paste an M3U link or sign in with your Xtream account. Your channels appear in seconds.",
-  },
-  {
-    step: "03",
-    title: "Start watching",
-    body: "Live TV with a full programme guide, favorites and instant zapping. That's it.",
-  },
-];
-
-const faqs = [
-  {
-    q: "Does Viewaro include any channels or streams?",
-    a: "No. Viewaro is a player — it contains no channels, streams or subscriptions of any kind. You connect your own playlist from your own provider, and Viewaro gives it a beautiful home.",
-  },
-  {
-    q: "Which platforms are supported?",
-    a: "Viewaro is being built for iPhone, iPad, Mac, Apple TV, Android and Android TV.",
-  },
-  {
-    q: "What playlist formats can I use?",
-    a: "M3U / M3U8 playlists and Xtream Codes accounts, plus manually added channels. EPG data is supported via XMLTV, either auto-discovered from your playlist or added manually.",
-  },
-  {
-    q: "Do I need an account?",
-    a: "No — everything works in guest mode. An optional free account adds cloud sync, so your sources, favorites and settings follow you across devices.",
-  },
-  {
-    q: "When is it launching?",
-    a: "Viewaro is currently in development and testing across all platforms. Launch details will appear here first.",
-  },
-];
-
-export default function Home() {
   return (
     <div className="flex flex-1 flex-col">
-      <SiteHeader />
+      <SiteHeader locale={locale} path="" nav={dict.nav} />
 
       <main className="flex-1">
         {/* Hero */}
@@ -181,22 +104,21 @@ export default function Home() {
             </Reveal>
             <Reveal delay={100}>
               <p className="mb-4 text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-                Viewaro Player
+                {home.eyebrow}
               </p>
             </Reveal>
             <Reveal delay={180}>
               <h1 className="text-5xl font-black leading-[1.04] tracking-tight sm:text-7xl">
-                Your content.
+                {home.heroLine1}
                 <br />
                 <span className="bg-gradient-to-r from-indigo-300 via-sky-300 to-indigo-200 bg-clip-text text-transparent">
-                  Your screen.
+                  {home.heroLine2}
                 </span>
               </h1>
             </Reveal>
             <Reveal delay={280}>
               <p className="mt-7 max-w-lg text-lg leading-relaxed text-zinc-400">
-                A fast, elegant IPTV player for your phone, your Mac and your
-                TV. Bring your own playlist — Viewaro handles the rest.
+                {home.heroSub}
               </p>
             </Reveal>
             <Reveal delay={380}>
@@ -205,7 +127,7 @@ export default function Home() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-60" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-400" />
                 </span>
-                Coming soon to the App Store &amp; Google Play
+                {home.badge}
               </div>
             </Reveal>
             <Reveal delay={480}>
@@ -228,24 +150,27 @@ export default function Home() {
           <div className="mx-auto w-full max-w-5xl px-6 py-24">
             <Reveal>
               <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-                Features
+                {home.featuresEyebrow}
               </p>
               <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
-                Everything a live TV app should be.
+                {home.featuresHeading}
               </h2>
             </Reveal>
             <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map(({ icon: Icon, title, body }, i) => (
-                <Reveal key={title} delay={(i % 3) * 100}>
-                  <div className="group h-full rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-indigo-400/30 hover:bg-white/[0.04] hover:shadow-[0_12px_40px_-12px_rgba(99,102,241,0.35)]">
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-indigo-300 transition-all duration-300 group-hover:scale-110 group-hover:border-indigo-400/40 group-hover:text-indigo-200">
-                      <Icon className="h-5 w-5" />
+              {home.features.map(({ title, body }, i) => {
+                const Icon = featureIcons[i];
+                return (
+                  <Reveal key={title} delay={(i % 3) * 100}>
+                    <div className="group h-full rounded-2xl border border-white/[0.07] bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-indigo-400/30 hover:bg-white/[0.04] hover:shadow-[0_12px_40px_-12px_rgba(99,102,241,0.35)]">
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-indigo-300 transition-all duration-300 group-hover:scale-110 group-hover:border-indigo-400/40 group-hover:text-indigo-200">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="text-base font-semibold text-zinc-100">{title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
                     </div>
-                    <h3 className="text-base font-semibold text-zinc-100">{title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
-                  </div>
-                </Reveal>
-              ))}
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -255,29 +180,26 @@ export default function Home() {
           <div className="mx-auto w-full max-w-3xl px-6 py-24 text-center">
             <Reveal>
               <p className="text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-                On the roadmap
+                {home.integrationsEyebrow}
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-                Movies &amp; series are coming.
+                {home.integrationsHeading}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-zinc-400">
-                A metadata-enriched catalog on top of Live TV — planned
-                integrations, not live yet.
+                {home.integrationsSub}
               </p>
             </Reveal>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-              {integrations.map(({ name, body }, i) => (
+              {home.integrations.map(({ name, body }, i) => (
                 <Reveal key={name} delay={i * 100}>
                   <div className="group flex w-64 flex-col items-center gap-2 rounded-2xl border border-dashed border-white/[0.12] bg-white/[0.02] px-5 py-6 transition-all duration-300 hover:-translate-y-1 hover:border-indigo-400/30 hover:bg-white/[0.04]">
                     <span className="text-sm font-semibold tracking-tight text-zinc-200 transition-colors duration-300 group-hover:text-indigo-200">
                       {name}
                     </span>
                     <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide text-zinc-500">
-                      Planned
+                      {home.plannedLabel}
                     </span>
-                    <p className="mt-1 text-xs leading-relaxed text-zinc-500">
-                      {body}
-                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-zinc-500">{body}</p>
                   </div>
                 </Reveal>
               ))}
@@ -290,14 +212,14 @@ export default function Home() {
           <div className="mx-auto w-full max-w-5xl px-6 py-24">
             <Reveal>
               <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-                How it works
+                {home.howEyebrow}
               </p>
               <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
-                Up and running in a minute.
+                {home.howHeading}
               </h2>
             </Reveal>
             <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-3">
-              {steps.map(({ step, title, body }, i) => (
+              {home.steps.map(({ step, title, body }, i) => (
                 <Reveal key={step} delay={i * 140}>
                   <div className="group text-center sm:text-left">
                     <span className="inline-block bg-gradient-to-r from-indigo-300 to-sky-300 bg-clip-text font-mono text-sm font-bold text-transparent transition-transform duration-300 group-hover:scale-125">
@@ -319,14 +241,14 @@ export default function Home() {
           <div className="mx-auto w-full max-w-3xl px-6 py-24">
             <Reveal>
               <p className="text-center text-[13px] font-semibold uppercase tracking-[0.25em] text-indigo-300/80">
-                FAQ
+                {home.faqEyebrow}
               </p>
               <h2 className="mt-3 text-center text-3xl font-bold tracking-tight sm:text-4xl">
-                Good questions.
+                {home.faqHeading}
               </h2>
             </Reveal>
             <div className="mt-12 space-y-3">
-              {faqs.map(({ q, a }, i) => (
+              {home.faqs.map(({ q, a }, i) => (
                 <Reveal key={q} delay={i * 80}>
                   <details className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] px-6 py-4 transition-colors duration-300 open:bg-white/[0.04] hover:border-indigo-400/25">
                     <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-zinc-100 [&::-webkit-details-marker]:hidden">
@@ -352,20 +274,19 @@ export default function Home() {
           <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center gap-4 px-6 py-28 text-center">
             <Reveal>
               <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">
-                Launching soon.
+                {home.ctaHeading}
               </h2>
             </Reveal>
             <Reveal delay={120}>
               <p className="max-w-md text-base leading-relaxed text-zinc-400">
-                Viewaro is being built and tested across all five platforms.
-                Check back soon for launch details.
+                {home.ctaBody}
               </p>
             </Reveal>
           </div>
         </section>
       </main>
 
-      <SiteFooter />
+      <SiteFooter locale={locale} footer={dict.footer} />
     </div>
   );
 }
