@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    image: viewaro-web:latest
+    container_name: viewaro-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # nginx config lives outside the image so HTTP -> HTTPS can be swapped
+      # in after the TLS cert exists, without a rebuild.
+      - ./deploy/nginx:/etc/nginx/conf.d:ro
+      # Bind-mounted so the host's fail2ban (jail.d/nginx.local) can read
+      # access.log / error.log directly — it does not look inside containers.
+      - ./nginx-logs:/var/log/nginx
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - ./certbot-webroot:/var/www/certbot:ro

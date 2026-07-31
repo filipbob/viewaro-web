@@ -1,0 +1,47 @@
+# Final config: HTTP -> HTTPS redirect + TLS termination.
+# Activate after certbot has issued the cert (see deploy/README.md):
+#
+#   cp deploy/nginx/viewaro.conf.tls-template deploy/nginx/viewaro.conf
+#   docker exec viewaro-web nginx -s reload
+
+limit_req_zone $binary_remote_addr zone=viewaro:10m rate=20r/s;
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name viewaro.itquotes.hr;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name viewaro.itquotes.hr;
+
+    ssl_certificate     /etc/letsencrypt/live/viewaro.itquotes.hr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/viewaro.itquotes.hr/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+
+    add_header Strict-Transport-Security "max-age=15552000; includeSubDomains" always;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    limit_req zone=viewaro burst=40 nodelay;
+
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    error_page 404 /404.html;
+}
