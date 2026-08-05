@@ -43,6 +43,7 @@ export type Dictionary = {
     heroLine2: string;
     heroSub: string;
     badge: string;
+    plannedPlatforms: string;
     featuresEyebrow: string;
     featuresHeading: string;
     features: { title: string; body: string }[];

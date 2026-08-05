@@ -6,10 +6,6 @@ import Reveal from "./Reveal";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 
-// Product/device names — left untranslated across every locale, matching
-// standard practice for platform badges.
-const platforms = ["iPhone & iPad", "Mac", "Apple TV", "Android", "Android TV"];
-
 function IconGuide(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" {...props}>
@@ -39,13 +35,11 @@ function IconStar(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function IconCloud(props: SVGProps<SVGSVGElement>) {
+function IconLocalStorage(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" {...props}>
-      <path
-        d="M7 18h10a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 7.1 9.1 4 4 0 0 0 7 18z"
-        strokeLinejoin="round"
-      />
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M7 8h10M7 12h10M7 16h6" strokeLinecap="round" />
     </svg>
   );
 }
@@ -59,17 +53,16 @@ function IconLock(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-function IconRemote(props: SVGProps<SVGSVGElement>) {
+function IconMac(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" {...props}>
-      <rect x="7" y="2.5" width="10" height="19" rx="4" />
-      <circle cx="12" cy="8" r="1.6" />
-      <path d="M9 14h6M9 17h6" strokeLinecap="round" />
+      <rect x="3" y="4" width="18" height="13" rx="2" />
+      <path d="M8 21h8M12 17v4" strokeLinecap="round" />
     </svg>
   );
 }
 
-const featureIcons = [IconGuide, IconSource, IconStar, IconCloud, IconLock, IconRemote];
+const featureIcons = [IconGuide, IconSource, IconStar, IconLocalStorage, IconLock, IconMac];
 
 export default function HomeContent({
   locale,
@@ -131,16 +124,9 @@ export default function HomeContent({
               </div>
             </Reveal>
             <Reveal delay={480}>
-              <div className="mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-sm text-zinc-500">
-                {platforms.map((platform, i) => (
-                  <span key={platform} className="flex items-center gap-2">
-                    {i > 0 && <span className="text-zinc-700">&middot;</span>}
-                    <span className="transition-colors duration-300 hover:text-zinc-300">
-                      {platform}
-                    </span>
-                  </span>
-                ))}
-              </div>
+              <p className="mt-12 max-w-2xl text-sm leading-relaxed text-zinc-500">
+                {home.plannedPlatforms}
+              </p>
             </Reveal>
           </div>
         </section>

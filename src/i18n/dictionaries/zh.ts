@@ -5,7 +5,7 @@ const zh: Dictionary = {
     features: "功能",
     faq: "常见问题",
     support: "支持",
-    comingSoon: "即将推出",
+    comingSoon: "macOS 15+",
   },
   footer: {
     tagline: "你的内容,你的屏幕。",
@@ -19,13 +19,15 @@ const zh: Dictionary = {
   home: {
     metaTitle: "Viewaro — 好好做直播电视",
     metaDescription:
-      "Viewaro 是一款适用于 iPhone、iPad、Mac、Apple TV、Android 和 Android TV 的快速、优雅的 IPTV 播放器。支持 M3U、Xtream 及手动添加源,提供实时节目单、收藏和家长控制 — 即将推出。",
+      "Viewaro 是适用于 macOS 15+ 的原生 IPTV 播放器。导入你自己的 M3U/M3U8 播放列表，并播放你有权访问的直播源。",
     eyebrow: "Viewaro Player",
     heroLine1: "你的内容,",
     heroLine2: "你的屏幕。",
     heroSub:
-      "为你的手机、Mac 和电视打造的快速、优雅的 IPTV 播放器。带上你自己的播放列表 — 剩下的交给 Viewaro。",
-    badge: "即将登陆 App Store 和 Google Play",
+      "Viewaro 是适用于 Mac 的原生 IPTV 播放器。导入你自己的 M3U/M3U8 播放列表，并播放你有权访问的直播源。Viewaro 不提供频道、播放列表或媒体订阅。",
+    badge: "当前版本：macOS 15+",
+    plannedPlatforms:
+      "计划支持：iPhone、iPad、Apple TV、Android 和 Android TV。这些平台在当前 macOS 版本中尚不可用。",
     featuresEyebrow: "功能",
     featuresHeading: "直播电视应用应有的一切。",
     features: [
@@ -34,29 +36,29 @@ const zh: Dictionary = {
         body: "内嵌节目单,实时显示播放进度和下一个节目 — 无需切换到单独的页面查看。",
       },
       {
-        title: "任意源",
-        body: "连接 M3U 播放列表、Xtream Codes 账户,或逐一手动添加频道。可同时混用多个源。",
+        title: "你的 M3U 播放列表",
+        body: "从你获准使用的提供商导入兼容的 M3U 或 M3U8 播放列表。",
       },
       {
         title: "收藏与搜索",
         body: "建立个人频道列表,在你添加的所有源中即时找到任何内容。",
       },
       {
-        title: "云同步",
-        body: "源、收藏和设置会随你从手机同步到电视。登录一次即可,或者跳过登录 — 访客模式同样可用。",
+        title: "数据保留在本机",
+        body: "播放列表、凭据、收藏和设置都保留在你的 Mac 上。没有 Viewaro 账户或云同步。",
       },
       {
         title: "家长控制",
-        body: "用 PIN 码锁定单个频道,遥控器可以放心交给他人。",
+        body: "四位 PIN 码用于保护个人资料管理和退出儿童资料，并在儿童资料中隐藏受限分类。",
       },
       {
-        title: "为每一块屏幕而生",
-        body: "在手机上得心应手,在 Apple TV 和 Android TV 上同样出色,支持完整的遥控器导航。",
+        title: "专为 Mac 打造",
+        body: "原生支持 macOS 15+，提供熟悉的 Mac 控件、键盘导航和本地存储。",
       },
     ],
     integrationsEyebrow: "规划中",
-    integrationsHeading: "电影与剧集即将到来。",
-    integrationsSub: "在直播电视之上,打造一个元数据丰富的内容库 — 计划中的整合,尚未上线。",
+    integrationsHeading: "电影与剧集",
+    integrationsSub: "计划中的功能 — macOS 1.0 尚不可用。",
     integrations: [
       {
         name: "TMDB",
@@ -74,12 +76,12 @@ const zh: Dictionary = {
       {
         step: "01",
         title: "安装 Viewaro",
-        body: "在手机、平板、Mac 或电视上安装。一个应用,处处一致的体验。",
+        body: "在运行 macOS 15 或更高版本的 Mac 上安装当前版本。",
       },
       {
         step: "02",
         title: "添加你的播放列表",
-        body: "粘贴 M3U 链接,或用你的 Xtream 账户登录。几秒钟内频道即会出现。",
+        body: "粘贴你自己的 M3U 或 M3U8 播放列表地址。导入的频道会在几秒钟内显示。",
       },
       {
         step: "03",
@@ -96,40 +98,41 @@ const zh: Dictionary = {
       },
       {
         q: "支持哪些平台?",
-        a: "Viewaro 正在为 iPhone、iPad、Mac、Apple TV、Android 和 Android TV 开发。",
+        a: "当前版本支持运行 macOS 15 或更高版本的 Mac。iPhone、iPad、Apple TV、Android 和 Android TV 已列入计划，但在 macOS 1.0 中尚不可用。",
       },
       {
         q: "可以使用哪些播放列表格式?",
-        a: "支持 M3U / M3U8 播放列表和 Xtream Codes 账户,以及手动添加的频道。节目单数据通过 XMLTV 支持,可从播放列表自动识别,也可手动添加。",
+        a: "当前版本可导入 M3U 和 M3U8 播放列表，也可提供可选的 XMLTV 节目单地址。macOS 1.0 不支持 Xtream Codes 账户或手动添加频道。",
       },
       {
         q: "需要账户吗?",
-        a: "不需要 — 访客模式下所有功能均可使用。可选的免费账户可开启云同步,让你的源、收藏和设置在各设备间保持一致。",
+        a: "不需要。macOS 1.0 没有 Viewaro 账户、登录或云同步。播放列表、收藏、个人资料和设置都保留在你的 Mac 上。",
       },
       {
-        q: "什么时候上线?",
-        a: "Viewaro 目前正在所有平台上进行开发和测试。上线详情将第一时间在此公布。",
+        q: "Viewaro Premium 如何运作?",
+        a: "Viewaro Premium 是每月 4.99 欧元、通过 Apple 应用内购买的自动续订订阅，可解锁多个 IPTV 源和个人资料。Apple 会在购买前显示本地价格，并处理账单、取消和退款。",
       },
     ],
-    ctaHeading: "即将上线。",
-    ctaBody: "Viewaro 正在五个平台上同步开发与测试。请稍后回来查看上线详情。",
+    ctaHeading: "当前版本：macOS 1.0",
+    ctaBody:
+      "适用于 macOS 15 及更高版本。你需要提供自己的 M3U/M3U8 播放列表；Viewaro 不提供频道或媒体订阅。",
   },
   legal: {
-    updatedLabel: "最后更新:",
+    updatedLabel: "生效日期:",
     privacy: {
       title: "隐私政策",
       metaDescription: "Viewaro 如何处理你的数据。",
-      updated: "2026年7月31日",
+      updated: "2026年8月5日",
       sections: [
         {
           paragraphs: [
-            "Viewaro 由 **ITQuotes**(\"Viewaro\"、\"我们\")提供。本隐私政策说明 Viewaro macOS 应用和 Viewaro 支持网站如何处理信息。",
+            "Viewaro 由 **IT QUOTES, vl. Marina Blažon Bobinac**(\"Viewaro\"、\"我们\")提供。本隐私政策说明 Viewaro macOS 应用和 Viewaro 支持网站如何处理信息。",
           ],
         },
         {
           list: [
             "邮箱:[support@itquotes.hr](mailto:support@itquotes.hr)",
-            "通讯地址:克罗地亚萨格勒布(Zagreb, Croatia)",
+            "通讯地址:Vukomerečka cesta 15, 10000 Zagreb, Croatia",
           ],
         },
         {
@@ -163,6 +166,14 @@ const zh: Dictionary = {
           paragraphs: [
             "当你导入播放列表或播放直播流时,你的 Mac 会直接连接到你提供的地址。该提供商可能会收到网络连接中通常包含的信息,例如你的 IP 地址、请求时间、请求路径,以及提供商 URL 中包含的任何凭据。",
             "我们无法控制你的提供商,也不会收到这些请求。适用于你提供商自身的隐私政策和条款。Viewaro 要求当前的播放列表及 AVPlayer 路径使用 HTTPS,不会通过未加密的 HTTP 传输播放列表凭据。",
+          ],
+        },
+        {
+          heading: "公共电视节目单源",
+          paragraphs: [
+            "如果播放列表包含自己的 XMLTV 节目单地址，Viewaro 只会连接该地址，与连接你的提供商相同。",
+            "如果播放列表没有节目单地址，Viewaro 会在首次打开播放列表以及刷新节目单时自动查找公共节目单，并从 open-epg.com 和 iptv-epg.org 请求按国家划分的 XMLTV 文件。",
+            "这些发布方会收到常规网络信息，例如你的 IP 地址、请求时间和所请求的国家文件。Viewaro 不会向其发送提供商地址、凭据、频道名称或观看记录。节目匹配在你的 Mac 本地完成，并适用各发布方自己的隐私政策和条款。",
           ],
         },
         {
@@ -250,7 +261,7 @@ const zh: Dictionary = {
         {
           heading: "联系我们",
           paragraphs: [
-            "有关隐私的问题或请求可发送至 [support@itquotes.hr](mailto:support@itquotes.hr),或邮寄至 ITQuotes,克罗地亚萨格勒布(Zagreb, Croatia)。",
+            "有关隐私的问题或请求可发送至 [support@itquotes.hr](mailto:support@itquotes.hr),或邮寄至 IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatia。",
           ],
         },
       ],
@@ -258,11 +269,11 @@ const zh: Dictionary = {
     terms: {
       title: "使用条款",
       metaDescription: "Viewaro 应用的使用条款。",
-      updated: "2026年7月31日",
+      updated: "2026年8月5日",
       sections: [
         {
           paragraphs: [
-            "本使用条款(\"条款\")适用于由 **ITQuotes**(\"Viewaro\"、\"我们\")提供的 Viewaro macOS 应用及相关支持网站。",
+            "本使用条款(\"条款\")适用于由 **IT QUOTES, vl. Marina Blažon Bobinac**(\"Viewaro\"、\"我们\")提供的 Viewaro macOS 应用及相关支持网站。",
           ],
         },
         {
@@ -354,7 +365,7 @@ const zh: Dictionary = {
         {
           heading: "联系我们",
           paragraphs: [
-            "对本条款有疑问?可发送至 [support@itquotes.hr](mailto:support@itquotes.hr),或邮寄至 ITQuotes,克罗地亚萨格勒布(Zagreb, Croatia)。",
+            "对本条款有疑问?可发送至 [support@itquotes.hr](mailto:support@itquotes.hr),或邮寄至 IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatia。",
           ],
         },
       ],
@@ -365,15 +376,15 @@ const zh: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaro 是一款适用于 macOS 的原生 IPTV 播放器。它播放你自己提供的 M3U 播放列表中的兼容内容。Viewaro 不包含任何频道、播放列表或媒体服务订阅。",
+            "Viewaro 1.0 是适用于运行 macOS 15 或更高版本 Mac 的原生 IPTV 播放器。它导入你提供的 M3U/M3U8 播放列表并播放兼容直播源。没有用户账户或云同步；Viewaro 不包含频道、播放列表或媒体订阅。",
           ],
         },
         {
           heading: "联系我们",
           list: [
             "支持邮箱:[support@itquotes.hr](mailto:support@itquotes.hr)",
-            "提供方:ITQuotes",
-            "通讯地址:克罗地亚萨格勒布(Zagreb, Croatia)",
+            "提供方:IT QUOTES, vl. Marina Blažon Bobinac",
+            "通讯地址:Vukomerečka cesta 15, 10000 Zagreb, Croatia",
           ],
         },
         {
@@ -397,7 +408,7 @@ const zh: Dictionary = {
           topics: [
             {
               q: "我的播放列表无法加载",
-              a: "请向你的提供商核实该地址 — 它必须指向一个 M3U/M3U8 文件或有效的 Xtream Codes 服务器。如果播放列表能在浏览器中加载但无法在应用中加载,可能是提供商屏蔽了应用访问,请联系他们。",
+              a: "请向你的提供商核实该地址，它必须指向有效的 M3U/M3U8 文件。如果播放列表能在浏览器中加载但无法在应用中加载，可能是提供商屏蔽了应用访问，请联系他们。",
             },
             {
               q: "为什么 HTTP 播放列表会加载失败?",
@@ -409,11 +420,15 @@ const zh: Dictionary = {
             },
             {
               q: "免费版包含哪些内容?",
-              a: "免费版支持一个 IPTV 源和基本播放功能。若启用订阅功能,Premium 可解锁多个源。购买前应用会显示具体功能、时长和本地化价格。",
+              a: "免费版支持一个 IPTV 源、一个个人资料和完整播放功能。Viewaro Premium 每月 4.99 欧元，可解锁多个 IPTV 源和个人资料。App Store 会在购买前显示本地价格。",
             },
             {
               q: "如何恢复或取消 Premium?",
-              a: "在 Viewaro 中使用\"恢复购买\"来恢复符合条件的 Apple 购买。可在 Apple 账户的订阅设置中管理或取消有效订阅。卸载 Viewaro 不会自动取消订阅。",
+              a: "打开 Viewaro 设置 > 订阅并选择“恢复购买”。如有“管理订阅”可使用该选项，或前往 Apple 账户的订阅设置进行管理或取消。删除 Viewaro 不会取消订阅。",
+            },
+            {
+              q: "家长控制和 PIN 如何运作?",
+              a: "打开 Viewaro 设置 > 家长控制，可设置、更改或停用四位 PIN。PIN 用于保护个人资料管理和退出儿童资料。忘记 PIN 后无法在应用内重置。请退出并删除 Viewaro，然后在 Finder 中选择前往 > 前往文件夹，将 ~/Library/Containers/hr.itquotes.viewaro 移到废纸篓后再重新安装。这会永久删除本地播放列表、凭据、收藏、个人资料和设置，但不会取消 Premium。",
             },
             {
               q: "Viewaro 会上传我的播放列表吗?",

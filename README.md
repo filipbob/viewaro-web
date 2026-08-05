@@ -1,7 +1,12 @@
 # viewaro-web
 
-Marketing site for **Viewaro** — an IPTV player for iPhone, iPad, Mac,
-Apple TV, Android and Android TV.
+Marketing and support site for **Viewaro 1.0**, a native IPTV player for Macs
+running macOS 15 or later. The current release imports user-provided M3U/M3U8
+playlists and includes no channels, playlists, media subscriptions, Viewaro
+account, or cloud sync.
+
+iPhone, iPad, Apple TV, Android and Android TV are roadmap platforms and are
+not available in the current macOS release.
 
 Live at: **https://viewaro.itquotes.hr**
 
@@ -12,10 +17,10 @@ the paths themselves are part of the app contract and must not change:
 
 | Route | Purpose |
 |---|---|
-| `/` | Landing page (marketing URL for App Store / Play Store) |
-| `/privacy` | Privacy policy (required by both stores) |
+| `/` | Landing page (marketing URL for the Mac App Store) |
+| `/privacy` | Privacy policy (required by the Mac App Store) |
 | `/terms` | Terms of use / EULA (required for subscriptions) |
-| `/support` | Support page (required by both stores) |
+| `/support` | Support page (required by the Mac App Store) |
 
 ## Stack
 

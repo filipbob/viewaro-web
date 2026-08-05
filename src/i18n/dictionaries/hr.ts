@@ -5,7 +5,7 @@ const hr: Dictionary = {
     features: "Značajke",
     faq: "Česta pitanja",
     support: "Podrška",
-    comingSoon: "Uskoro",
+    comingSoon: "macOS 15+",
   },
   footer: {
     tagline: "Tvoj sadržaj. Tvoj ekran.",
@@ -19,13 +19,15 @@ const hr: Dictionary = {
   home: {
     metaTitle: "Viewaro — Live TV, kako treba",
     metaDescription:
-      "Viewaro je brz i elegantan IPTV player za iPhone, iPad, Mac, Apple TV, Android i Android TV. M3U, Xtream i ručni izvori, live EPG, favoriti i roditeljski nadzor — uskoro.",
+      "Viewaro je nativni IPTV player za macOS 15+. Uvezi vlastitu M3U/M3U8 playlistu i reproduciraj streamove kojima smiješ pristupiti.",
     eyebrow: "Viewaro Player",
     heroLine1: "Tvoj sadržaj.",
     heroLine2: "Tvoj ekran.",
     heroSub:
-      "Brz i elegantan IPTV player za tvoj telefon, Mac i TV. Donesi vlastitu playlistu — Viewaro odradi ostalo.",
-    badge: "Uskoro na App Storeu i Google Playu",
+      "Viewaro je nativni IPTV player za Mac. Uvezi vlastitu M3U/M3U8 playlistu i reproduciraj streamove kojima smiješ pristupiti. Viewaro ne pruža kanale, playliste ni pretplate na medijske usluge.",
+    badge: "Trenutačno izdanje: macOS 15+",
+    plannedPlatforms:
+      "Planirano: iPhone, iPad, Apple TV, Android i Android TV. Te platforme nisu dostupne u trenutačnom macOS izdanju.",
     featuresEyebrow: "Značajke",
     featuresHeading: "Sve što live TV aplikacija treba biti.",
     features: [
@@ -34,30 +36,29 @@ const hr: Dictionary = {
         body: "Ugrađeni program s prikazom trenutnog napretka i onim što slijedi — bez odvojenog ekrana za pretraživanje.",
       },
       {
-        title: "Bilo koji izvor",
-        body: "Spoji M3U playlistu, Xtream Codes račun ili dodaj kanale jedan po jedan. Kombiniraj više izvora odjednom.",
+        title: "Tvoja M3U playlista",
+        body: "Uvezi kompatibilnu M3U ili M3U8 playlistu providera kojeg smiješ koristiti.",
       },
       {
         title: "Favoriti i pretraga",
         body: "Napravi osobni popis kanala i pronađi bilo što odmah, kroz sve dodane izvore.",
       },
       {
-        title: "Sinkronizacija u oblaku",
-        body: "Izvori, favoriti i postavke prate te s telefona na TV. Prijavi se jednom, ili preskoči — gostujući način rada također radi.",
+        title: "Lokalno po dizajnu",
+        body: "Playliste, vjerodajnice, favoriti i postavke ostaju na tvom Macu. Nema Viewaro računa ni sinkronizacije u oblaku.",
       },
       {
         title: "Roditeljski nadzor",
-        body: "Zaključaj pojedine kanale PIN-om, tako da se daljinski upravljač može bez brige dati drugima.",
+        body: "Četveroznamenkasti PIN štiti upravljanje profilima i izlazak iz dječjeg profila, a ograničene kategorije skriva od dječjih profila.",
       },
       {
-        title: "Napravljen za svaki ekran",
-        body: "Player koji je jednako dobar na telefonu koliko i na Apple TV-u i Android TV-u, s potpunom navigacijom daljinskim upravljačem.",
+        title: "Napravljen za Mac",
+        body: "Nativno macOS 15+ iskustvo s poznatim Mac kontrolama, tipkovničkom navigacijom i lokalnom pohranom.",
       },
     ],
     integrationsEyebrow: "Na planu razvoja",
-    integrationsHeading: "Filmovi i serije stižu.",
-    integrationsSub:
-      "Katalog obogaćen metapodacima uz live TV — planirane integracije, još nisu aktivne.",
+    integrationsHeading: "Filmovi i serije",
+    integrationsSub: "Planirana značajka — nije dostupna u macOS 1.0.",
     integrations: [
       {
         name: "TMDB",
@@ -75,12 +76,12 @@ const hr: Dictionary = {
       {
         step: "01",
         title: "Instaliraj Viewaro",
-        body: "Na telefonu, tabletu, Macu ili TV-u. Jedna aplikacija, isto iskustvo posvuda.",
+        body: "Instaliraj trenutačno izdanje na Mac s macOS-om 15 ili novijim.",
       },
       {
         step: "02",
         title: "Dodaj svoju playlistu",
-        body: "Zalijepi M3U link ili se prijavi svojim Xtream računom. Kanali se pojave za nekoliko sekundi.",
+        body: "Zalijepi adresu vlastite M3U ili M3U8 playliste. Uvezeni kanali pojave se za nekoliko sekundi.",
       },
       {
         step: "03",
@@ -97,41 +98,41 @@ const hr: Dictionary = {
       },
       {
         q: "Koje su platforme podržane?",
-        a: "Viewaro se razvija za iPhone, iPad, Mac, Apple TV, Android i Android TV.",
+        a: "Trenutačno izdanje podržava Mac računala s macOS-om 15 ili novijim. iPhone, iPad, Apple TV, Android i Android TV su planirani, ali nisu dostupni u macOS 1.0.",
       },
       {
         q: "Koje formate playliste mogu koristiti?",
-        a: "M3U/M3U8 playliste i Xtream Codes račune, plus ručno dodane kanale. EPG podaci podržani su preko XMLTV-a, bilo automatski prepoznati iz playliste ili ručno dodani.",
+        a: "Trenutačno izdanje uvozi M3U i M3U8 playliste. Možeš navesti i opcionalnu adresu XMLTV vodiča. Xtream Codes računi i ručni unos kanala nisu dostupni u macOS 1.0.",
       },
       {
         q: "Trebam li račun?",
-        a: "Ne — sve radi u gostujućem načinu rada. Opcionalni besplatni račun dodaje sinkronizaciju u oblaku, tako da tvoji izvori, favoriti i postavke prate te na svim uređajima.",
+        a: "Ne. macOS 1.0 nema Viewaro račun, prijavu ni sinkronizaciju u oblaku. Tvoje playliste, favoriti, profili i postavke ostaju na tvom Macu.",
       },
       {
-        q: "Kada izlazi?",
-        a: "Viewaro je trenutno u razvoju i testiranju na svim platformama. Detalji o izlasku pojavit će se ovdje prvi.",
+        q: "Kako radi Viewaro Premium?",
+        a: "Viewaro Premium je Appleova automatski obnovljiva pretplata unutar aplikacije po cijeni od 4,99 € mjesečno. Otključava više IPTV izvora i profila za gledanje. Apple prije kupnje prikazuje lokaliziranu cijenu te obrađuje naplatu, otkazivanje i povrate.",
       },
     ],
-    ctaHeading: "Izlazak uskoro.",
+    ctaHeading: "Trenutačno izdanje: macOS 1.0",
     ctaBody:
-      "Viewaro se trenutno gradi i testira na svih pet platformi. Navrati uskoro po detalje o izlasku.",
+      "Napravljeno za macOS 15 i noviji. Unosiš vlastitu M3U/M3U8 playlistu; Viewaro ne pruža kanale ni pretplate na medijske usluge.",
   },
   legal: {
-    updatedLabel: "Zadnje ažurirano:",
+    updatedLabel: "Datum stupanja na snagu:",
     privacy: {
       title: "Pravila privatnosti",
       metaDescription: "Kako Viewaro postupa s tvojim podacima.",
-      updated: "31. srpnja 2026.",
+      updated: "5. kolovoza 2026.",
       sections: [
         {
           paragraphs: [
-            "Viewaro pruža **ITQuotes** (\"Viewaro\", \"mi\" ili \"naš\"). Ova pravila privatnosti objašnjavaju kako Viewaro macOS aplikacija i Viewaro stranica za podršku postupaju s informacijama.",
+            "Viewaro pruža **IT QUOTES, vl. Marina Blažon Bobinac** (\"Viewaro\", \"mi\" ili \"naš\"). Ova pravila privatnosti objašnjavaju kako Viewaro macOS aplikacija i Viewaro stranica za podršku postupaju s informacijama.",
           ],
         },
         {
           list: [
             "Email: [support@itquotes.hr](mailto:support@itquotes.hr)",
-            "Poštanska adresa: Zagreb, Hrvatska",
+            "Poštanska adresa: Vukomerečka cesta 15, 10000 Zagreb, Hrvatska",
           ],
         },
         {
@@ -165,6 +166,14 @@ const hr: Dictionary = {
           paragraphs: [
             "Kad uvezeš playlistu ili reproduciraš stream, tvoj Mac spaja se izravno na adresu koju si naveo. Taj provider može primiti informacije koje su uobičajeno uključene u mrežnu vezu, poput tvoje IP adrese, vremena zahtjeva, traženog puta i vjerodajnica sadržanih u URL-u providera.",
             "Mi ne kontroliramo tvog providera i ne primamo te zahtjeve. Vrijede vlastita pravila privatnosti i uvjeti tvog providera. Viewaro zahtijeva HTTPS za trenutne putove playliste i AVPlayera te ne prenosi vjerodajnice playliste putem nešifriranog HTTP-a.",
+          ],
+        },
+        {
+          heading: "Javni izvori TV vodiča",
+          paragraphs: [
+            "Ako playlista sadrži vlastitu adresu XMLTV vodiča, Viewaro se povezuje samo s tom adresom, jednako kao s tvojim providerom.",
+            "Ako playlista nema adresu vodiča, Viewaro automatski traži javni vodič pri prvom otvaranju playliste i kada osvježiš vodič. Datoteke XMLTV-a po državama preuzima s open-epg.com i iptv-epg.org.",
+            "Ti izdavači primaju standardne mrežne podatke, poput tvoje IP adrese, vremena zahtjeva i zatražene datoteke za državu. Viewaro im ne šalje adresu providera, vjerodajnice, nazive kanala ni povijest gledanja. Usklađivanje programa odvija se lokalno na tvom Macu, a primjenjuju se pravila privatnosti i uvjeti svakog izdavača.",
           ],
         },
         {
@@ -252,7 +261,7 @@ const hr: Dictionary = {
         {
           heading: "Kontakt",
           paragraphs: [
-            "Pitanja ili zahtjeve o privatnosti možeš poslati na [support@itquotes.hr](mailto:support@itquotes.hr) ili na ITQuotes, Zagreb, Hrvatska.",
+            "Pitanja ili zahtjeve o privatnosti možeš poslati na [support@itquotes.hr](mailto:support@itquotes.hr) ili na IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Hrvatska.",
           ],
         },
       ],
@@ -260,11 +269,11 @@ const hr: Dictionary = {
     terms: {
       title: "Uvjeti korištenja",
       metaDescription: "Uvjeti korištenja aplikacije Viewaro.",
-      updated: "31. srpnja 2026.",
+      updated: "5. kolovoza 2026.",
       sections: [
         {
           paragraphs: [
-            "Ovi Uvjeti korištenja (\"Uvjeti\") primjenjuju se na Viewaro macOS aplikaciju i povezanu stranicu za podršku koju pruža **ITQuotes** (\"Viewaro\", \"mi\" ili \"naš\").",
+            "Ovi Uvjeti korištenja (\"Uvjeti\") primjenjuju se na Viewaro macOS aplikaciju i povezanu stranicu za podršku koju pruža **IT QUOTES, vl. Marina Blažon Bobinac** (\"Viewaro\", \"mi\" ili \"naš\").",
           ],
         },
         {
@@ -356,7 +365,7 @@ const hr: Dictionary = {
         {
           heading: "Kontakt",
           paragraphs: [
-            "Pitanja o ovim Uvjetima možeš poslati na [support@itquotes.hr](mailto:support@itquotes.hr) ili na ITQuotes, Zagreb, Hrvatska.",
+            "Pitanja o ovim Uvjetima možeš poslati na [support@itquotes.hr](mailto:support@itquotes.hr) ili na IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Hrvatska.",
           ],
         },
       ],
@@ -367,15 +376,15 @@ const hr: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaro je nativni IPTV player za macOS. Reproducira kompatibilne streamove s M3U playliste koju sam osiguraš. Viewaro ne uključuje kanale, playliste ni pretplate na medijske usluge.",
+            "Viewaro 1.0 je nativni IPTV player za Mac računala s macOS-om 15 ili novijim. Uvozi M3U/M3U8 playliste koje sam uneseš i reproducira kompatibilne streamove. Nema korisničkog računa ni sinkronizacije u oblaku te ne uključuje kanale, playliste ni pretplate na medijske usluge.",
           ],
         },
         {
           heading: "Kontakt",
           list: [
             "Email podrške: [support@itquotes.hr](mailto:support@itquotes.hr)",
-            "Provider: ITQuotes",
-            "Poštanska adresa: Zagreb, Hrvatska",
+            "Pružatelj: IT QUOTES, vl. Marina Blažon Bobinac",
+            "Poštanska adresa: Vukomerečka cesta 15, 10000 Zagreb, Hrvatska",
           ],
         },
         {
@@ -399,7 +408,7 @@ const hr: Dictionary = {
           topics: [
             {
               q: "Moja playlista se ne učitava",
-              a: "Provjeri URL kod svog providera — mora upućivati na M3U/M3U8 datoteku ili valjani Xtream Codes server. Ako se playlista učitava u pregledniku ali ne u aplikaciji, provider možda blokira pristup aplikaciji; kontaktiraj ga.",
+              a: "Provjeri URL kod svog providera — mora upućivati na valjanu M3U/M3U8 datoteku. Ako se playlista učitava u pregledniku, ali ne u aplikaciji, provider možda blokira pristup aplikaciji; kontaktiraj ga.",
             },
             {
               q: "Zašto HTTP playlista ne radi?",
@@ -411,11 +420,15 @@ const hr: Dictionary = {
             },
             {
               q: "Što uključuje besplatna verzija?",
-              a: "Besplatna verzija podržava jedan IPTV izvor i osnovnu reprodukciju. Ako su pretplate omogućene, Premium može otključati više izvora. Aplikacija prikazuje točne značajke, trajanje i lokaliziranu cijenu prije kupnje.",
+              a: "Besplatna verzija podržava jedan IPTV izvor, jedan profil za gledanje i punu reprodukciju. Viewaro Premium košta 4,99 € mjesečno i otključava više IPTV izvora i profila. App Store prije kupnje prikazuje lokaliziranu cijenu.",
             },
             {
               q: "Kako vratiti ili otkazati Premium?",
-              a: "Koristi Vrati kupnje u Viewaru za vraćanje prihvatljive Apple kupnje. Aktivnu pretplatu upravljaj ili otkaži u postavkama pretplate svog Apple računa. Brisanje Viewara ne otkazuje automatski pretplatu.",
+              a: "Otvori Viewaro Postavke > Pretplata i odaberi Vrati kupnje. Za upravljanje ili otkazivanje koristi Upravljaj pretplatom, kada je dostupno, ili postavke pretplata Apple računa. Brisanje Viewara ne otkazuje pretplatu.",
+            },
+            {
+              q: "Kako rade roditeljski nadzor i PIN?",
+              a: "Otvori Viewaro Postavke > Roditeljski nadzor kako bi postavio, promijenio ili isključio četveroznamenkasti PIN. PIN štiti upravljanje profilima i prijelaz iz dječjeg u neograničeni profil. Ako ga zaboraviš, Viewaro ga ne može resetirati unutar aplikacije. Za novi početak zatvori i izbriši Viewaro, zatim u Finderu odaberi Idi > Idi u mapu i premjesti ~/Library/Containers/hr.itquotes.viewaro u Smeće prije ponovne instalacije. Time trajno brišeš lokalne playliste, vjerodajnice, favorite, profile i postavke; Premium pretplata se ne otkazuje.",
             },
             {
               q: "Učitava li Viewaro moju playlistu na server?",

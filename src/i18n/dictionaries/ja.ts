@@ -5,7 +5,7 @@ const ja: Dictionary = {
     features: "機能",
     faq: "よくある質問",
     support: "サポート",
-    comingSoon: "近日公開",
+    comingSoon: "macOS 15以降",
   },
   footer: {
     tagline: "あなたのコンテンツ。あなたの画面。",
@@ -19,13 +19,15 @@ const ja: Dictionary = {
   home: {
     metaTitle: "Viewaro — ライブTVを、正しいかたちで",
     metaDescription:
-      "Viewaroは、iPhone、iPad、Mac、Apple TV、Android、Android TV向けの高速で洗練されたIPTVプレーヤーです。M3U、Xtream、手動ソースへの対応、ライブEPG、お気に入り、ペアレンタルコントロール — 近日公開。",
+      "ViewaroはmacOS 15以降に対応するネイティブIPTVプレーヤーです。自分のM3U/M3U8プレイリストを読み込み、視聴権限のあるストリームを再生できます。",
     eyebrow: "Viewaro Player",
     heroLine1: "あなたのコンテンツ。",
     heroLine2: "あなたの画面。",
     heroSub:
-      "スマートフォン、Mac、テレビ向けの高速で洗練されたIPTVプレーヤー。自分のプレイリストを持ち込むだけ — あとはViewaroにお任せください。",
-    badge: "App Store と Google Play に近日登場",
+      "ViewaroはMac用のネイティブIPTVプレーヤーです。自分のM3U/M3U8プレイリストを読み込み、視聴権限のあるストリームを再生できます。Viewaroはチャンネル、プレイリスト、メディア配信契約を提供しません。",
+    badge: "現在のリリース：macOS 15以降",
+    plannedPlatforms:
+      "予定：iPhone、iPad、Apple TV、Android、Android TV。これらのプラットフォームは現在のmacOS版では利用できません。",
     featuresEyebrow: "機能",
     featuresHeading: "ライブTVアプリに必要なすべて。",
     features: [
@@ -34,30 +36,29 @@ const ja: Dictionary = {
         body: "リアルタイムの進行状況と次の番組がわかる、埋め込み式の番組ガイド。別画面を開く必要はありません。",
       },
       {
-        title: "あらゆるソースに対応",
-        body: "M3Uプレイリスト、Xtream Codesアカウントを接続、またはチャンネルを1つずつ手動で追加。複数のソースを同時に組み合わせられます。",
+        title: "自分のM3Uプレイリスト",
+        body: "利用権限のあるプロバイダーから、対応するM3UまたはM3U8プレイリストを読み込めます。",
       },
       {
         title: "お気に入りと検索",
         body: "個人用のチャンネルリストを作成し、追加したすべてのソースから何でも即座に見つけられます。",
       },
       {
-        title: "クラウド同期",
-        body: "ソース、お気に入り、設定はスマートフォンからテレビまで引き継がれます。一度サインインするか、スキップしても構いません — ゲストモードでも利用できます。",
+        title: "Mac内に保存",
+        body: "プレイリスト、認証情報、お気に入り、設定はMac内に保存されます。Viewaroアカウントやクラウド同期はありません。",
       },
       {
         title: "ペアレンタルコントロール",
-        body: "個別のチャンネルをPINでロックし、安心してリモコンを人に渡せます。",
+        body: "4桁のPINでプロフィール管理と子ども用プロフィールからの退出を保護し、制限カテゴリを非表示にします。",
       },
       {
-        title: "あらゆる画面のために設計",
-        body: "スマートフォンと同じくApple TVやAndroid TVでも快適に使えるプレーヤー。リモコンでの完全な操作にも対応。",
+        title: "Macのために設計",
+        body: "macOS 15以降に最適化されたネイティブ体験。Macらしい操作、キーボードナビゲーション、ローカル保存に対応します。",
       },
     ],
     integrationsEyebrow: "ロードマップ",
-    integrationsHeading: "映画・ドラマ機能が登場予定。",
-    integrationsSub:
-      "ライブTVに加えて、メタデータが充実したカタログを計画中です — まだ提供されていない、計画段階の連携機能です。",
+    integrationsHeading: "映画・ドラマ",
+    integrationsSub: "計画中の機能です。macOS 1.0では利用できません。",
     integrations: [
       {
         name: "TMDB",
@@ -75,12 +76,12 @@ const ja: Dictionary = {
       {
         step: "01",
         title: "Viewaroをインストール",
-        body: "スマートフォン、タブレット、Mac、テレビにインストール。1つのアプリで、どこでも同じ体験を。",
+        body: "macOS 15以降を搭載したMacに現在のリリースをインストールします。",
       },
       {
         step: "02",
         title: "プレイリストを追加",
-        body: "M3Uリンクを貼り付けるか、Xtreamアカウントでサインイン。数秒でチャンネルが表示されます。",
+        body: "自分のM3UまたはM3U8プレイリストのアドレスを貼り付けます。読み込んだチャンネルが数秒で表示されます。",
       },
       {
         step: "03",
@@ -97,41 +98,41 @@ const ja: Dictionary = {
       },
       {
         q: "対応プラットフォームは?",
-        a: "Viewaroは iPhone、iPad、Mac、Apple TV、Android、Android TV 向けに開発が進められています。",
+        a: "現在のリリースはmacOS 15以降を搭載したMacに対応します。iPhone、iPad、Apple TV、Android、Android TVは計画中ですが、macOS 1.0では利用できません。",
       },
       {
         q: "どのプレイリスト形式が使えますか?",
-        a: "M3U / M3U8プレイリストとXtream Codesアカウント、および手動で追加したチャンネルに対応しています。EPGデータはXMLTV経由で対応しており、プレイリストから自動検出するか、手動で追加できます。",
+        a: "現在のリリースはM3UとM3U8プレイリストを読み込めます。任意のXMLTV番組表アドレスも指定できます。Xtream Codesアカウントとチャンネルの手動追加はmacOS 1.0では利用できません。",
       },
       {
         q: "アカウントは必要ですか?",
-        a: "いいえ — すべてゲストモードで利用できます。無料のアカウント(任意)を作成するとクラウド同期が追加され、ソース、お気に入り、設定がデバイス間で引き継がれます。",
+        a: "必要ありません。macOS 1.0にはViewaroアカウント、サインイン、クラウド同期はありません。プレイリスト、お気に入り、プロフィール、設定はMac内に保存されます。",
       },
       {
-        q: "いつリリースされますか?",
-        a: "Viewaroは現在、全プラットフォームで開発とテストが進行中です。リリースの詳細は真っ先にここで発表されます。",
+        q: "Viewaro Premiumの仕組みは?",
+        a: "Viewaro Premiumは月額4.99ユーロのAppleアプリ内自動更新サブスクリプションです。複数のIPTVソースとプロフィールを利用できます。購入前にAppleが現地価格を表示し、請求、解約、返金を管理します。",
       },
     ],
-    ctaHeading: "まもなくリリース。",
+    ctaHeading: "現在のリリース：macOS 1.0",
     ctaBody:
-      "Viewaroは現在、5つのすべてのプラットフォームで開発・テストが進められています。リリースの詳細は近日お知らせします。",
+      "macOS 15以降に対応。自分のM3U/M3U8プレイリストを使用します。Viewaroはチャンネルやメディア配信契約を提供しません。",
   },
   legal: {
-    updatedLabel: "最終更新日:",
+    updatedLabel: "発効日:",
     privacy: {
       title: "プライバシーポリシー",
       metaDescription: "Viewaroがあなたのデータをどのように扱うか。",
-      updated: "2026年7月31日",
+      updated: "2026年8月5日",
       sections: [
         {
           paragraphs: [
-            "Viewaroは**ITQuotes**(「Viewaro」「当社」)が提供しています。本プライバシーポリシーは、Viewaro macOSアプリおよびViewaroサポートサイトがどのように情報を扱うかを説明します。",
+            "Viewaroは**IT QUOTES, vl. Marina Blažon Bobinac**(「Viewaro」「当社」)が提供しています。本プライバシーポリシーは、Viewaro macOSアプリおよびViewaroサポートサイトがどのように情報を扱うかを説明します。",
           ],
         },
         {
           list: [
             "メール:[support@itquotes.hr](mailto:support@itquotes.hr)",
-            "住所:クロアチア共和国 ザグレブ(Zagreb, Croatia)",
+            "住所:Vukomerečka cesta 15, 10000 Zagreb, Croatia",
           ],
         },
         {
@@ -165,6 +166,14 @@ const ja: Dictionary = {
           paragraphs: [
             "プレイリストをインポートしたりストリームを再生したりすると、お使いのMacは指定されたアドレスに直接接続します。そのプロバイダーは、IPアドレス、リクエスト時刻、リクエストされたパス、プロバイダーのURLに含まれる認証情報など、通常ネットワーク接続に含まれる情報を受け取る可能性があります。",
             "当社はお客様のプロバイダーを管理しておらず、これらのリクエストを受け取ることもありません。お客様のプロバイダー独自のプライバシーポリシーおよび利用規約が適用されます。Viewaroは現在のプレイリストおよびAVPlayer経路でHTTPSを必須とし、暗号化されていないHTTP経由でプレイリストの認証情報を送信することはありません。",
+          ],
+        },
+        {
+          heading: "公開TV番組表フィード",
+          paragraphs: [
+            "プレイリストに独自のXMLTV番組表アドレスが含まれる場合、Viewaroはプロバイダーへの接続と同様に、そのアドレスだけに接続します。",
+            "番組表アドレスがない場合、プレイリストを初めて開いたときと番組表を更新したときに、Viewaroが公開番組表を自動的に検索します。open-epg.comとiptv-epg.orgから国別のXMLTVファイルを取得します。",
+            "これらの配信元には、IPアドレス、リクエスト時刻、要求した国別ファイルなど、通常のネットワーク情報が送られます。Viewaroはプロバイダーのアドレス、認証情報、チャンネル名、視聴履歴を送信しません。番組の照合はMac内で行われ、各配信元のプライバシーポリシーと利用条件が適用されます。",
           ],
         },
         {
@@ -252,7 +261,7 @@ const ja: Dictionary = {
         {
           heading: "お問い合わせ",
           paragraphs: [
-            "プライバシーに関するご質問やご依頼は、[support@itquotes.hr](mailto:support@itquotes.hr)、または ITQuotes、クロアチア共和国 ザグレブ(Zagreb, Croatia)までお送りください。",
+            "プライバシーに関するご質問やご依頼は、[support@itquotes.hr](mailto:support@itquotes.hr)、または IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatiaまでお送りください。",
           ],
         },
       ],
@@ -260,11 +269,11 @@ const ja: Dictionary = {
     terms: {
       title: "利用規約",
       metaDescription: "Viewaroアプリの利用規約。",
-      updated: "2026年7月31日",
+      updated: "2026年8月5日",
       sections: [
         {
           paragraphs: [
-            "本利用規約(以下「本規約」)は、**ITQuotes**(「Viewaro」「当社」)が提供するViewaro macOSアプリおよび関連するサポートサイトに適用されます。",
+            "本利用規約(以下「本規約」)は、**IT QUOTES, vl. Marina Blažon Bobinac**(「Viewaro」「当社」)が提供するViewaro macOSアプリおよび関連するサポートサイトに適用されます。",
           ],
         },
         {
@@ -356,7 +365,7 @@ const ja: Dictionary = {
         {
           heading: "お問い合わせ",
           paragraphs: [
-            "本規約に関するご質問は、[support@itquotes.hr](mailto:support@itquotes.hr)、または ITQuotes、クロアチア共和国 ザグレブ(Zagreb, Croatia)までお送りください。",
+            "本規約に関するご質問は、[support@itquotes.hr](mailto:support@itquotes.hr)、または IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatiaまでお送りください。",
           ],
         },
       ],
@@ -367,15 +376,15 @@ const ja: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaroは、macOS向けのネイティブIPTVプレーヤーです。お客様が用意したM3Uプレイリストから、対応するストリームを再生します。Viewaroにはチャンネル、プレイリスト、メディアサービスのサブスクリプションは含まれていません。",
+            "Viewaro 1.0は、macOS 15以降を搭載したMac向けのネイティブIPTVプレーヤーです。お客様が用意したM3U/M3U8プレイリストを読み込み、対応するストリームを再生します。ユーザーアカウントやクラウド同期はなく、チャンネル、プレイリスト、メディア配信契約も含まれません。",
           ],
         },
         {
           heading: "お問い合わせ",
           list: [
             "サポートメール:[support@itquotes.hr](mailto:support@itquotes.hr)",
-            "提供元:ITQuotes",
-            "住所:クロアチア共和国 ザグレブ(Zagreb, Croatia)",
+            "提供元:IT QUOTES, vl. Marina Blažon Bobinac",
+            "住所:Vukomerečka cesta 15, 10000 Zagreb, Croatia",
           ],
         },
         {
@@ -399,7 +408,7 @@ const ja: Dictionary = {
           topics: [
             {
               q: "プレイリストが読み込まれません",
-              a: "プロバイダーにURLを確認してください — M3U/M3U8ファイルまたは有効なXtream Codesサーバーを指している必要があります。ブラウザではプレイリストが読み込めるのにアプリでは読み込めない場合、プロバイダーがアプリからのアクセスをブロックしている可能性があります。プロバイダーにお問い合わせください。",
+              a: "プロバイダーにURLを確認してください。URLは有効なM3U/M3U8ファイルを指している必要があります。ブラウザでは読み込めてもアプリで読み込めない場合、プロバイダーがアプリからのアクセスをブロックしている可能性があります。",
             },
             {
               q: "HTTPのプレイリストが失敗するのはなぜですか?",
@@ -411,11 +420,15 @@ const ja: Dictionary = {
             },
             {
               q: "無料版には何が含まれますか?",
-              a: "無料版は、1つのIPTVソースと基本的な再生機能に対応しています。サブスクリプションが有効な場合、Premiumで複数のソースを利用できるようになります。購入前に、アプリは正確な機能内容、期間、現地通貨での価格を表示します。",
+              a: "無料版は1つのIPTVソース、1つのプロフィール、すべての再生機能に対応します。Viewaro Premiumは月額4.99ユーロで、複数のIPTVソースとプロフィールを利用できます。購入前にApp Storeが現地価格を表示します。",
             },
             {
               q: "Premiumを復元・解約するには?",
-              a: "対象となるApple購入を復元するには、Viewaro内の「購入を復元」を使用してください。有効なサブスクリプションの管理や解約は、Apple Accountのサブスクリプション設定から行えます。Viewaroを削除しても、サブスクリプションは自動的には解約されません。",
+              a: "Viewaroの「設定」>「サブスクリプション」を開き、「購入を復元」を選択します。「サブスクリプションを管理」が利用できる場合はそれを使用するか、Apple Accountのサブスクリプション設定から管理・解約します。Viewaroを削除しても解約されません。",
+            },
+            {
+              q: "ペアレンタルコントロールとPINの仕組みは?",
+              a: "Viewaroの「設定」>「ペアレンタルコントロール」で4桁のPINを設定、変更、無効化できます。PINはプロフィール管理と子ども用プロフィールからの退出を保護します。PINを忘れた場合、アプリ内ではリセットできません。Viewaroを終了して削除し、Finderで「移動」>「フォルダへ移動」を選び、再インストール前に~/Library/Containers/hr.itquotes.viewaroをゴミ箱へ移動してください。ローカルのプレイリスト、認証情報、お気に入り、プロフィール、設定が完全に削除されますが、Premiumは解約されません。",
             },
             {
               q: "Viewaroは私のプレイリストをアップロードしますか?",

@@ -5,7 +5,7 @@ const fr: Dictionary = {
     features: "Fonctionnalités",
     faq: "FAQ",
     support: "Assistance",
-    comingSoon: "Bientôt disponible",
+    comingSoon: "macOS 15+",
   },
   footer: {
     tagline: "Votre contenu. Votre écran.",
@@ -19,13 +19,15 @@ const fr: Dictionary = {
   home: {
     metaTitle: "Viewaro — La TV en direct, bien faite",
     metaDescription:
-      "Viewaro est un lecteur IPTV rapide et élégant pour iPhone, iPad, Mac, Apple TV, Android et Android TV. Sources M3U, Xtream et manuelles, EPG en direct, favoris et contrôle parental — bientôt disponible.",
+      "Viewaro est un lecteur IPTV natif pour macOS 15+. Importez votre propre playlist M3U/M3U8 et lisez les flux auxquels vous êtes autorisé à accéder.",
     eyebrow: "Viewaro Player",
     heroLine1: "Votre contenu.",
     heroLine2: "Votre écran.",
     heroSub:
-      "Un lecteur IPTV rapide et élégant pour votre téléphone, votre Mac et votre téléviseur. Apportez votre propre playlist — Viewaro s'occupe du reste.",
-    badge: "Bientôt sur l'App Store et Google Play",
+      "Viewaro est un lecteur IPTV natif pour Mac. Importez votre propre playlist M3U/M3U8 et lisez les flux auxquels vous êtes autorisé à accéder. Viewaro ne fournit aucune chaîne, playlist ou offre média.",
+    badge: "Version actuelle : macOS 15+",
+    plannedPlatforms:
+      "Prévu : iPhone, iPad, Apple TV, Android et Android TV. Ces plateformes ne sont pas disponibles dans la version macOS actuelle.",
     featuresEyebrow: "Fonctionnalités",
     featuresHeading: "Tout ce qu'une application de TV en direct doit être.",
     features: [
@@ -34,30 +36,29 @@ const fr: Dictionary = {
         body: "Un guide des programmes intégré avec progression en direct et aperçu du programme suivant — pas besoin d'un écran séparé.",
       },
       {
-        title: "N'importe quelle source",
-        body: "Connectez une playlist M3U, un compte Xtream Codes, ou ajoutez des chaînes une par une. Combinez plusieurs sources à la fois.",
+        title: "Votre playlist M3U",
+        body: "Importez une playlist M3U ou M3U8 compatible depuis un fournisseur que vous êtes autorisé à utiliser.",
       },
       {
         title: "Favoris et recherche",
         body: "Créez une liste de chaînes personnelle et trouvez instantanément n'importe quoi, dans toutes les sources que vous avez ajoutées.",
       },
       {
-        title: "Synchronisation cloud",
-        body: "Sources, favoris et paramètres vous suivent du téléphone au téléviseur. Connectez-vous une fois, ou passez cette étape — le mode invité fonctionne aussi.",
+        title: "Données locales",
+        body: "Playlists, identifiants, favoris et réglages restent sur votre Mac. Il n'existe ni compte Viewaro ni synchronisation cloud.",
       },
       {
         title: "Contrôle parental",
-        body: "Verrouillez des chaînes individuelles avec un code PIN, pour que la télécommande puisse être confiée sans souci.",
+        body: "Un code PIN à quatre chiffres protège la gestion des profils et la sortie d'un profil enfant ; les catégories restreintes y restent masquées.",
       },
       {
-        title: "Conçu pour chaque écran",
-        body: "Un lecteur aussi à l'aise sur téléphone que sur Apple TV et Android TV, avec navigation complète à la télécommande incluse.",
+        title: "Conçu pour Mac",
+        body: "Une expérience native pour macOS 15+ avec les commandes Mac, la navigation au clavier et le stockage local.",
       },
     ],
     integrationsEyebrow: "Sur la feuille de route",
-    integrationsHeading: "Films et séries arrivent.",
-    integrationsSub:
-      "Un catalogue enrichi de métadonnées en plus de la TV en direct — intégrations prévues, pas encore disponibles.",
+    integrationsHeading: "Films et séries",
+    integrationsSub: "Fonctionnalité prévue — non disponible dans macOS 1.0.",
     integrations: [
       {
         name: "TMDB",
@@ -75,12 +76,12 @@ const fr: Dictionary = {
       {
         step: "01",
         title: "Installez Viewaro",
-        body: "Sur votre téléphone, tablette, Mac ou téléviseur. Une seule app, la même expérience partout.",
+        body: "Installez la version actuelle sur un Mac équipé de macOS 15 ou ultérieur.",
       },
       {
         step: "02",
         title: "Ajoutez votre playlist",
-        body: "Collez un lien M3U ou connectez-vous avec votre compte Xtream. Vos chaînes apparaissent en quelques secondes.",
+        body: "Collez l'adresse de votre propre playlist M3U ou M3U8. Les chaînes importées apparaissent en quelques secondes.",
       },
       {
         step: "03",
@@ -97,41 +98,41 @@ const fr: Dictionary = {
       },
       {
         q: "Quelles plateformes sont prises en charge ?",
-        a: "Viewaro est développé pour iPhone, iPad, Mac, Apple TV, Android et Android TV.",
+        a: "La version actuelle prend en charge les Mac sous macOS 15 ou ultérieur. iPhone, iPad, Apple TV, Android et Android TV sont prévus, mais indisponibles dans macOS 1.0.",
       },
       {
         q: "Quels formats de playlist puis-je utiliser ?",
-        a: "Les playlists M3U/M3U8 et les comptes Xtream Codes, ainsi que les chaînes ajoutées manuellement. Les données EPG sont prises en charge via XMLTV, détectées automatiquement depuis votre playlist ou ajoutées manuellement.",
+        a: "La version actuelle importe les playlists M3U et M3U8. Vous pouvez également indiquer une adresse de guide XMLTV facultative. Les comptes Xtream Codes et l'ajout manuel de chaînes ne sont pas disponibles dans macOS 1.0.",
       },
       {
         q: "Ai-je besoin d'un compte ?",
-        a: "Non — tout fonctionne en mode invité. Un compte gratuit optionnel ajoute la synchronisation cloud, afin que vos sources, favoris et paramètres vous suivent sur tous vos appareils.",
+        a: "Non. macOS 1.0 ne comporte ni compte Viewaro, ni connexion, ni synchronisation cloud. Vos playlists, favoris, profils et réglages restent sur votre Mac.",
       },
       {
-        q: "Quand sera-t-il lancé ?",
-        a: "Viewaro est actuellement en développement et en test sur toutes les plateformes. Les détails du lancement apparaîtront ici en premier.",
+        q: "Comment fonctionne Viewaro Premium ?",
+        a: "Viewaro Premium est un abonnement Apple intégré renouvelé automatiquement au prix de 4,99 € par mois. Il débloque plusieurs sources IPTV et profils. Apple affiche le prix local avant l'achat et gère la facturation, l'annulation et les remboursements.",
       },
     ],
-    ctaHeading: "Lancement bientôt.",
+    ctaHeading: "Version actuelle : macOS 1.0",
     ctaBody:
-      "Viewaro est en cours de développement et de test sur les cinq plateformes. Revenez bientôt pour les détails du lancement.",
+      "Pour macOS 15 et ultérieur. Vous fournissez votre propre playlist M3U/M3U8 ; Viewaro ne propose aucune chaîne ni offre média.",
   },
   legal: {
-    updatedLabel: "Dernière mise à jour :",
+    updatedLabel: "Date d'entrée en vigueur :",
     privacy: {
       title: "Politique de confidentialité",
       metaDescription: "Comment Viewaro traite vos données.",
-      updated: "31 juillet 2026",
+      updated: "5 août 2026",
       sections: [
         {
           paragraphs: [
-            "Viewaro est fourni par **ITQuotes** (« Viewaro », « nous » ou « notre »). Cette politique de confidentialité explique comment l'application Viewaro pour macOS et le site d'assistance Viewaro traitent les informations.",
+            "Viewaro est fourni par **IT QUOTES, vl. Marina Blažon Bobinac** (« Viewaro », « nous » ou « notre »). Cette politique de confidentialité explique comment l'application Viewaro pour macOS et le site d'assistance Viewaro traitent les informations.",
           ],
         },
         {
           list: [
             "E-mail : [support@itquotes.hr](mailto:support@itquotes.hr)",
-            "Adresse postale : Zagreb, Croatie",
+            "Adresse postale : Vukomerečka cesta 15, 10000 Zagreb, Croatie",
           ],
         },
         {
@@ -165,6 +166,14 @@ const fr: Dictionary = {
           paragraphs: [
             "Lorsque vous importez une playlist ou lisez un flux, votre Mac se connecte directement à l'adresse que vous avez fournie. Ce fournisseur peut recevoir les informations normalement incluses dans une connexion réseau, telles que votre adresse IP, l'heure de la requête, le chemin demandé et tout identifiant inclus dans l'URL du fournisseur.",
             "Nous ne contrôlons pas votre fournisseur et ne recevons pas ces requêtes. La politique de confidentialité et les conditions propres à votre fournisseur s'appliquent. Viewaro exige HTTPS pour les chemins actuels de playlist et AVPlayer et ne transmet pas les identifiants de playlist en HTTP non chiffré.",
+          ],
+        },
+        {
+          heading: "Sources publiques du guide TV",
+          paragraphs: [
+            "Si votre playlist contient sa propre adresse de guide XMLTV, Viewaro se connecte uniquement à cette adresse, comme il le fait avec votre fournisseur.",
+            "Si la playlist n'a pas d'adresse de guide, Viewaro recherche automatiquement un guide public lors de sa première ouverture et lorsque vous actualisez le guide. Il demande des fichiers XMLTV par pays à open-epg.com et iptv-epg.org.",
+            "Ces éditeurs reçoivent les données réseau habituelles, comme votre adresse IP, l'heure de la requête et le fichier pays demandé. Viewaro ne leur transmet ni l'adresse du fournisseur, ni identifiants, ni noms de chaînes, ni historique de visionnage. La correspondance des programmes s'effectue localement sur votre Mac ; la politique de confidentialité et les conditions de chaque éditeur s'appliquent.",
           ],
         },
         {
@@ -252,7 +261,7 @@ const fr: Dictionary = {
         {
           heading: "Contact",
           paragraphs: [
-            "Les questions ou demandes relatives à la confidentialité peuvent être envoyées à [support@itquotes.hr](mailto:support@itquotes.hr) ou à ITQuotes, Zagreb, Croatie.",
+            "Les questions ou demandes relatives à la confidentialité peuvent être envoyées à [support@itquotes.hr](mailto:support@itquotes.hr) ou à IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatie.",
           ],
         },
       ],
@@ -260,11 +269,11 @@ const fr: Dictionary = {
     terms: {
       title: "Conditions d'utilisation",
       metaDescription: "Conditions d'utilisation de l'application Viewaro.",
-      updated: "31 juillet 2026",
+      updated: "5 août 2026",
       sections: [
         {
           paragraphs: [
-            "Ces Conditions d'utilisation (« Conditions ») s'appliquent à l'application Viewaro pour macOS et au site d'assistance associé, fournis par **ITQuotes** (« Viewaro », « nous » ou « notre »).",
+            "Ces Conditions d'utilisation (« Conditions ») s'appliquent à l'application Viewaro pour macOS et au site d'assistance associé, fournis par **IT QUOTES, vl. Marina Blažon Bobinac** (« Viewaro », « nous » ou « notre »).",
           ],
         },
         {
@@ -356,7 +365,7 @@ const fr: Dictionary = {
         {
           heading: "Contact",
           paragraphs: [
-            "Les questions relatives à ces Conditions peuvent être envoyées à [support@itquotes.hr](mailto:support@itquotes.hr) ou à ITQuotes, Zagreb, Croatie.",
+            "Les questions relatives à ces Conditions peuvent être envoyées à [support@itquotes.hr](mailto:support@itquotes.hr) ou à IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatie.",
           ],
         },
       ],
@@ -367,15 +376,15 @@ const fr: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaro est un lecteur IPTV natif pour macOS. Il lit les flux compatibles à partir d'une playlist M3U que vous fournissez. Viewaro n'inclut ni chaînes, ni playlists, ni abonnements à des services média.",
+            "Viewaro 1.0 est un lecteur IPTV natif pour les Mac sous macOS 15 ou ultérieur. Il importe les playlists M3U/M3U8 que vous fournissez et lit les flux compatibles. Il n'existe ni compte utilisateur ni synchronisation cloud ; Viewaro n'inclut aucune chaîne, playlist ou offre média.",
           ],
         },
         {
           heading: "Contact",
           list: [
             "E-mail d'assistance : [support@itquotes.hr](mailto:support@itquotes.hr)",
-            "Fournisseur : ITQuotes",
-            "Adresse postale : Zagreb, Croatie",
+            "Fournisseur : IT QUOTES, vl. Marina Blažon Bobinac",
+            "Adresse postale : Vukomerečka cesta 15, 10000 Zagreb, Croatie",
           ],
         },
         {
@@ -399,7 +408,7 @@ const fr: Dictionary = {
           topics: [
             {
               q: "Ma playlist ne se charge pas",
-              a: "Vérifiez l'URL auprès de votre fournisseur — elle doit pointer vers un fichier M3U/M3U8 ou un serveur Xtream Codes valide. Si la playlist se charge dans un navigateur mais pas dans l'application, votre fournisseur bloque peut-être l'accès depuis les apps ; contactez-le.",
+              a: "Vérifiez l'URL auprès de votre fournisseur : elle doit pointer vers un fichier M3U/M3U8 valide. Si la playlist se charge dans un navigateur mais pas dans l'application, votre fournisseur bloque peut-être l'accès depuis les apps ; contactez-le.",
             },
             {
               q: "Pourquoi une playlist HTTP échoue-t-elle ?",
@@ -411,11 +420,15 @@ const fr: Dictionary = {
             },
             {
               q: "Que comprend la version gratuite ?",
-              a: "La version gratuite prend en charge une source IPTV et la lecture de base. Si les abonnements sont activés, Premium peut débloquer plusieurs sources. L'application affiche les fonctionnalités exactes, la durée et le prix localisé avant l'achat.",
+              a: "La version gratuite prend en charge une source IPTV, un profil et la lecture complète. Viewaro Premium coûte 4,99 € par mois et débloque plusieurs sources IPTV et profils. L'App Store affiche le prix localisé avant l'achat.",
             },
             {
               q: "Comment restaurer ou annuler Premium ?",
-              a: "Utilisez Restaurer les achats dans Viewaro pour restaurer un achat Apple éligible. Gérez ou annulez un abonnement actif depuis les paramètres d'abonnement de votre compte Apple. La suppression de Viewaro n'annule pas automatiquement un abonnement.",
+              a: "Ouvrez Réglages de Viewaro > Abonnement et choisissez Restaurer les achats. Utilisez Gérer l'abonnement, si disponible, ou les réglages d'abonnement de votre compte Apple pour gérer ou annuler. La suppression de Viewaro n'annule pas l'abonnement.",
+            },
+            {
+              q: "Comment fonctionnent le contrôle parental et le code PIN ?",
+              a: "Ouvrez Réglages de Viewaro > Contrôle parental pour définir, modifier ou désactiver un code PIN à quatre chiffres. Le PIN protège la gestion des profils et la sortie d'un profil enfant. Si vous l'oubliez, Viewaro ne peut pas le réinitialiser dans l'app. Quittez et supprimez Viewaro, puis dans le Finder choisissez Aller > Aller au dossier et placez ~/Library/Containers/hr.itquotes.viewaro dans la Corbeille avant de réinstaller. Cela supprime définitivement les playlists, identifiants, favoris, profils et réglages locaux ; Premium n'est pas annulé.",
             },
             {
               q: "Viewaro envoie-t-il ma playlist ?",
