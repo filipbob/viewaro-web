@@ -122,7 +122,7 @@ const fr: Dictionary = {
     privacy: {
       title: "Politique de confidentialité",
       metaDescription: "Comment Viewaro traite vos données.",
-      updated: "5 août 2026",
+      updated: "7 août 2026",
       sections: [
         {
           paragraphs: [
@@ -165,7 +165,7 @@ const fr: Dictionary = {
           heading: "Connexions réseau vers votre fournisseur",
           paragraphs: [
             "Lorsque vous importez une playlist ou lisez un flux, votre Mac se connecte directement à l'adresse que vous avez fournie. Ce fournisseur peut recevoir les informations normalement incluses dans une connexion réseau, telles que votre adresse IP, l'heure de la requête, le chemin demandé et tout identifiant inclus dans l'URL du fournisseur.",
-            "Nous ne contrôlons pas votre fournisseur et ne recevons pas ces requêtes. La politique de confidentialité et les conditions propres à votre fournisseur s'appliquent. Viewaro exige HTTPS pour les chemins actuels de playlist et AVPlayer et ne transmet pas les identifiants de playlist en HTTP non chiffré.",
+            "Nous ne contrôlons pas votre fournisseur et ne recevons pas ces requêtes. La politique de confidentialité et les conditions de votre fournisseur s'appliquent. Viewaro privilégie HTTPS. Lorsqu'une adresse de fournisseur utilise HTTP, Viewaro avertit que la connexion peut exposer des identifiants et essaie d'abord le même hôte en HTTPS. Si le fournisseur ne prend pas HTTPS en charge, Viewaro peut utiliser l'adresse HTTP d'origine non chiffrée pour une playlist, un guide, une image ou un flux fournis par l'utilisateur. Utilisez HTTPS chaque fois que votre fournisseur le propose.",
           ],
         },
         {
@@ -411,8 +411,8 @@ const fr: Dictionary = {
               a: "Vérifiez l'URL auprès de votre fournisseur : elle doit pointer vers un fichier M3U/M3U8 valide. Si la playlist se charge dans un navigateur mais pas dans l'application, votre fournisseur bloque peut-être l'accès depuis les apps ; contactez-le.",
             },
             {
-              q: "Pourquoi une playlist HTTP échoue-t-elle ?",
-              a: "Les adresses de playlist et les URL de flux peuvent contenir des identifiants. Viewaro essaie d'abord HTTPS et n'envoie pas ces identifiants en HTTP non chiffré dans la version actuelle. Demandez à votre fournisseur une adresse HTTPS.",
+              q: "Puis-je utiliser une playlist ou un flux HTTP ?",
+              a: "Oui, si l'adresse appartient au fournisseur que vous avez choisi. Viewaro avertit lorsqu'une adresse de fournisseur saisie utilise HTTP et essaie d'abord le même hôte en HTTPS. Si le fournisseur ne prend en charge que HTTP, l'app peut revenir à l'adresse d'origine. Les URL de playlists et de flux contiennent souvent des identifiants ; une connexion HTTP peut donc les exposer sur le réseau. Utilisez HTTPS chaque fois que votre fournisseur le propose.",
             },
             {
               q: "Comment vérifier que la lecture fonctionne ?",

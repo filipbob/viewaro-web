@@ -122,7 +122,7 @@ const nl: Dictionary = {
     privacy: {
       title: "Privacybeleid",
       metaDescription: "Hoe Viewaro met je gegevens omgaat.",
-      updated: "5 augustus 2026",
+      updated: "7 augustus 2026",
       sections: [
         {
           paragraphs: [
@@ -165,7 +165,7 @@ const nl: Dictionary = {
           heading: "Netwerkverbindingen met je provider",
           paragraphs: [
             "Wanneer je een playlist importeert of een stream afspeelt, maakt je Mac rechtstreeks verbinding met het adres dat je hebt opgegeven. Die provider kan informatie ontvangen die normaal gesproken bij een netwerkverbinding hoort, zoals je IP-adres, het tijdstip van het verzoek, het opgevraagde pad en eventuele inloggegevens in de provider-URL.",
-            "Wij hebben geen controle over je provider en ontvangen die verzoeken niet. Het eigen privacybeleid en de voorwaarden van je provider zijn van toepassing. Viewaro vereist HTTPS voor de huidige playlist- en AVPlayer-paden en verzendt playlistgegevens niet via onversleuteld HTTP.",
+            "Wij hebben geen controle over je provider en ontvangen die verzoeken niet. Het eigen privacybeleid en de voorwaarden van je provider zijn van toepassing. Viewaro geeft de voorkeur aan HTTPS. Wanneer een provideradres HTTP gebruikt, waarschuwt Viewaro dat de verbinding inloggegevens kan blootstellen en probeert het eerst dezelfde host via HTTPS. Als de provider geen HTTPS ondersteunt, kan Viewaro het oorspronkelijke onversleutelde HTTP-adres gebruiken voor een door de gebruiker opgegeven playlist, programmagids, afbeelding of stream. Gebruik HTTPS wanneer je provider dit aanbiedt.",
           ],
         },
         {
@@ -411,8 +411,8 @@ const nl: Dictionary = {
               a: "Viewaro verkoopt of beveelt geen IPTV-diensten aan. Vraag een provider waartoe je wettelijk gemachtigd bent om een compatibel M3U-playlistadres.",
             },
             {
-              q: "Waarom mislukt een HTTP-playlist?",
-              a: "Playlistadressen en stream-URL's kunnen inloggegevens bevatten. Viewaro probeert eerst HTTPS en verzendt deze gegevens in de huidige versie niet via onversleuteld HTTP. Vraag je provider om een HTTPS-adres.",
+              q: "Kan ik een HTTP-playlist of -stream gebruiken?",
+              a: "Ja, als het adres bij de provider hoort die je hebt gekozen. Viewaro waarschuwt wanneer een ingevoerd provideradres HTTP gebruikt en probeert eerst dezelfde host via HTTPS. Als de provider alleen HTTP ondersteunt, kan de app terugvallen op het oorspronkelijke adres. Playlist- en stream-URL's bevatten vaak inloggegevens, die via een HTTP-verbinding op het netwerk kunnen worden blootgesteld. Gebruik HTTPS wanneer je provider dit aanbiedt.",
             },
             {
               q: "Hoe controleer ik of afspelen werkt?",

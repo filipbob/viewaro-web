@@ -122,7 +122,7 @@ const es: Dictionary = {
     privacy: {
       title: "Política de privacidad",
       metaDescription: "Cómo gestiona Viewaro tus datos.",
-      updated: "5 de agosto de 2026",
+      updated: "7 de agosto de 2026",
       sections: [
         {
           paragraphs: [
@@ -165,7 +165,7 @@ const es: Dictionary = {
           heading: "Conexiones de red con tu proveedor",
           paragraphs: [
             "Cuando importas una lista o reproduces un stream, tu Mac se conecta directamente a la dirección que proporcionaste. Ese proveedor puede recibir la información normalmente incluida en una conexión de red, como tu dirección IP, la hora de la solicitud, la ruta solicitada y cualquier credencial incluida en la URL del proveedor.",
-            "No controlamos a tu proveedor ni recibimos esas solicitudes. Se aplican la propia política de privacidad y los términos de tu proveedor. Viewaro requiere HTTPS para las rutas actuales de lista y AVPlayer, y no transmite credenciales de lista por HTTP sin cifrar.",
+            "No controlamos a tu proveedor ni recibimos esas solicitudes. Se aplican la política de privacidad y los términos de tu proveedor. Viewaro da prioridad a HTTPS. Cuando una dirección del proveedor usa HTTP, Viewaro avisa de que la conexión puede exponer credenciales e intenta primero el mismo host mediante HTTPS. Si el proveedor no admite HTTPS, Viewaro puede usar la dirección HTTP original sin cifrar para una lista, guía, imagen o stream proporcionados por el usuario. Usa HTTPS siempre que tu proveedor lo ofrezca.",
           ],
         },
         {
@@ -411,8 +411,8 @@ const es: Dictionary = {
               a: "Viewaro no vende ni recomienda servicios IPTV. Pide a un proveedor al que estés legalmente autorizado a usar una dirección de lista M3U compatible.",
             },
             {
-              q: "¿Por qué falla una lista HTTP?",
-              a: "Las direcciones de lista y las URLs de stream pueden contener credenciales. Viewaro intenta primero HTTPS y no envía esas credenciales por HTTP sin cifrar en la versión actual. Pide a tu proveedor una dirección HTTPS.",
+              q: "¿Puedo usar una lista o un stream HTTP?",
+              a: "Sí, si la dirección pertenece al proveedor que has elegido. Viewaro avisa cuando una dirección introducida del proveedor usa HTTP e intenta primero el mismo host mediante HTTPS. Si el proveedor solo admite HTTP, la app puede volver a la dirección original. Las URLs de listas y streams suelen contener credenciales, por lo que una conexión HTTP puede exponerlas en la red. Usa HTTPS siempre que tu proveedor lo ofrezca.",
             },
             {
               q: "¿Cómo verifico que la reproducción funciona?",

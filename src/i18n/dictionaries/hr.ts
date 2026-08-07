@@ -122,7 +122,7 @@ const hr: Dictionary = {
     privacy: {
       title: "Pravila privatnosti",
       metaDescription: "Kako Viewaro postupa s tvojim podacima.",
-      updated: "5. kolovoza 2026.",
+      updated: "7. kolovoza 2026.",
       sections: [
         {
           paragraphs: [
@@ -165,7 +165,7 @@ const hr: Dictionary = {
           heading: "Mrežne veze s tvojim providerom",
           paragraphs: [
             "Kad uvezeš playlistu ili reproduciraš stream, tvoj Mac spaja se izravno na adresu koju si naveo. Taj provider može primiti informacije koje su uobičajeno uključene u mrežnu vezu, poput tvoje IP adrese, vremena zahtjeva, traženog puta i vjerodajnica sadržanih u URL-u providera.",
-            "Mi ne kontroliramo tvog providera i ne primamo te zahtjeve. Vrijede vlastita pravila privatnosti i uvjeti tvog providera. Viewaro zahtijeva HTTPS za trenutne putove playliste i AVPlayera te ne prenosi vjerodajnice playliste putem nešifriranog HTTP-a.",
+            "Mi ne kontroliramo tvog providera i ne primamo te zahtjeve. Vrijede vlastita pravila privatnosti i uvjeti tvog providera. Viewaro daje prednost HTTPS-u. Kada adresa providera koristi HTTP, Viewaro upozorava da veza može izložiti vjerodajnice i prvo pokušava isti host putem HTTPS-a. Ako provider ne podržava HTTPS, Viewaro može upotrijebiti izvornu nešifriranu HTTP adresu za playlistu, programski vodič, sliku ili stream koje je unio korisnik. Koristi HTTPS kad god ga provider nudi.",
           ],
         },
         {
@@ -411,8 +411,8 @@ const hr: Dictionary = {
               a: "Provjeri URL kod svog providera — mora upućivati na valjanu M3U/M3U8 datoteku. Ako se playlista učitava u pregledniku, ali ne u aplikaciji, provider možda blokira pristup aplikaciji; kontaktiraj ga.",
             },
             {
-              q: "Zašto HTTP playlista ne radi?",
-              a: "Adrese playlista i URL-ovi streamova mogu sadržavati vjerodajnice. Viewaro prvo pokušava HTTPS i u trenutnoj verziji ne šalje te vjerodajnice putem nešifriranog HTTP-a. Zatraži HTTPS adresu od svog providera.",
+              q: "Može li se koristiti HTTP playlista ili stream?",
+              a: "Može, ako adresa pripada provideru kojeg si odabrao. Viewaro upozorava kada unesena adresa providera koristi HTTP i prvo pokušava isti host putem HTTPS-a. Ako provider podržava samo HTTP, aplikacija se može vratiti na izvornu adresu. Adrese playlista i streamova često sadrže vjerodajnice pa ih HTTP veza može izložiti na mreži. Koristi HTTPS kad god ga provider nudi.",
             },
             {
               q: "Kako provjeriti radi li reprodukcija?",
