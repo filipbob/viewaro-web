@@ -2,14 +2,15 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-const expectedChannelIDs = [
-  "viewaro.demo.news",
-  "viewaro.demo.world",
-  "viewaro.demo.nature",
-  "viewaro.demo.travel",
-  "viewaro.demo.cinema",
-  "viewaro.demo.music",
+const expectedChannels = [
+  ["viewaro.demo.news", "Review News"],
+  ["viewaro.demo.world", "Global Report"],
+  ["viewaro.demo.nature", "Nature Lens"],
+  ["viewaro.demo.travel", "Travel Routes"],
+  ["viewaro.demo.cinema", "Cinema Preview"],
+  ["viewaro.demo.music", "Music Sessions"],
 ];
+const expectedChannelIDs = expectedChannels.map(([id]) => id);
 const expectedStreamURL =
   "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_adv_example_hevc/master.m3u8";
 const expectedGuideURL =
@@ -69,14 +70,30 @@ function validatePlaylist(playlist) {
   assert.equal(metadataLines.length, expectedChannelIDs.length);
   assert.equal(streamLines.length, expectedChannelIDs.length);
 
-  const playlistChannelIDs = metadataLines.map((line) => {
-    const match = line.match(/\btvg-id="([^"]+)"/);
-    assert.ok(match, `Missing tvg-id in ${line}`);
+  const playlistChannels = metadataLines.map((line) => {
+    const idMatch = line.match(/\btvg-id="([^"]+)"/);
+    const nameMatch = line.match(/,([^,]+)$/);
+    assert.ok(idMatch, `Missing tvg-id in ${line}`);
+    assert.ok(nameMatch, `Missing channel name in ${line}`);
     assert.match(line, /\bgroup-title="[^"]+"/);
-    return match[1];
+    return [idMatch[1], nameMatch[1]];
   });
-  assert.deepEqual(playlistChannelIDs, expectedChannelIDs);
-  assert.equal(new Set(playlistChannelIDs).size, expectedChannelIDs.length);
+  assert.deepEqual(playlistChannels, expectedChannels);
+  const uniqueChannelIDs = new Set(playlistChannels.map(([id]) => id));
+  assert.equal(uniqueChannelIDs.size, expectedChannels.length);
+
+  const monograms = playlistChannels.map(([, name]) =>
+    name
+      .split(/\s+/)
+      .slice(0, 2)
+      .map((word) => word[0].toUpperCase())
+      .join("")
+  );
+  assert.equal(
+    new Set(monograms).size,
+    expectedChannels.length,
+    "Demo channel cards must have distinct fallback monograms"
+  );
 
   for (const streamURL of streamLines) {
     assert.equal(streamURL, expectedStreamURL);

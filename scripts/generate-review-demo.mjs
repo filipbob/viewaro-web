@@ -12,37 +12,37 @@ const slotDurationMilliseconds = dayDurationMilliseconds / 6;
 const channels = [
   {
     id: "viewaro.demo.news",
-    name: "Viewaro Demo News",
+    name: "Review News",
     group: "Demo News",
     programmes: ["Morning Brief", "World Update", "Review Desk", "Evening Report"],
   },
   {
     id: "viewaro.demo.world",
-    name: "Viewaro Demo World",
+    name: "Global Report",
     group: "Demo News",
     programmes: ["Around the World", "Global Stories", "City Focus", "Night Report"],
   },
   {
     id: "viewaro.demo.nature",
-    name: "Viewaro Demo Nature",
+    name: "Nature Lens",
     group: "Demo Life",
     programmes: ["Wild Horizons", "Ocean Life", "Forest Stories", "Planet at Night"],
   },
   {
     id: "viewaro.demo.travel",
-    name: "Viewaro Demo Travel",
+    name: "Travel Routes",
     group: "Demo Life",
     programmes: ["Weekend Routes", "Coastal Journeys", "Hidden Cities", "Night Train"],
   },
   {
     id: "viewaro.demo.cinema",
-    name: "Viewaro Demo Cinema",
+    name: "Cinema Preview",
     group: "Demo Entertainment",
     programmes: ["Studio Preview", "Classic Stories", "Behind the Scene", "Late Feature"],
   },
   {
     id: "viewaro.demo.music",
-    name: "Viewaro Demo Music",
+    name: "Music Sessions",
     group: "Demo Entertainment",
     programmes: ["Morning Sessions", "Live Studio", "Acoustic Hour", "Night Sessions"],
   },
