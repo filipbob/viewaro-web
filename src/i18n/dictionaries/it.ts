@@ -122,7 +122,7 @@ const it: Dictionary = {
     privacy: {
       title: "Informativa sulla privacy",
       metaDescription: "Come Viewaro gestisce i tuoi dati.",
-      updated: "5 agosto 2026",
+      updated: "7 agosto 2026",
       sections: [
         {
           paragraphs: [
@@ -165,7 +165,7 @@ const it: Dictionary = {
           heading: "Connessioni di rete al tuo provider",
           paragraphs: [
             "Quando importi una playlist o riproduci uno stream, il tuo Mac si connette direttamente all'indirizzo che hai fornito. Quel provider può ricevere le informazioni normalmente incluse in una connessione di rete, come il tuo indirizzo IP, l'orario della richiesta, il percorso richiesto ed eventuali credenziali incluse nell'URL del provider.",
-            "Non controlliamo il tuo provider e non riceviamo tali richieste. Si applicano l'informativa sulla privacy e i termini del tuo provider. Viewaro richiede HTTPS per gli attuali percorsi playlist e AVPlayer e non trasmette le credenziali della playlist su HTTP non cifrato.",
+            "Non controlliamo il tuo provider e non riceviamo tali richieste. Si applicano l'informativa sulla privacy e i termini del tuo provider. Viewaro preferisce HTTPS. Quando l'indirizzo di un provider usa HTTP, Viewaro avvisa che la connessione può esporre le credenziali e prova prima lo stesso host tramite HTTPS. Se il provider non supporta HTTPS, Viewaro può usare l'indirizzo HTTP originale non cifrato per una playlist, guida, immagine o stream forniti dall'utente. Usa HTTPS ogni volta che il provider lo offre.",
           ],
         },
         {
@@ -411,8 +411,8 @@ const it: Dictionary = {
               a: "Viewaro non vende né consiglia servizi IPTV. Chiedi a un provider che sei legalmente autorizzato a utilizzare un indirizzo playlist M3U compatibile.",
             },
             {
-              q: "Perché una playlist HTTP fallisce?",
-              a: "Gli indirizzi playlist e gli URL stream possono contenere credenziali. Viewaro prova prima HTTPS e non invia tali credenziali su HTTP non cifrato nella versione attuale. Chiedi al tuo provider un indirizzo HTTPS.",
+              q: "Posso usare una playlist o uno stream HTTP?",
+              a: "Sì, se l'indirizzo appartiene al provider che hai scelto. Viewaro avvisa quando l'indirizzo del provider inserito usa HTTP e prova prima lo stesso host tramite HTTPS. Se il provider supporta solo HTTP, l'app può tornare all'indirizzo originale. Gli URL di playlist e stream contengono spesso credenziali, quindi una connessione HTTP può esporle sulla rete. Usa HTTPS ogni volta che il provider lo offre.",
             },
             {
               q: "Come verifico che la riproduzione funzioni?",

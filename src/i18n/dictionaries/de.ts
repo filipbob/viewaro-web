@@ -122,7 +122,7 @@ const de: Dictionary = {
     privacy: {
       title: "Datenschutzerklärung",
       metaDescription: "Wie Viewaro mit deinen Daten umgeht.",
-      updated: "5. August 2026",
+      updated: "7. August 2026",
       sections: [
         {
           paragraphs: [
@@ -165,7 +165,7 @@ const de: Dictionary = {
           heading: "Netzwerkverbindungen zu deinem Anbieter",
           paragraphs: [
             "Wenn du eine Playlist importierst oder einen Stream abspielst, verbindet sich dein Mac direkt mit der von dir angegebenen Adresse. Dieser Anbieter kann Informationen erhalten, die normalerweise in einer Netzwerkverbindung enthalten sind, wie deine IP-Adresse, den Zeitpunkt der Anfrage, den angeforderten Pfad und alle in der Anbieter-URL enthaltenen Zugangsdaten.",
-            "Wir haben keine Kontrolle über deinen Anbieter und erhalten diese Anfragen nicht. Es gelten die eigene Datenschutzerklärung und die Bedingungen deines Anbieters. Viewaro verlangt HTTPS für die aktuellen Playlist- und AVPlayer-Pfade und überträgt Playlist-Zugangsdaten nicht über unverschlüsseltes HTTP.",
+            "Wir haben keine Kontrolle über deinen Anbieter und erhalten diese Anfragen nicht. Es gelten die eigene Datenschutzerklärung und die Bedingungen deines Anbieters. Viewaro bevorzugt HTTPS. Wenn eine Anbieteradresse HTTP verwendet, warnt Viewaro davor, dass die Verbindung Zugangsdaten offenlegen kann, und versucht zuerst denselben Host über HTTPS. Unterstützt der Anbieter kein HTTPS, kann Viewaro für eine vom Benutzer angegebene Playlist, Programmführer-Adresse, Grafik oder einen Stream die ursprüngliche unverschlüsselte HTTP-Adresse verwenden. Verwende HTTPS, wann immer dein Anbieter es anbietet.",
           ],
         },
         {
@@ -411,8 +411,8 @@ const de: Dictionary = {
               a: "Viewaro verkauft oder empfiehlt keine IPTV-Dienste. Frage einen Anbieter, dessen Nutzung du rechtlich berechtigt bist, nach einer kompatiblen M3U-Playlist-Adresse.",
             },
             {
-              q: "Warum schlägt eine HTTP-Playlist fehl?",
-              a: "Playlist-Adressen und Stream-URLs können Zugangsdaten enthalten. Viewaro versucht zuerst HTTPS und sendet diese Zugangsdaten in der aktuellen Version nicht über unverschlüsseltes HTTP. Bitte deinen Anbieter um eine HTTPS-Adresse.",
+              q: "Kann ich eine HTTP-Playlist oder einen HTTP-Stream verwenden?",
+              a: "Ja, wenn die Adresse zu dem von dir gewählten Anbieter gehört. Viewaro warnt bei einer eingegebenen HTTP-Anbieteradresse und versucht zuerst denselben Host über HTTPS. Wenn der Anbieter nur HTTP unterstützt, kann die App auf die ursprüngliche Adresse zurückgreifen. Playlist- und Stream-URLs enthalten häufig Zugangsdaten, die über eine HTTP-Verbindung im Netzwerk offengelegt werden können. Verwende HTTPS, wann immer dein Anbieter es anbietet.",
             },
             {
               q: "Wie überprüfe ich, ob die Wiedergabe funktioniert?",
