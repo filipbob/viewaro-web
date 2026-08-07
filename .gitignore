@@ -20,6 +20,10 @@
 # production
 /build
 
+# generated App Review demo feeds
+/public/app-review/viewaro-demo.m3u8
+/public/app-review/viewaro-demo.xml
+
 # misc
 .DS_Store
 *.pem

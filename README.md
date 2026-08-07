@@ -21,6 +21,15 @@ the paths themselves are part of the app contract and must not change:
 | `/privacy` | Privacy policy (required by the Mac App Store) |
 | `/terms` | Terms of use / EULA (required for subscriptions) |
 | `/support` | Support page (required by the Mac App Store) |
+| `/app-review` | Non-indexed App Review instructions and public demo-feed links |
+
+The review page links to generated fixtures at
+`/app-review/viewaro-demo.m3u8` and `/app-review/viewaro-demo.xml`. The
+playlist contains six fictional channels and points only to Apple's public HLS
+developer sample; it includes the XMLTV address in its `x-tvg-url` header. Run
+`npm run validate:review-demo` after generation to verify the feed contract, or
+pass `-- --base-url=https://viewaro.itquotes.hr` to validate the deployed files
+and their response content types.
 
 ## Stack
 
@@ -61,6 +70,7 @@ deploy/                    # server-side nginx config + ops runbook
 npm install
 npm run dev      # http://localhost:3000
 npm run build    # static export -> out/
+npm run validate:review-demo
 ```
 
 ## Production: self-hosted on a VPS
