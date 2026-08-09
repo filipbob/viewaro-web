@@ -23,6 +23,7 @@
 # generated App Review demo feeds
 /public/app-review/viewaro-demo.m3u8
 /public/app-review/viewaro-demo.xml
+/public/app-review/viewaro-vlc-dash.m3u8
 
 # misc
 .DS_Store
