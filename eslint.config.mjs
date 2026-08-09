@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Synthetic MPEG-TS media uses the same extension as TypeScript.
+    "public/app-review/playback-matrix/**",
   ]),
 ]);
 
