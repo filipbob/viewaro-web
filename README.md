@@ -31,6 +31,15 @@ developer sample; it includes the XMLTV address in its `x-tvg-url` header. Run
 pass `-- --base-url=https://viewaro.itquotes.hr` to validate the deployed files
 and their response content types.
 
+A separate, unlinked compatibility fixture is available at
+`/app-review/viewaro-vlc-dash.m3u8`. It contains three fictional test channels
+that point to public Shaka and Akamai MPEG-DASH assets. This feed is for the
+isolated VLCKit compatibility suite; it is not part of the Apple-review guide
+and does not change the six-channel HLS reviewer feed. Run
+`npm run validate:vlc-dash-demo` locally, or append
+`-- --base-url=https://viewaro.itquotes.hr` to validate the deployed playlist,
+content type, and upstream MPD manifests.
+
 ## Stack
 
 - **Next.js 16** (App Router), **React 19**, **TypeScript**

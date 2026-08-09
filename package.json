@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/generate-review-demo.mjs",
+    "generate:fixtures": "node scripts/generate-review-demo.mjs && node scripts/generate-vlc-dash-demo.mjs",
+    "predev": "npm run generate:fixtures",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-review-demo.mjs",
+    "prebuild": "npm run generate:fixtures",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "validate:review-demo": "node scripts/validate-review-demo.mjs"
+    "validate:review-demo": "node scripts/validate-review-demo.mjs",
+    "validate:vlc-dash-demo": "node scripts/validate-vlc-dash-demo.mjs"
   },
   "dependencies": {
     "next": "16.3.0",
