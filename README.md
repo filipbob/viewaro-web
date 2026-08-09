@@ -40,6 +40,15 @@ and does not change the six-channel HLS reviewer feed. Run
 `-- --base-url=https://viewaro.itquotes.hr` to validate the deployed playlist,
 content type, and upstream MPD manifests.
 
+The unlinked `/app-review/viewaro-playback-matrix.m3u8` fixture contains four
+synthetic channels for Viewaro's signed VLC hardening suite: HLS, MPEG-TS, MP4,
+and MKV. All media is generated from FFmpeg test patterns, sine tones, and the
+repository-owned caption fixture; it contains no provider credentials, user
+playlist data, or third-party programme. Regenerate the media with
+`scripts/generate-playback-matrix-media.sh`, then run
+`npm run validate:playback-matrix` locally. Append
+`-- --base-url=https://viewaro.itquotes.hr` to validate the deployed assets.
+
 ## Stack
 
 - **Next.js 16** (App Router), **React 19**, **TypeScript**

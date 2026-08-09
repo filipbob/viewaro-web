@@ -1,0 +1,11 @@
+1
+00:00:01,000 --> 00:00:05,000
+Viewaro playback matrix
+
+2
+00:00:07,000 --> 00:00:11,000
+Synthetic test media
+
+3
+00:00:13,000 --> 00:00:17,000
+No third-party programme content
