@@ -137,23 +137,32 @@ pausal-manager, which runs as its own compose stack in `~/app/pausal-manager`
 and publishes no ports. Both files are authored in the pausal-manager repo and
 copied here; keep them in sync from there, not the other way round.
 
-State as of 2026-08-13:
+State as of 2026-08-13 — live at <https://pausal.itquotes.hr>:
 
-- DNS: `pausal.itquotes.hr` → this host, **DNS only** in Cloudflare. Keep the
-  proxy off until the TLS config below is live: with the bootstrap config
-  nothing answers on 443 for that name, and the zone is on Full (not strict),
-  so a proxied record would silently serve viewaro's cert and content.
+- Serving: `pausal.conf` is the **TLS variant**, copied over the bootstrap file
+  in the server's working tree (same arrangement as `viewaro.conf`). The
+  bootstrap version only answers the ACME challenge and 404s; it is what runs
+  before the pausal stack exists, since the TLS variant proxies to `pausal-api`
+  / `pausal-web` and nginx refuses to start while those aliases do not resolve.
+- DNS: `pausal.itquotes.hr` is **proxied** in Cloudflare. Order matters if this
+  is ever rebuilt: turn the proxy on only after the TLS config is live. With the
+  bootstrap config nothing answers on 443 for that name and the zone is on Full
+  (not strict), so a proxied record would silently serve viewaro's cert.
 - Cert: issued 2026-08-13, expires 2026-11-11. It renews through the same
   webroot and the existing `reload-viewaro.sh` deploy hook — that hook reloads
   this container, which is also pausal's nginx, so no second hook is needed.
-  `sudo certbot renew --dry-run` passes for both names.
-- Serving: bootstrap `pausal.conf` only — ACME challenge plus 404. The
-  tls-template is NOT in place yet, because it proxies to `pausal-api` /
-  `pausal-web` and nginx refuses to start when those aliases do not resolve.
-  The pausal stack is not on the server at all yet (private repo, no deploy
-  key), so this is the correct state, not a leftover.
+  `sudo certbot renew --dry-run` passes for both names, proxy on included:
+  Cloudflare forwards a plain-HTTP challenge to port 80, where the ACME location
+  still lives in both variants.
+- Behind the proxy, `real_ip_header CF-Connecting-IP` (+ `set_real_ip_from` on
+  Cloudflare's ranges) is what keeps `$remote_addr` and the appended
+  `X-Forwarded-For` entry pointing at the visitor. pausal's API reads the last
+  XFF entry, so without it every visitor behind one PoP shared a login-attempt
+  counter. Verified in `pausal.access.log`: visitor address through Cloudflare,
+  and a direct-to-origin request carrying a forged `CF-Connecting-IP` is ignored.
 
-Once the pausal stack is up on the `proxy` network:
+Swapping the vhost after a template change (the file the deploy checks out is
+the template, so this cp is needed again each time):
 
 ```sh
 cd ~/app/viewaro-web
@@ -162,4 +171,6 @@ docker exec viewaro-web nginx -t     # must pass before the reload
 docker exec viewaro-web nginx -s reload
 ```
 
-Then flip the Cloudflare record to Proxied.
+A tagged deploy can `git checkout` cleanly even with `pausal.conf` and
+`viewaro.conf` modified in place, as long as a release does not change those two
+files — change the `.tls-template` files instead, then re-run the cp above.
