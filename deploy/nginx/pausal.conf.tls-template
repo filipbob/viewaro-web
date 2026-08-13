@@ -1,0 +1,131 @@
+# Konačna konfiguracija: HTTP -> HTTPS i terminiranje TLS-a.
+#
+# OVA DATOTEKA ŽIVI U viewaro-web REPOU, u deploy/nginx/. Uključuje se tek kad
+# certbot izda certifikat:
+#
+#   cp deploy/nginx/pausal.conf.tls-template deploy/nginx/pausal.conf
+#   docker exec viewaro-web nginx -s reload
+#
+# Zaglavlja niže su prijepis iz deploy/Caddyfile prije prelaska na nginx.
+# Obrazloženja su zadržana jer se bez njih ne vidi što se smije mijenjati.
+
+limit_req_zone $binary_remote_addr zone=pausal:10m rate=20r/s;
+
+# Zaseban dnevnik, i to bez query stringa. Atlassian vraća autorizacijski kod
+# u `/jira/callback?code=…`, a zapis u dnevniku traje mjesecima dulje od samog
+# koda. nginx ne zna brisati pojedini parametar kao Caddy, pa ide $uri umjesto
+# $request — cijeli query otpada.
+#
+# Zaseban file, a ne zajednički: fail2ban čita zadani dnevnik s combined
+# formatom i ovaj bi mu format razvalio regexe. Ako pausal ikad treba biti pod
+# fail2banom, dodaj mu vlastiti jail nad ovom putanjom.
+log_format pausal_bez_querya '$remote_addr - $remote_user [$time_local] '
+                             '"$request_method $uri $server_protocol" '
+                             '$status $body_bytes_sent "$http_referer" "$http_user_agent"';
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name pausal.itquotes.hr;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name pausal.itquotes.hr;
+
+    ssl_certificate     /etc/letsencrypt/live/pausal.itquotes.hr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/pausal.itquotes.hr/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+
+    access_log /var/log/nginx/pausal.access.log pausal_bez_querya;
+
+    # Caddy je imao `-Server`; nginx zaglavlje ne može ukloniti bez modula, ali
+    # bar ne odaje verziju.
+    server_tokens off;
+
+    gzip on;
+    gzip_types text/css text/javascript application/javascript application/json image/svg+xml;
+    gzip_min_length 1024;
+
+    # Zadanih 1 MB je premalo: zaprimljeni eRačun je XML koji zna biti veći, a
+    # odbijanje bi izgledalo kao kvar aplikacije.
+    client_max_body_size 20m;
+
+    # --- Zaglavlja, prijepis iz Caddyfilea ---------------------------------
+    #
+    # `always` je nužan: bez njega nginx ih ne šalje uz 4xx/5xx odgovore, a
+    # upravo su greške stranice na kojima ubrizgani sadržaj najviše vrijedi.
+
+    # Osnovni set: bez ovoga preglednik dopušta ugniježđivanje i njuškanje tipa.
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+    # CSP. `unsafe-inline` za stil i skriptu nije proizvoljno popuštanje:
+    # Next ubacuje inline bootstrap skriptu i inline stilove, a shadcn graf
+    # ubacuje <style> s bojama serija. Bez nonce-a koji bi nginx morao
+    # ubrizgavati u svaki odgovor, strože od ovoga ruši aplikaciju.
+    #
+    # Ono što ovdje stvarno vrijedi jest sve OSTALO: bez vanjskih skripti,
+    # bez okvira, bez pluginova, bez slanja obrasca na tuđi izvor i bez
+    # ugniježđivanja — to su putevi kojima XSS izvlači podatke, a kolačić
+    # sesije je HttpOnly pa ga skripta ionako ne čita.
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; form-action 'self'; base-uri 'none'; object-src 'none'" always;
+
+    # Aplikacija ne traži ni jedan od tih senzora; izričito odbijanje znači
+    # da ih ni ubrizgana skripta ne može zvati.
+    add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()" always;
+
+    # Zaprimljeni XML je tuđi dokument koji serviramo sa svog izvora.
+    # Uz `attachment` disposition preglednik ga ne prikazuje, a ovo je
+    # druga brana ako se disposition ikad izgubi.
+    add_header X-Download-Options "noopen" always;
+
+    limit_req zone=pausal burst=40 nodelay;
+
+    # --- Rutiranje ---------------------------------------------------------
+    #
+    # Sučelje i API s istog izvora: kolačić sesije ostaje first-party, CORS ne
+    # dolazi u igru. Zato /api ide na api servis, a sve ostalo na web.
+
+    location /api/ {
+        proxy_pass http://pausal-api:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        # Bez ovoga api vidi samo adresu nginxa, pa je brojač pokušaja prijave
+        # zajednički za sve. Uz to mora stajati TRUSTED_PROXIES u sastavu.
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        # PDF ide kroz Gotenberg (Chromium), pa zadanih 60 s zna biti tijesno.
+        proxy_read_timeout 120s;
+    }
+
+    location = /healthz {
+        proxy_pass http://pausal-api:8080;
+        proxy_set_header Host $host;
+        access_log off;
+    }
+
+    location / {
+        proxy_pass http://pausal-web:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host              $host;
+        proxy_set_header X-Real-IP         $remote_addr;
+        proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

@@ -18,3 +18,18 @@ services:
       - ../nginx-logs:/var/log/nginx
       - /etc/letsencrypt:/etc/letsencrypt:ro
       - ../certbot-webroot:/var/www/certbot:ro
+    networks:
+      # `default` stays listed explicitly: naming any network replaces the
+      # implicit default, and dropping it would move this container off
+      # viewaro-web_default.
+      default: {}
+      # This nginx is also the front door for pausal-manager, which lives in
+      # its own compose stack (~/app/pausal-manager) and publishes no ports.
+      # deploy/nginx/pausal.conf reaches it over this shared network by the
+      # aliases `pausal-api` / `pausal-web`.
+      proxy: {}
+
+networks:
+  # Created by neither stack — once, by hand: docker network create proxy
+  proxy:
+    external: true
