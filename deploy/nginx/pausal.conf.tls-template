@@ -9,6 +9,49 @@
 # Zaglavlja niže su prijepis iz deploy/Caddyfile prije prelaska na nginx.
 # Obrazloženja su zadržana jer se bez njih ne vidi što se smije mijenjati.
 
+# --- Stvarna adresa posjetitelja ispod Cloudflarea -------------------------
+#
+# Ime je u Cloudflareu proxied (naranča), pa svaka veza do nginxa dolazi s
+# adrese CF edgea. Bez ovoga:
+#
+# - `$binary_remote_addr` niže je adresa PoP-a, pa `limit_req` gleda promet
+#   cijelog PoP-a kao jednog klijenta
+# - `$proxy_add_x_forwarded_for` dopiše CF adresu kao zadnji unos, a api uzima
+#   upravo zadnji (`clientIP`, internal/httpapi/auth.go) — brojač od 10
+#   pokušaja prijave u 15 minuta tako je zajednički za sve posjetitelje istog
+#   PoP-a, a trag pristupa bilježi CF adresu umjesto posjetiteljeve
+#
+# `real_ip_header CF-Connecting-IP` je siguran samo uz `set_real_ip_from`
+# ograničen na CF raspone: zahtjev koji dođe direktno na origin (adresa je
+# javna) nije iz tih raspona, pa mu se zaglavlje ignorira i ne može se lagati.
+#
+# Rasponi su s https://www.cloudflare.com/ips-v4 i ips-v6 (13.8.2026.).
+# Mijenjaju se rijetko; ako se promijene, posjetitelji dobiju CF adresu — što
+# se vidi kao zajednički brojač prijava, ne kao pad.
+set_real_ip_from 173.245.48.0/20;
+set_real_ip_from 103.21.244.0/22;
+set_real_ip_from 103.22.200.0/22;
+set_real_ip_from 103.31.4.0/22;
+set_real_ip_from 141.101.64.0/18;
+set_real_ip_from 108.162.192.0/18;
+set_real_ip_from 190.93.240.0/20;
+set_real_ip_from 188.114.96.0/20;
+set_real_ip_from 197.234.240.0/22;
+set_real_ip_from 198.41.128.0/17;
+set_real_ip_from 162.158.0.0/15;
+set_real_ip_from 104.16.0.0/13;
+set_real_ip_from 104.24.0.0/14;
+set_real_ip_from 172.64.0.0/13;
+set_real_ip_from 131.0.72.0/22;
+set_real_ip_from 2400:cb00::/32;
+set_real_ip_from 2606:4700::/32;
+set_real_ip_from 2803:f800::/32;
+set_real_ip_from 2405:b500::/32;
+set_real_ip_from 2405:8100::/32;
+set_real_ip_from 2a06:98c0::/29;
+set_real_ip_from 2c0f:f248::/32;
+real_ip_header CF-Connecting-IP;
+
 limit_req_zone $binary_remote_addr zone=pausal:10m rate=20r/s;
 
 # Zaseban dnevnik, i to bez query stringa. Atlassian vraća autorizacijski kod

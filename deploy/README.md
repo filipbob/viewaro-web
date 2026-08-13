@@ -90,27 +90,24 @@ git checkout main && git pull
 docker compose up -d --build
 ```
 
-## BROKEN: the server cannot fetch from GitHub
+## The deploy job depends on this repo staying public
 
-Since this repo went private, the deploy job fails at its first step:
+The server's checkout in `~/app/viewaro-web` has an **HTTPS** remote and no
+GitHub credential, so `git fetch` only works anonymously. While this repo was
+briefly private (2026-08-09 to 08-13) every `v*` tag failed at the first step:
 
 ```
 fatal: could not read Username for 'https://github.com': No such device or address
 ```
 
-The checkout in `~/app/viewaro-web` has an **HTTPS** remote and the server
-holds no GitHub credential — anonymous fetch worked only while the repo was
-public. Every `v*` tag will keep failing until one of these is done:
+If it goes private again, fix it at the source rather than working around it:
+add a read-only **deploy key** and switch the server's remote to
+`git@github.com:filipbob/viewaro-web.git` — that is exactly how the private
+`pausal-manager` checkout on the same host works (key `~/.ssh/gh_pausal`,
+selected for github.com in the server's `~/.ssh/config`).
 
-- add a read-only **deploy key** for this repo (GitHub → Settings → Deploy
-  keys) and switch the server's remote to `git@github.com:filipbob/viewaro-web.git`, or
-- store a PAT in a credential helper on the server (weaker: one token, all repos).
-
-`pausal-manager` needs the same treatment — its deploy job has never run, and
-that repo additionally has no `DEPLOY_*` secrets set at all.
-
-Until then, a release can still be moved without credentials, by carrying the
-objects over ssh instead of fetching them:
+A release can also be moved with no credentials at all, by carrying the objects
+over ssh instead of fetching them:
 
 ```sh
 # on the laptop
@@ -125,7 +122,9 @@ docker compose up -d          # --build only when the site itself changed
 ```
 
 This lands a clean checkout at the real tag, so a later CI deploy is not
-confused by a dirty tree. `v1.8.0` reached the server exactly this way.
+confused by a dirty tree. `v1.8.0` first reached the server this way, and the
+same tag deployed again through CI once the repo was public — both paths are
+verified.
 
 `deploy/nginx/viewaro.conf` stays modified in the server's working tree — it
 is the TLS variant copied over the bootstrap file. That is expected; do not
