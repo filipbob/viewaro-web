@@ -122,7 +122,7 @@ const nl: Dictionary = {
     privacy: {
       title: "Privacybeleid",
       metaDescription: "Hoe Viewaro met je gegevens omgaat.",
-      updated: "7 augustus 2026",
+      updated: "24 september 2026",
       sections: [
         {
           paragraphs: [
@@ -138,7 +138,7 @@ const nl: Dictionary = {
         {
           heading: "Samenvatting",
           paragraphs: [
-            "Viewaro is een IPTV-speler waarbij je je eigen content meebrengt. De app biedt geen zenders, playlists of media-abonnementen aan. Playlistgegevens en afspeelvoorkeuren worden lokaal op je Mac opgeslagen. We gebruiken geen advertentietrackers en verkopen geen persoonsgegevens.",
+            "Viewaro is een IPTV-speler waarbij je je eigen content meebrengt. De app biedt geen zenders, film- of seriecatalogi, playlists, provideraccounts of media-abonnementen aan. Brongegevens en afspeelvoorkeuren worden lokaal op je Mac opgeslagen. We gebruiken geen advertentietrackers en verkopen geen persoonsgegevens.",
             "Als abonnementen zijn ingeschakeld in de versie die je gebruikt, verwerkt Apple de betaling en verwerkt RevenueCat beperkte aankoop- en technische informatie om de aankoop te valideren en te bepalen of Premium-functies beschikbaar zijn.",
           ],
         },
@@ -148,31 +148,48 @@ const nl: Dictionary = {
         },
         {
           list: [
-            "playlistnamen en -adressen die je invoert",
-            "playlistgegevens of tokens die in die adressen zijn opgenomen",
-            "geïmporteerde zenderkataloginformatie",
-            "app-instellingen en afspeelgerelateerde voorkeuren",
+            "bronnamen en de door jou ingevoerde adressen van playlists, Xtream-providers en Tvheadend-servers",
+            "inloggegevens of tokens die in playlistadressen zijn opgenomen, en de gebruikersnamen en wachtwoorden die je invoert voor Xtream-providers en Tvheadend-servers",
+            "geïmporteerde cataloginformatie over zenders, films, series, seizoenen en afleveringen, met de afbeeldingsadressen en beschrijvingen die je provider levert",
+            "gedownloade tv-gidsgegevens en elk gidsadres dat je invoert",
+            "favorieten, kijkvoortgang, app-instellingen en afspeelgerelateerde voorkeuren",
             "een anonieme abonnements-ID en gecachte rechtenstatus wanneer abonnementen zijn ingeschakeld",
           ],
         },
         {
           paragraphs: [
-            "Gevoelige playlistadressen worden opgeslagen in een versleutelde lokale kluis. De kluissleutel wordt beschermd door de macOS-sleutelhanger (Keychain). Deze informatie wordt niet verzonden naar Viewaro- of ITQuotes-servers.",
+            "Gevoelige playlistadressen, provider- en serveraccounts en gidsadressen worden opgeslagen in een versleutelde lokale kluis. De kluissleutel wordt beschermd door de macOS-sleutelhanger (Keychain). Deze informatie wordt niet verzonden naar Viewaro- of ITQuotes-servers.",
             "Je kunt geïmporteerde bronnen vanuit de app verwijderen. macOS kan sleutelhangeritems behouden nadat een app is verwijderd, dus het verwijderen van de app is geen gegarandeerde manier om elk sleutelhangeritem te wissen.",
+          ],
+        },
+        {
+          heading: "macOS-systeemlogboek",
+          paragraphs: [
+            "macOS kan de adressen van streams die Viewaro opent vastleggen in het systeemlogboek van de Mac. Apples eigen netwerkcomponenten schrijven deze vermeldingen, niet Viewaro, en Viewaro kan ze niet verwijderen. Xtream-providers zetten je gebruikersnaam en wachtwoord in elk streamadres, en sommige playlists zetten een token of wachtwoord in hun adressen; bij die bronnen bevat het vastgelegde adres die inloggegevens.",
+            "Het systeemlogboek blijft op je Mac. Iedereen met een beheerdersaccount op die Mac kan het lezen, en het wordt opgenomen in diagnostische rapporten die je zelf besluit aan te maken en te delen, bijvoorbeeld met Apple. Viewaro stuurt het systeemlogboek niet naar ons.",
           ],
         },
         {
           heading: "Netwerkverbindingen met je provider",
           paragraphs: [
-            "Wanneer je een playlist importeert of een stream afspeelt, maakt je Mac rechtstreeks verbinding met het adres dat je hebt opgegeven. Die provider kan informatie ontvangen die normaal gesproken bij een netwerkverbinding hoort, zoals je IP-adres, het tijdstip van het verzoek, het opgevraagde pad en eventuele inloggegevens in de provider-URL.",
-            "Wij hebben geen controle over je provider en ontvangen die verzoeken niet. Het eigen privacybeleid en de voorwaarden van je provider zijn van toepassing. Viewaro geeft de voorkeur aan HTTPS. Wanneer een provideradres HTTP gebruikt, waarschuwt Viewaro dat de verbinding inloggegevens kan blootstellen en probeert het eerst dezelfde host via HTTPS. Als de provider geen HTTPS ondersteunt, kan Viewaro het oorspronkelijke onversleutelde HTTP-adres gebruiken voor een door de gebruiker opgegeven playlist, programmagids, afbeelding of stream. Gebruik HTTPS wanneer je provider dit aanbiedt.",
+            "Wanneer je een bron importeert, de afbeeldingen of gids ervan laadt, of een stream afspeelt, maakt je Mac rechtstreeks verbinding met het adres dat je hebt opgegeven en met de afbeeldingsadressen die deze provider teruggeeft. Die hosts kunnen informatie ontvangen die normaal gesproken bij een netwerkverbinding hoort, zoals je IP-adres, het tijdstip van het verzoek, het opgevraagde pad en eventuele inloggegevens die de provider voor het verzoek vereist.",
+            "Een Tvheadend-server ontvangt de inloggegevens die je ervoor hebt ingevoerd: Viewaro meldt zich aan wanneer de server daarom vraagt, en stuurt de inloggegevens mee met elke zender die je afspeelt. Als de server zich in je lokale netwerk bevindt, vraagt macOS om je toestemming voordat Viewaro de server kan bereiken.",
+            "Wij hebben geen controle over je provider en ontvangen die verzoeken niet. Het eigen privacybeleid en de voorwaarden van je provider zijn van toepassing. Viewaro geeft de voorkeur aan HTTPS. Wanneer een provideradres HTTP gebruikt, waarschuwt Viewaro dat de verbinding inloggegevens kan blootstellen en probeert het eerst dezelfde host via HTTPS. Als de provider geen HTTPS ondersteunt, kan Viewaro het oorspronkelijke onversleutelde HTTP-adres gebruiken voor een door de gebruiker opgegeven playlist, programmagids, afbeelding of stream. Viewaro gebruikt voor een Tvheadend-server het adres precies zoals je het invoert, vaak een http://-adres in een thuisnetwerk; op zo'n adres wordt het wachtwoord dat je hebt ingevoerd telkens onversleuteld verzonden wanneer een zender wordt afgespeeld, en Viewaro meldt dit vóór het importeren. Gebruik HTTPS wanneer je provider of server dit aanbiedt.",
           ],
         },
         {
-          heading: "Openbare tv-gidsfeeds",
+          heading: "Tv-gidsfeeds",
+          paragraphs: ["Waar de gids vandaan komt, hangt af van de bron:"],
+        },
+        {
+          list: [
+            "**Een gidsadres dat je hebt ingevoerd, of het eigen XMLTV-gidsadres dat de playlist bevat:** Viewaro maakt alleen verbinding met dat adres, net zoals met je aanbieder.",
+            "**Een Tvheadend-server:** Viewaro downloadt de eigen gids van de server met de inloggegevens die je hebt ingevoerd en neemt daarvoor geen contact op met een openbare gidsuitgever.",
+            "**Een playlist zonder eigen gidsadres, of een Xtream-provider:** Viewaro zoekt automatisch naar een openbare gids wanneer de bron voor het eerst wordt gebruikt en wanneer je de gids vernieuwt. Het vraagt landspecifieke XMLTV-bestanden op bij open-epg.com en iptv-epg.org. Viewaro vraagt bij de Xtream-provider geen gids op.",
+          ],
+        },
+        {
           paragraphs: [
-            "Als je playlist een eigen XMLTV-gidsadres bevat, maakt Viewaro alleen verbinding met dat adres, net zoals met je aanbieder.",
-            "Heeft de playlist geen gidsadres, dan zoekt Viewaro automatisch naar een openbare gids wanneer de playlist voor het eerst wordt geopend en wanneer je de gids vernieuwt. Het vraagt landspecifieke XMLTV-bestanden op bij open-epg.com en iptv-epg.org.",
             "Deze uitgevers ontvangen standaard netwerkgegevens, zoals je IP-adres, het tijdstip van de aanvraag en het aangevraagde landbestand. Viewaro stuurt geen provideradres, inloggegevens, zendernamen of kijkgeschiedenis. Programma's worden lokaal op je Mac gekoppeld; het privacybeleid en de voorwaarden van elke uitgever zijn van toepassing.",
           ],
         },
@@ -198,7 +215,7 @@ const nl: Dictionary = {
         },
         {
           paragraphs: [
-            "Deze informatie wordt gebruikt voor aankoopvalidatie, fraudepreventie, abonnementsfunctionaliteit en geaggregeerde abonnementsanalyse. Viewaro stuurt geen playlistadressen, providergegevens, zendernamen of kijkgeschiedenis naar RevenueCat. We gebruiken RevenueCat-gegevens niet voor app-overschrijdende advertentietracking.",
+            "Deze informatie wordt gebruikt voor aankoopvalidatie, fraudepreventie, abonnementsfunctionaliteit en geaggregeerde abonnementsanalyse. Viewaro stuurt geen adressen van je bronnen, providergegevens, zendernamen of kijkgeschiedenis naar RevenueCat. We gebruiken RevenueCat-gegevens niet voor app-overschrijdende advertentietracking.",
             "Zie [RevenueCats privacybeleid](https://www.revenuecat.com/privacy) voor de verwerkings-, bewarings- en internationale doorgiftepraktijken.",
           ],
         },
@@ -236,8 +253,8 @@ const nl: Dictionary = {
         {
           heading: "Jouw keuzes en rechten",
           paragraphs: [
-            "Je kunt playlists en andere lokale app-gegevens verwijderen via de bedieningselementen van Viewaro. Je kunt een Apple-abonnement beheren of opzeggen in je Apple-accountinstellingen. Je kunt contact met ons opnemen om te vragen naar supportinformatie die we over je bewaren, of om rechten uit te oefenen die onder toepasselijk privacyrecht beschikbaar zijn.",
-            "Omdat playlist- en afspeelgegevens op je Mac blijven, kunnen we die lokale gegevens over het algemeen niet op afstand benaderen, exporteren of verwijderen.",
+            "Je kunt bronnen en andere lokale app-gegevens verwijderen via de bedieningselementen van Viewaro. Je kunt een Apple-abonnement beheren of opzeggen in je Apple-accountinstellingen. Je kunt contact met ons opnemen om te vragen naar supportinformatie die we over je bewaren, of om rechten uit te oefenen die onder toepasselijk privacyrecht beschikbaar zijn.",
+            "Omdat bron- en afspeelgegevens op je Mac blijven, kunnen we die lokale gegevens over het algemeen niet op afstand benaderen, exporteren of verwijderen.",
           ],
         },
         {
@@ -249,7 +266,7 @@ const nl: Dictionary = {
         {
           heading: "Beveiliging",
           paragraphs: [
-            "We gebruiken technische maatregelen ontworpen om informatie te beschermen, waaronder de macOS App Sandbox, sleutelhangerbeveiliging en versleutelde lokale opslag voor playlistgeheimen. Geen enkele beveiligingsmaatregel kan absolute bescherming garanderen.",
+            "We gebruiken technische maatregelen ontworpen om informatie te beschermen, waaronder de macOS App Sandbox, sleutelhangerbeveiliging en versleutelde lokale opslag voor playlistadressen en accountgeheimen. Geen enkele beveiligingsmaatregel kan absolute bescherming garanderen.",
           ],
         },
         {
@@ -269,7 +286,7 @@ const nl: Dictionary = {
     terms: {
       title: "Gebruiksvoorwaarden",
       metaDescription: "Gebruiksvoorwaarden voor de Viewaro-app.",
-      updated: "5 augustus 2026",
+      updated: "24 september 2026",
       sections: [
         {
           paragraphs: [
@@ -285,13 +302,13 @@ const nl: Dictionary = {
         {
           heading: "Breng je eigen content mee",
           paragraphs: [
-            "Viewaro is een mediaspeler. De app biedt geen televisiezenders, playlists, media-abonnementen of toegangsgegevens aan, verkoopt, beveelt of verifieert deze niet.",
+            "Viewaro is een mediaspeler. De app biedt geen televisiezenders, film- of seriecatalogi, playlists, media-abonnementen of toegangsgegevens aan, verkoopt, beveelt of verifieert deze niet.",
             "Je mag Viewaro alleen gebruiken met bronnen en content waartoe je wettelijk gemachtigd bent. Jij bent verantwoordelijk voor:",
           ],
         },
         {
           list: [
-            "de rechtmatigheid en juistheid van de playlistadressen en inloggegevens die je invoert",
+            "de rechtmatigheid en juistheid van de playlist-, provider- en serveradressen en de inloggegevens die je invoert",
             "het verkrijgen van alle benodigde abonnementen, licenties en toestemmingen",
             "naleving van de voorwaarden van je provider en toepasselijk recht",
             "ervoor zorgen dat content geschikt is voor iedereen die je Mac gebruikt",
