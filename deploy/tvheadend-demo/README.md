@@ -81,10 +81,11 @@ TLS vhost is in place. `provision.py` narrows that entry to `127.0.0.1` inside
 the container and adds `appreview` with basic streaming, the `pass` profile
 only, no DVR, no web UI, no admin and at most two concurrent streams.
 
-Then the owner sets the password, from a terminal:
+Then the owner sets the password, from a terminal. The path is relative on
+purpose: an unquoted `~` would be expanded by the local shell, not the server.
 
 ```sh
-ssh -t oracle-server ~/app/tvheadend-demo/bin/set-review-password.sh
+ssh -t oracle-server app/tvheadend-demo/bin/set-review-password.sh
 ```
 
 Exposure through nginx follows `deploy/README.md` ("Tvheadend review demo").

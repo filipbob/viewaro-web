@@ -2,7 +2,7 @@
 # Sets or replaces the password of the App Review account (appreview).
 #
 # The owner runs this on the server, from a terminal:
-#     ssh -t oracle-server ~/app/tvheadend-demo/bin/set-review-password.sh
+#     ssh -t oracle-server app/tvheadend-demo/bin/set-review-password.sh
 #
 # The password is read without echo and passed to provision.py on stdin, so it
 # never appears in a process list, a shell history or this repository. It ends
