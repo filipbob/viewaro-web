@@ -28,9 +28,10 @@ services:
       # deploy/nginx/pausal.conf reaches it over this shared network by the
       # aliases `pausal-api` / `pausal-web`.
       proxy: {}
-      # And for the Tvheadend review demo (deploy/tvheadend-demo), on a network
-      # of its own so that container cannot reach the pausal stacks on `proxy`.
-      # deploy/nginx/tvh.conf reaches it by the name `tvheadend-demo`.
+      # And for the review demo servers (deploy/tvheadend-demo), on a network
+      # of their own so they cannot reach the pausal stacks on `proxy`.
+      # tvh.conf and xtream.conf reach them as `tvheadend-demo` and
+      # `xtream-demo`.
       tvh-demo: {}
 
 networks:

@@ -209,3 +209,26 @@ container, the media and the review account.
   fail2ban-parsed `access.log`.
 - The vhost resolves `tvheadend-demo` per request, so nginx still starts when
   the demo stack is down; those requests get a 502 instead.
+
+## Xtream review demo behind this nginx
+
+`xtream.conf` (bootstrap) and `xtream.conf.tls-template` front the Xtream
+Codes-compatible demo server, which runs as the `xtream` service of the same
+stack in `~/app/tvheadend-demo` (its README covers the catalog and account).
+
+- DNS: `xtream.viewaro.itquotes.hr` is an A record to this server, **DNS
+  only**, for the same reason as `tvh`: it streams video.
+- Cert and activation follow the Tvheadend steps above with the other name:
+
+  ```sh
+  sudo certbot certonly --webroot -w ~/app/certbot-webroot -d xtream.viewaro.itquotes.hr
+  cd ~/app/viewaro-web
+  cp deploy/nginx/xtream.conf.tls-template deploy/nginx/xtream.conf
+  docker exec viewaro-web nginx -t && docker exec viewaro-web nginx -s reload
+  ```
+
+- What is forwarded: `player_api.php`, `xmltv.php`, `/live/`, `/movie/`,
+  `/series/` and the public `/art/`; everything else is a 404.
+- The account travels in the query string and in stream paths. The access log
+  (`xtream.access.log`) therefore drops the query and masks the credential
+  segments of stream paths through a `map`, and the server logs the same way.
