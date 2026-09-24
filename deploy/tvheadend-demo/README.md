@@ -1,16 +1,21 @@
-# Tvheadend review demo
+# Review demo servers: Tvheadend and Xtream
 
-A real Tvheadend 4.3 server at `https://tvh.viewaro.itquotes.hr` so App Review
-can try Viewaro's Tvheadend source kind end to end: add the server, sign in,
-browse channels and categories, read the guide and play. It carries only
-openly licensed films and a generated test card, and one account that can do
-nothing but stream.
+Two servers App Review can use to try Viewaro's provider source kinds end to
+end, both over the same openly licensed films and generated test card:
+
+- a real Tvheadend 4.3 at `https://tvh.viewaro.itquotes.hr`: add the server,
+  sign in, browse channels and categories, read the guide and play;
+- an Xtream Codes-compatible server at `https://xtream.viewaro.itquotes.hr`:
+  the same live channels, plus the films as Movies and as a Series, which is
+  the only way a reviewer can reach those sections (M3U brings neither).
+
+Each has one account, `appreview`, that can do nothing but browse and stream.
 
 ```
-Viewaro ── HTTPS ──> viewaro-web nginx (tvh.conf, DNS-only name, own LE cert)
-                        │  network tvh-demo (only nginx and this container)
-                        ▼
-                     tvheadend-demo :9981 ── pipe:// ──> ffmpeg ──> data/media
+Viewaro ── HTTPS ──> viewaro-web nginx (tvh.conf / xtream.conf, DNS-only names)
+                        │  network tvh-demo (only nginx and these containers)
+                        ├──> tvheadend-demo :9981 ── pipe:// ──> ffmpeg ──> data/media
+                        └──> xtream-demo    :8080 ── HLS remux ─> ffmpeg ──> data/media
 ```
 
 ## Channels
@@ -47,17 +52,51 @@ Tvheadend's imagecache requires one. Each channel's `icon` is therefore an
 absolute `https://viewaro.itquotes.hr/app-review/tvheadend/<id>.png`, which
 Viewaro prefers over `icon_public_url`, and the imagecache stays off.
 
+## Xtream demo
+
+`bin/xtream_demo.py` implements the part of the Xtream API that Viewaro's
+client reads (the contract is in the Viewaro repo, `docs/XTREAM_VOD.md` and
+the client under `Viewaro/Features/Xtream/`):
+
+| Path | Serves |
+|---|---|
+| `/player_api.php` | the account handshake and `get_live_*`, `get_vod_*`, `get_series_*` |
+| `/live/U/P/<id>.m3u8` | the four live channels as HLS (Viewaro always asks for `.m3u8`) |
+| `/movie/U/P/<id>.mp4` | the four films, with byte ranges for AVPlayer |
+| `/series/U/P/<id>.mp4` | the episodes of "Blender Open Movie Collection" |
+| `/xmltv.php` | the demo guide, for a manual XMLTV override in Viewaro |
+| `/art/<name>.jpg` | posters and backdrops, without the account |
+
+`xtream.json` defines the catalog: two film categories, the four films with
+their stream ids, and one series whose season 1 holds the same films in
+release order. Titles, years, descriptions and attribution come from
+`channels.json`. The live channels keep their Tvheadend numbers as stream ids
+and run on the same wall-clock cycle; each has an ffmpeg HLS remux running
+into a tmpfs.
+
+Posters (2:3) and backdrops (16:9) are single frames of each film, cut by
+`prepare_media.py` inside the letterbox (`cropdetect`), so they carry the
+film's own CC BY licence; the attribution is in every description.
+
+The account is a PBKDF2 hash in `data/xtream/account.json`, written by
+`set-xtream-password.sh`. Xtream puts the password in the query string and in
+stream paths, so neither the server's log nor nginx's `xtream.access.log`
+records it: the query is dropped and the credential segments are masked.
+
 ## Files
 
 | Path | Role |
 |---|---|
 | `docker-compose.yml` | the Tvheadend service (image pinned by digest) and the one-off `prepare` job |
 | `channels.json` | channels, tags, film sources, checksums, descriptions |
+| `xtream.json` | the Xtream catalog: film categories, stream ids, the series |
 | `bin/prepare_media.py` | download, verify, re-encode, measure; writes `data/media/runtime/` |
 | `bin/viewaro-demo-channel` | `pipe://` command: one channel as live MPEG-TS on stdout |
 | `bin/tv_grab_viewaro_demo` | Tvheadend internal XMLTV grabber, mounted on `PATH` |
 | `bin/provision.py` | configures Tvheadend through its API; safe to re-run |
-| `bin/set-review-password.sh` | the owner sets the review password; nobody else sees it |
+| `bin/set-review-password.sh` | the owner sets the Tvheadend review password; nobody else sees it |
+| `bin/xtream_demo.py` | the Xtream Codes-compatible server |
+| `bin/set-xtream-password.sh` | the owner sets the Xtream password (use the same one) |
 | `make-icons.swift` | draws the channel icons into `public/app-review/tvheadend/` |
 | `data/` | server state, not in git: Tvheadend config and the media |
 
@@ -73,6 +112,8 @@ docker compose run --rm prepare         # ~20 min on the 2-core server, niced
 docker compose up -d tvheadend
 docker exec tvheadend-demo python3 /demo/bin/provision.py
 docker compose restart tvheadend        # applies the access entries' rights
+mkdir -p data/xtream && chmod 700 data/xtream
+docker compose up -d xtream
 ```
 
 The image starts Tvheadend with `--firstrun`, which creates a wildcard admin
@@ -96,7 +137,12 @@ purpose: an unquoted `~` would be expanded by the local shell, not the server.
 
 ```sh
 ssh -t oracle-server app/tvheadend-demo/bin/set-review-password.sh
+ssh -t oracle-server app/tvheadend-demo/bin/set-xtream-password.sh
 ```
+
+Using the same password for both keeps App Review Information to one
+sign-in: the username and password go in its sign-in fields, and the notes
+name both server addresses. They never go on the public review page.
 
 Exposure through nginx follows `deploy/README.md` ("Tvheadend review demo").
 
@@ -109,6 +155,9 @@ may answer, and the icons must load without an account:
 curl -s -o /dev/null -w '%{http_code}\n' https://tvh.viewaro.itquotes.hr/api/serverinfo   # 401
 curl -s -o /dev/null -w '%{http_code}\n' https://tvh.viewaro.itquotes.hr/                 # 404
 curl -s -o /dev/null -w '%{http_code}\n' https://viewaro.itquotes.hr/app-review/tvheadend/cinema.png   # 200
+curl -s 'https://xtream.viewaro.itquotes.hr/player_api.php?username=x&password=y'              # {"user_info": {"auth": 0}}
+curl -s -o /dev/null -w '%{http_code}\n' https://xtream.viewaro.itquotes.hr/movie/x/y/501.mp4    # 401
+curl -s -o /dev/null -w '%{http_code}\n' https://xtream.viewaro.itquotes.hr/art/bbb-poster.jpg   # 200
 ```
 
 Viewaro's own check is the opt-in live verification in the Viewaro repo:

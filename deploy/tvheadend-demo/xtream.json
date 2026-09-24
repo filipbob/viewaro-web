@@ -1,0 +1,42 @@
+{
+  "added": "2026-09-24T00:00:00Z",
+  "live": {
+    "note": "Live channels, their tags and their guide come from channels.json."
+  },
+  "vodCategories": [
+    { "id": "1", "name": "Animation" },
+    { "id": "2", "name": "Science Fiction" }
+  ],
+  "movies": [
+    { "streamId": 501, "media": "bbb", "category": "1", "frameAt": 205 },
+    { "streamId": 502, "media": "sintel", "category": "1", "frameAt": 263 },
+    { "streamId": 503, "media": "tos", "category": "2", "frameAt": 118 },
+    { "streamId": 504, "media": "ed", "category": "1", "frameAt": 96 }
+  ],
+  "seriesCategories": [
+    { "id": "1", "name": "Open Movies" }
+  ],
+  "series": [
+    {
+      "seriesId": 801,
+      "name": "Blender Open Movie Collection",
+      "category": "1",
+      "artMedia": "sintel",
+      "releaseDate": "2006-03-24",
+      "genre": "Animation",
+      "plot": "The Blender Foundation's first four open movies, one per episode and in release order, from Elephants Dream to Tears of Steel. Each episode is licensed under Creative Commons Attribution; see its description.",
+      "seasons": [
+        {
+          "number": 1,
+          "name": "Season 1: 2006-2012",
+          "episodes": [
+            { "id": 7001, "media": "ed" },
+            { "id": 7002, "media": "bbb" },
+            { "id": 7003, "media": "sintel" },
+            { "id": 7004, "media": "tos" }
+          ]
+        }
+      ]
+    }
+  ]
+}
