@@ -8,6 +8,14 @@ on:
     tags:
       - "v*"
 
+# Two deploys at once race on `docker compose up`: both create the replacement
+# container under the same temporary name and the loser fails with "Conflict.
+# The container name ... is already in use" (v1.10.0 got two push runs in the
+# same second). Queue them instead; never cancel one mid-recreate.
+concurrency:
+  group: deploy-oracle-server
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
