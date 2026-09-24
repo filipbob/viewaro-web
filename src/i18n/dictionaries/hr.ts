@@ -122,7 +122,7 @@ const hr: Dictionary = {
     privacy: {
       title: "Pravila privatnosti",
       metaDescription: "Kako Viewaro postupa s tvojim podacima.",
-      updated: "7. kolovoza 2026.",
+      updated: "24. rujna 2026.",
       sections: [
         {
           paragraphs: [
@@ -138,7 +138,7 @@ const hr: Dictionary = {
         {
           heading: "Sažetak",
           paragraphs: [
-            "Viewaro je IPTV player u koji donosiš vlastiti sadržaj. Ne pruža kanale, playliste ni pretplate na medijske usluge. Podaci playlista i postavke reprodukcije pohranjuju se lokalno na tvom Macu. Ne koristimo oglašivačke trackere i ne prodajemo osobne podatke.",
+            "Viewaro je IPTV player u koji donosiš vlastiti sadržaj. Ne pruža kanale, kataloge filmova ili serija, playliste, račune kod providera ni pretplate na medijske usluge. Podaci izvora i postavke reprodukcije pohranjuju se lokalno na tvom Macu. Ne koristimo oglašivačke trackere i ne prodajemo osobne podatke.",
             "Ako su pretplate omogućene u verziji koju koristiš, Apple obrađuje plaćanje, a RevenueCat obrađuje ograničene informacije o kupnji i tehničke podatke kako bi potvrdio kupnju i utvrdio jesu li Premium značajke dostupne.",
           ],
         },
@@ -148,31 +148,48 @@ const hr: Dictionary = {
         },
         {
           list: [
-            "nazive i adrese playlista koje unosiš",
-            "vjerodajnice ili tokene playliste sadržane u tim adresama",
-            "informacije o uvezenom katalogu kanala",
-            "postavke aplikacije i postavke vezane uz reprodukciju",
+            "nazive izvora te adrese playlista, Xtream providera i Tvheadend servera koje unosiš",
+            "vjerodajnice ili tokene sadržane u adresama playlista te korisnička imena i lozinke koje unosiš za Xtream providere i Tvheadend servere",
+            "informacije o uvezenom katalogu kanala, filmova, serija, sezona i epizoda, zajedno s adresama slika i opisima koje pruža tvoj provider",
+            "preuzete podatke TV vodiča i eventualnu adresu vodiča koju uneseš",
+            "favorite, napredak gledanja, postavke aplikacije i postavke vezane uz reprodukciju",
             "anonimni identifikator pretplate i predmemorirani status prava kada su pretplate omogućene",
           ],
         },
         {
           paragraphs: [
-            "Osjetljive adrese playlista pohranjuju se u šifriranom lokalnom sefu. Ključ sefa zaštićen je macOS Keychainom. Ove informacije ne šalju se na Viewaro ili ITQuotes servere.",
+            "Osjetljive adrese playlista, računi providera i servera te adrese vodiča pohranjuju se u šifriranom lokalnom sefu. Ključ sefa zaštićen je macOS Keychainom. Ove informacije ne šalju se na Viewaro ili ITQuotes servere.",
             "Uvezene izvore možeš ukloniti unutar aplikacije. macOS može zadržati stavke Keychaina nakon uklanjanja aplikacije, pa deinstalacija aplikacije nije zajamčena metoda brisanja svake stavke Keychaina.",
+          ],
+        },
+        {
+          heading: "macOS zapisnik sustava",
+          paragraphs: [
+            "macOS može u zapisnik sustava na Macu bilježiti adrese streamova koje Viewaro otvara. Te unose zapisuju Appleove vlastite mrežne komponente, a ne Viewaro, i Viewaro ih ne može ukloniti. Xtream provideri stavljaju tvoje korisničko ime i lozinku u svaku adresu streama, a neke playliste u svoje adrese stavljaju token ili lozinku; kod tih izvora zabilježena adresa sadrži te podatke o računu.",
+            "Zapisnik sustava ostaje na tvom Macu. Može ga čitati svatko tko na tom Macu ima administratorski račun, a uključen je i u dijagnostička izvješća koja odlučiš izraditi i podijeliti, primjerice s Appleom. Viewaro nam ne šalje zapisnik sustava.",
           ],
         },
         {
           heading: "Mrežne veze s tvojim providerom",
           paragraphs: [
-            "Kad uvezeš playlistu ili reproduciraš stream, tvoj Mac spaja se izravno na adresu koju si naveo. Taj provider može primiti informacije koje su uobičajeno uključene u mrežnu vezu, poput tvoje IP adrese, vremena zahtjeva, traženog puta i vjerodajnica sadržanih u URL-u providera.",
-            "Mi ne kontroliramo tvog providera i ne primamo te zahtjeve. Vrijede vlastita pravila privatnosti i uvjeti tvog providera. Viewaro daje prednost HTTPS-u. Kada adresa providera koristi HTTP, Viewaro upozorava da veza može izložiti vjerodajnice i prvo pokušava isti host putem HTTPS-a. Ako provider ne podržava HTTPS, Viewaro može upotrijebiti izvornu nešifriranu HTTP adresu za playlistu, programski vodič, sliku ili stream koje je unio korisnik. Koristi HTTPS kad god ga provider nudi.",
+            "Kad uvezeš izvor, učitaš njegove slike ili vodič ili pak reproduciraš stream, tvoj Mac spaja se izravno na adresu koju si naveo i na adrese slika koje taj provider vraća. Ti hostovi mogu primiti informacije koje su uobičajeno uključene u mrežnu vezu, poput tvoje IP adrese, vremena zahtjeva, traženog puta i svih vjerodajnica potrebnih za zahtjev providera.",
+            "Tvheadend server prima podatke računa koje si za njega unio: Viewaro se prijavljuje kad server to zatraži i te podatke šalje sa svakim kanalom koji reproduciraš. Ako je server na tvojoj lokalnoj mreži, macOS traži tvoje dopuštenje prije nego što mu Viewaro može pristupiti.",
+            "Mi ne kontroliramo tvog providera i ne primamo te zahtjeve. Vrijede vlastita pravila privatnosti i uvjeti tvog providera. Viewaro daje prednost HTTPS-u. Kada adresa providera koristi HTTP, Viewaro upozorava da veza može izložiti vjerodajnice i prvo pokušava isti host putem HTTPS-a. Ako provider ne podržava HTTPS, Viewaro može upotrijebiti izvornu nešifriranu HTTP adresu za playlistu, programski vodič, sliku ili stream koje je unio korisnik. Tvheadend server koristi se na adresi točno onakvoj kakvu uneseš, a to je često http:// adresa na kućnoj mreži; na takvoj adresi lozinka koju si unio šalje se nešifrirano svaki put kad se reproducira kanal, a Viewaro te o tome obavještava prije uvoza. Koristi HTTPS kad god ga provider ili server nudi.",
           ],
         },
         {
-          heading: "Javni izvori TV vodiča",
+          heading: "Izvori TV vodiča",
+          paragraphs: ["Odakle dolazi vodič, ovisi o izvoru:"],
+        },
+        {
+          list: [
+            "**Adresa vodiča koju si unio ili vlastita adresa XMLTV vodiča iz playliste:** Viewaro se povezuje samo s tom adresom, jednako kao s tvojim providerom.",
+            "**Tvheadend server:** Viewaro preuzima vlastiti vodič servera s podacima računa koje si unio i za taj izvor ne kontaktira nijednog izdavača javnog vodiča.",
+            "**Playlista bez vlastite adrese vodiča ili Xtream provider:** Viewaro automatski traži javni vodič pri prvom korištenju izvora i kada osvježiš vodič. Datoteke XMLTV-a po državama preuzima s open-epg.com i iptv-epg.org. Viewaro od Xtream providera ne traži njegov vodič.",
+          ],
+        },
+        {
           paragraphs: [
-            "Ako playlista sadrži vlastitu adresu XMLTV vodiča, Viewaro se povezuje samo s tom adresom, jednako kao s tvojim providerom.",
-            "Ako playlista nema adresu vodiča, Viewaro automatski traži javni vodič pri prvom otvaranju playliste i kada osvježiš vodič. Datoteke XMLTV-a po državama preuzima s open-epg.com i iptv-epg.org.",
             "Ti izdavači primaju standardne mrežne podatke, poput tvoje IP adrese, vremena zahtjeva i zatražene datoteke za državu. Viewaro im ne šalje adresu providera, vjerodajnice, nazive kanala ni povijest gledanja. Usklađivanje programa odvija se lokalno na tvom Macu, a primjenjuju se pravila privatnosti i uvjeti svakog izdavača.",
           ],
         },
@@ -198,7 +215,7 @@ const hr: Dictionary = {
         },
         {
           paragraphs: [
-            "Ove informacije koriste se za potvrdu kupnje, sprječavanje prijevara, funkcionalnost pretplate i agregiranu analitiku pretplata. Viewaro ne šalje adrese playlista, vjerodajnice providera, nazive kanala ni povijest gledanja RevenueCatu. Ne koristimo RevenueCat podatke za oglašivačko praćenje između aplikacija.",
+            "Ove informacije koriste se za potvrdu kupnje, sprječavanje prijevara, funkcionalnost pretplate i agregiranu analitiku pretplata. Viewaro ne šalje adrese izvora, vjerodajnice providera, nazive kanala ni povijest gledanja RevenueCatu. Ne koristimo RevenueCat podatke za oglašivačko praćenje između aplikacija.",
             "Pogledaj [RevenueCat pravila privatnosti](https://www.revenuecat.com/privacy) za njihovu praksu obrade, zadržavanja i međunarodnog prijenosa podataka.",
           ],
         },
@@ -236,8 +253,8 @@ const hr: Dictionary = {
         {
           heading: "Tvoji izbori i prava",
           paragraphs: [
-            "Playliste i druge lokalne podatke aplikacije možeš ukloniti pomoću Viewarovih kontrola. Apple pretplatu možeš upravljati ili otkazati u postavkama svog Apple računa. Možeš nas kontaktirati kako bi pitao o informacijama podrške koje čuvamo o tebi ili kako bi ostvario prava dostupna prema važećem zakonu o privatnosti.",
-            "Budući da podaci playliste i reprodukcije ostaju na tvom Macu, obično ne možemo daljinski pristupiti tim lokalnim podacima, izvesti ih ili izbrisati.",
+            "Izvore i druge lokalne podatke aplikacije možeš ukloniti pomoću Viewarovih kontrola. Apple pretplatu možeš upravljati ili otkazati u postavkama svog Apple računa. Možeš nas kontaktirati kako bi pitao o informacijama podrške koje čuvamo o tebi ili kako bi ostvario prava dostupna prema važećem zakonu o privatnosti.",
+            "Budući da podaci izvora i reprodukcije ostaju na tvom Macu, obično ne možemo daljinski pristupiti tim lokalnim podacima, izvesti ih ili izbrisati.",
           ],
         },
         {
@@ -249,7 +266,7 @@ const hr: Dictionary = {
         {
           heading: "Sigurnost",
           paragraphs: [
-            "Koristimo tehničke mjere osmišljene za zaštitu informacija, uključujući macOS App Sandbox, zaštitu Keychaina i šifriranu lokalnu pohranu za tajne podatke playlista. Nijedna sigurnosna mjera ne može jamčiti apsolutnu zaštitu.",
+            "Koristimo tehničke mjere osmišljene za zaštitu informacija, uključujući macOS App Sandbox, zaštitu Keychaina i šifriranu lokalnu pohranu za adrese playlista i tajne podatke računa. Nijedna sigurnosna mjera ne može jamčiti apsolutnu zaštitu.",
           ],
         },
         {
@@ -269,7 +286,7 @@ const hr: Dictionary = {
     terms: {
       title: "Uvjeti korištenja",
       metaDescription: "Uvjeti korištenja aplikacije Viewaro.",
-      updated: "5. kolovoza 2026.",
+      updated: "24. rujna 2026.",
       sections: [
         {
           paragraphs: [
@@ -285,13 +302,13 @@ const hr: Dictionary = {
         {
           heading: "Donesi vlastiti sadržaj",
           paragraphs: [
-            "Viewaro je media player. Ne pruža, ne hostira, ne prodaje, ne preporučuje niti provjerava televizijske kanale, playliste, pretplate na medijske usluge ili vjerodajnice za pristup.",
+            "Viewaro je media player. Ne pruža, ne hostira, ne prodaje, ne preporučuje niti provjerava televizijske kanale, kataloge filmova ili serija, playliste, pretplate na medijske usluge ili vjerodajnice za pristup.",
             "Viewaro smiješ koristiti samo s izvorima i sadržajem kojem imaš zakonsko pravo pristupa. Odgovoran si za:",
           ],
         },
         {
           list: [
-            "zakonitost i točnost adresa playliste i vjerodajnica koje unosiš",
+            "zakonitost i točnost adresa playlista, providera i servera te vjerodajnica koje unosiš",
             "pribavljanje svih potrebnih pretplata, licenci i dozvola",
             "pridržavanje uvjeta tvog providera i važećeg zakona",
             "osiguravanje da je sadržaj primjeren svakoj osobi koja koristi tvoj Mac",

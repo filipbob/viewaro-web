@@ -122,7 +122,7 @@ const pt: Dictionary = {
     privacy: {
       title: "Política de privacidade",
       metaDescription: "Como o Viewaro trata os teus dados.",
-      updated: "7 de agosto de 2026",
+      updated: "24 de setembro de 2026",
       sections: [
         {
           paragraphs: [
@@ -138,7 +138,7 @@ const pt: Dictionary = {
         {
           heading: "Resumo",
           paragraphs: [
-            "O Viewaro é um leitor IPTV onde trazes o teu próprio conteúdo. Não fornece canais, playlists ou subscrições de media. Os dados de playlist e as preferências de reprodução são guardados localmente no teu Mac. Não usamos rastreadores publicitários e não vendemos dados pessoais.",
+            "O Viewaro é um leitor IPTV onde trazes o teu próprio conteúdo. Não fornece canais, catálogos de filmes ou séries, playlists, contas de fornecedor ou subscrições de media. Os dados das fontes e as preferências de reprodução são guardados localmente no teu Mac. Não usamos rastreadores publicitários e não vendemos dados pessoais.",
             "Se as subscrições estiverem ativadas na versão que utilizas, a Apple processa o pagamento e a RevenueCat processa informação limitada de compra e técnica para validar a compra e determinar se as funcionalidades Premium estão disponíveis.",
           ],
         },
@@ -148,31 +148,48 @@ const pt: Dictionary = {
         },
         {
           list: [
-            "nomes e endereços de playlist que introduzes",
-            "credenciais ou tokens de playlist contidos nesses endereços",
-            "informação do catálogo de canais importado",
-            "definições da app e preferências relacionadas com a reprodução",
+            "nomes das fontes e os endereços de playlist, de fornecedores Xtream e de servidores Tvheadend que introduzes",
+            "credenciais ou tokens contidos nos endereços de playlist, e os nomes de utilizador e palavras-passe que introduzes para fornecedores Xtream e servidores Tvheadend",
+            "informação do catálogo importado de canais, filmes, séries, temporadas e episódios, com os endereços de imagens e as descrições que o teu fornecedor disponibiliza",
+            "dados do guia de TV transferidos e qualquer endereço de guia que introduzas",
+            "favoritos, progresso de visualização, definições da app e preferências relacionadas com a reprodução",
             "um identificador de subscrição anónimo e o estado de direito em cache quando as subscrições estão ativadas",
           ],
         },
         {
           paragraphs: [
-            "Os endereços de playlist sensíveis são guardados num cofre local encriptado. A chave do cofre é protegida pelo Chaveiro (Keychain) do macOS. Esta informação não é enviada para servidores da Viewaro ou da ITQuotes.",
+            "Os endereços de playlist sensíveis, as contas de fornecedores e servidores e os endereços de guia são guardados num cofre local encriptado. A chave do cofre é protegida pelo Chaveiro (Keychain) do macOS. Esta informação não é enviada para servidores da Viewaro ou da ITQuotes.",
             "Podes remover fontes importadas a partir da app. O macOS pode reter itens do Chaveiro após a remoção de uma aplicação, pelo que desinstalar a app não é um método garantido de apagar todos os itens do Chaveiro.",
+          ],
+        },
+        {
+          heading: "Registo do sistema do macOS",
+          paragraphs: [
+            "O macOS pode gravar no registo do sistema do Mac os endereços dos streams que o Viewaro abre. São os próprios componentes de rede da Apple, e não o Viewaro, que escrevem estas entradas, e o Viewaro não as pode remover. Os fornecedores Xtream colocam o teu nome de utilizador e a tua palavra-passe em cada endereço de stream, e algumas playlists colocam um token ou uma palavra-passe nos seus endereços; nessas fontes, o endereço registado contém esses dados da conta.",
+            "O registo do sistema permanece no teu Mac. Qualquer pessoa com uma conta de administrador nesse Mac pode lê-lo, e é incluído nos relatórios de diagnóstico que escolheres criar e partilhar, por exemplo com a Apple. O Viewaro não nos envia o registo do sistema.",
           ],
         },
         {
           heading: "Ligações de rede ao teu fornecedor",
           paragraphs: [
-            "Quando importas uma playlist ou reproduzes um stream, o teu Mac liga-se diretamente ao endereço que forneceste. Esse fornecedor pode receber informação normalmente incluída numa ligação de rede, como o teu endereço IP, a hora do pedido, o caminho solicitado e quaisquer credenciais incluídas no URL do fornecedor.",
-            "Não controlamos o teu fornecedor nem recebemos esses pedidos. Aplicam-se a política de privacidade e os termos do teu fornecedor. O Viewaro dá preferência a HTTPS. Quando um endereço do fornecedor usa HTTP, o Viewaro avisa que a ligação pode expor credenciais e tenta primeiro o mesmo host por HTTPS. Se o fornecedor não suportar HTTPS, o Viewaro pode usar o endereço HTTP original não encriptado para uma playlist, guia, imagem ou stream fornecidos pelo utilizador. Usa HTTPS sempre que o teu fornecedor o disponibilizar.",
+            "Quando importas uma fonte, carregas as suas imagens ou o seu guia, ou reproduzes um stream, o teu Mac liga-se diretamente ao endereço que forneceste e aos endereços de imagens que esse fornecedor devolve. Esses hosts podem receber informação normalmente incluída numa ligação de rede, como o teu endereço IP, a hora do pedido, o caminho solicitado e quaisquer credenciais que o pedido ao fornecedor exija.",
+            "Um servidor Tvheadend recebe a conta que introduziste para ele: o Viewaro inicia sessão quando o servidor o solicita e envia a conta com cada canal que reproduzes. Se o servidor estiver na tua rede local, o macOS pede-te autorização antes de o Viewaro se poder ligar a ele.",
+            "Não controlamos o teu fornecedor nem recebemos esses pedidos. Aplicam-se a política de privacidade e os termos do teu fornecedor. O Viewaro dá preferência a HTTPS. Quando um endereço do fornecedor usa HTTP, o Viewaro avisa que a ligação pode expor credenciais e tenta primeiro o mesmo host por HTTPS. Se o fornecedor não suportar HTTPS, o Viewaro pode usar o endereço HTTP original não encriptado para uma playlist, guia, imagem ou stream fornecidos pelo utilizador. Um servidor Tvheadend é usado no endereço exatamente como o introduzes, muitas vezes um endereço http:// numa rede doméstica; num endereço assim, a palavra-passe que introduziste é enviada sem encriptação sempre que um canal é reproduzido, e o Viewaro avisa disso antes da importação. Usa HTTPS sempre que o teu fornecedor ou servidor o disponibilizar.",
           ],
         },
         {
-          heading: "Fontes públicas do guia de TV",
+          heading: "Fontes do guia de TV",
+          paragraphs: ["A origem do guia depende da fonte:"],
+        },
+        {
+          list: [
+            "**Um endereço de guia que introduziste, ou o endereço de guia XMLTV que a própria playlist inclui:** O Viewaro liga-se apenas a esse endereço, tal como ao teu fornecedor.",
+            "**Um servidor Tvheadend:** O Viewaro transfere o guia do próprio servidor com a conta que introduziste e não contacta nenhum editor de guias públicos para esse servidor.",
+            "**Uma playlist sem endereço de guia próprio, ou um fornecedor Xtream:** O Viewaro procura automaticamente um guia público na primeira utilização da fonte e quando atualizas o guia. Solicita ficheiros XMLTV por país a open-epg.com e iptv-epg.org. O Viewaro não pede ao fornecedor Xtream o seu guia.",
+          ],
+        },
+        {
           paragraphs: [
-            "Se a playlist incluir o seu próprio endereço de guia XMLTV, o Viewaro liga-se apenas a esse endereço, tal como ao teu fornecedor.",
-            "Se a playlist não tiver endereço de guia, o Viewaro procura automaticamente um guia público na primeira abertura e quando atualizas o guia. Solicita ficheiros XMLTV por país a open-epg.com e iptv-epg.org.",
             "Estes editores recebem dados de rede normais, como o teu endereço IP, a hora do pedido e o ficheiro do país solicitado. O Viewaro não lhes envia o endereço do fornecedor, credenciais, nomes de canais ou histórico de visualização. A correspondência dos programas ocorre localmente no teu Mac; aplicam-se a política de privacidade e os termos de cada editor.",
           ],
         },
@@ -198,7 +215,7 @@ const pt: Dictionary = {
         },
         {
           paragraphs: [
-            "Esta informação é usada para validação de compras, prevenção de fraude, funcionalidade de subscrição e análise agregada de subscrições. O Viewaro não envia endereços de playlist, credenciais de fornecedor, nomes de canais ou histórico de visualização para a RevenueCat. Não usamos dados da RevenueCat para rastreamento publicitário entre apps.",
+            "Esta informação é usada para validação de compras, prevenção de fraude, funcionalidade de subscrição e análise agregada de subscrições. O Viewaro não envia endereços de fontes, credenciais de fornecedor, nomes de canais ou histórico de visualização para a RevenueCat. Não usamos dados da RevenueCat para rastreamento publicitário entre apps.",
             "Consulta a [Política de Privacidade da RevenueCat](https://www.revenuecat.com/privacy) para as suas práticas de processamento, retenção e transferência internacional.",
           ],
         },
@@ -236,8 +253,8 @@ const pt: Dictionary = {
         {
           heading: "As tuas escolhas e direitos",
           paragraphs: [
-            "Podes remover playlists e outros dados locais da app através dos controlos do Viewaro. Podes gerir ou cancelar uma subscrição Apple nas definições da tua conta Apple. Podes contactar-nos para perguntar sobre informação de suporte que temos sobre ti ou para exercer direitos disponíveis ao abrigo da lei de privacidade aplicável.",
-            "Como os dados de playlist e reprodução permanecem no teu Mac, geralmente não conseguimos aceder, exportar ou eliminar esses dados locais remotamente.",
+            "Podes remover fontes e outros dados locais da app através dos controlos do Viewaro. Podes gerir ou cancelar uma subscrição Apple nas definições da tua conta Apple. Podes contactar-nos para perguntar sobre informação de suporte que temos sobre ti ou para exercer direitos disponíveis ao abrigo da lei de privacidade aplicável.",
+            "Como os dados das fontes e de reprodução permanecem no teu Mac, geralmente não conseguimos aceder, exportar ou eliminar esses dados locais remotamente.",
           ],
         },
         {
@@ -249,7 +266,7 @@ const pt: Dictionary = {
         {
           heading: "Segurança",
           paragraphs: [
-            "Usamos medidas técnicas concebidas para proteger informação, incluindo a App Sandbox do macOS, a proteção do Chaveiro e armazenamento local encriptado para segredos de playlist. Nenhuma medida de segurança pode garantir proteção absoluta.",
+            "Usamos medidas técnicas concebidas para proteger informação, incluindo a App Sandbox do macOS, a proteção do Chaveiro e armazenamento local encriptado para endereços de playlist e segredos de contas. Nenhuma medida de segurança pode garantir proteção absoluta.",
           ],
         },
         {
@@ -269,7 +286,7 @@ const pt: Dictionary = {
     terms: {
       title: "Termos de utilização",
       metaDescription: "Termos de utilização da app Viewaro.",
-      updated: "5 de agosto de 2026",
+      updated: "24 de setembro de 2026",
       sections: [
         {
           paragraphs: [
@@ -285,13 +302,13 @@ const pt: Dictionary = {
         {
           heading: "Traz o teu próprio conteúdo",
           paragraphs: [
-            "O Viewaro é um leitor multimédia. Não fornece, aloja, vende, recomenda nem verifica canais de televisão, playlists, subscrições de media ou credenciais de acesso.",
+            "O Viewaro é um leitor multimédia. Não fornece, aloja, vende, recomenda nem verifica canais de televisão, catálogos de filmes ou séries, playlists, subscrições de media ou credenciais de acesso.",
             "Só podes usar o Viewaro com fontes e conteúdo aos quais estejas legalmente autorizado a aceder. És responsável por:",
           ],
         },
         {
           list: [
-            "a legalidade e exatidão dos endereços de playlist e credenciais que introduzes",
+            "a legalidade e exatidão dos endereços de playlist, fornecedor e servidor e das credenciais que introduzes",
             "obter todas as subscrições, licenças e permissões necessárias",
             "cumprir os termos do teu fornecedor e a lei aplicável",
             "garantir que o conteúdo é apropriado para cada pessoa que usa o teu Mac",

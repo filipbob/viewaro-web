@@ -122,7 +122,7 @@ const en: Dictionary = {
     privacy: {
       title: "Privacy Policy",
       metaDescription: "How Viewaro handles your data.",
-      updated: "August 7, 2026",
+      updated: "September 24, 2026",
       sections: [
         {
           paragraphs: [
@@ -138,7 +138,7 @@ const en: Dictionary = {
         {
           heading: "Summary",
           paragraphs: [
-            "Viewaro is a bring-your-own-content IPTV player. It does not provide channels, playlists, or media subscriptions. Playlist data and playback preferences are stored locally on your Mac. We do not use advertising trackers and we do not sell personal data.",
+            "Viewaro is a bring-your-own-content IPTV player. It does not provide channels, movie or series catalogs, playlists, provider accounts, or media subscriptions. Source data and playback preferences are stored locally on your Mac. We do not use advertising trackers and we do not sell personal data.",
             "If subscriptions are enabled in the version you use, Apple processes the payment and RevenueCat processes limited purchase and technical information to validate the purchase and determine whether Premium features are available.",
           ],
         },
@@ -148,31 +148,48 @@ const en: Dictionary = {
         },
         {
           list: [
-            "playlist names and addresses you enter",
-            "playlist credentials or tokens contained in those addresses",
-            "imported channel catalog information",
-            "app settings and playback-related preferences",
+            "source names, and the playlist, Xtream provider and Tvheadend server addresses you enter",
+            "credentials or tokens contained in playlist addresses, and the usernames and passwords you enter for Xtream providers and Tvheadend servers",
+            "imported channel, movie, series, season and episode catalog information, with the artwork addresses and descriptions your provider supplies",
+            "downloaded TV guide data, and any guide address you enter",
+            "favorites, watch progress, app settings and playback-related preferences",
             "an anonymous subscription identifier and cached entitlement state when subscriptions are enabled",
           ],
         },
         {
           paragraphs: [
-            "Sensitive playlist addresses are stored in an encrypted local vault. The vault key is protected by the macOS Keychain. This information is not sent to Viewaro or ITQuotes servers.",
+            "Sensitive playlist addresses, provider and server accounts, and guide addresses are stored in an encrypted local vault. The vault key is protected by the macOS Keychain. This information is not sent to Viewaro or ITQuotes servers.",
             "You can remove imported sources from within the app. macOS may retain Keychain items after an application is removed, so uninstalling the app is not a guaranteed method of erasing every Keychain item.",
+          ],
+        },
+        {
+          heading: "macOS system log",
+          paragraphs: [
+            "macOS can record the addresses of streams that Viewaro opens in the Mac's system log. Apple's own networking components write these entries, not Viewaro, and Viewaro cannot remove them. Xtream providers put your username and password in every stream address, and some playlists put a token or password in theirs; for those sources, the recorded address contains that account information.",
+            "The system log stays on your Mac. Anyone with an administrator account on that Mac can read it, and it is included in diagnostic reports that you choose to create and share, for example with Apple. Viewaro does not send the system log to us.",
           ],
         },
         {
           heading: "Network connections to your provider",
           paragraphs: [
-            "When you import a playlist or play a stream, your Mac connects directly to the address you supplied. That provider can receive information normally included in a network connection, such as your IP address, request time, requested path, and any credentials included in the provider URL.",
-            "We do not control your provider and do not receive those requests. Your provider's own privacy policy and terms apply. Viewaro prefers HTTPS. When a provider address uses HTTP, Viewaro warns that the connection can expose credentials and tries the same host over HTTPS first. If the provider does not support HTTPS, Viewaro may use the original unencrypted HTTP address for a user-supplied playlist, guide, artwork, or stream. Use HTTPS whenever your provider offers it.",
+            "When you import a source, load its artwork or guide, or play a stream, your Mac connects directly to the address you supplied and to the artwork addresses that provider returns. Those hosts can receive information normally included in a network connection, such as your IP address, request time, requested path, and any credentials the provider's request requires.",
+            "A Tvheadend server receives the account you entered for it: Viewaro signs in when the server asks, and sends the account with every channel you play. If the server is on your local network, macOS asks for your permission before Viewaro can reach it.",
+            "We do not control your provider and do not receive those requests. Your provider's own privacy policy and terms apply. Viewaro prefers HTTPS. When a provider address uses HTTP, Viewaro warns that the connection can expose credentials and tries the same host over HTTPS first. If the provider does not support HTTPS, Viewaro may use the original unencrypted HTTP address for a user-supplied playlist, guide, artwork, or stream. A Tvheadend server is used at the address exactly as you enter it, often an http:// address on a home network; on such an address, the password you entered is sent unencrypted each time a channel plays, and Viewaro says so before import. Use HTTPS whenever your provider or server offers it.",
           ],
         },
         {
-          heading: "Public TV guide feeds",
+          heading: "TV guide feeds",
+          paragraphs: ["Where the guide comes from depends on the source:"],
+        },
+        {
+          list: [
+            "**A guide address you entered, or a playlist's own XMLTV guide address:** Viewaro connects only to that address, just as it connects to your provider.",
+            "**A Tvheadend server:** Viewaro downloads the server's own guide with the account you entered and contacts no public guide publisher for it.",
+            "**A playlist without a guide address of its own, or an Xtream provider:** Viewaro automatically looks for a public guide when the source is first used and when you refresh the guide. It requests country-specific XMLTV files from open-epg.com and iptv-epg.org. Viewaro does not ask the Xtream provider for its guide.",
+          ],
+        },
+        {
           paragraphs: [
-            "If your playlist includes its own XMLTV guide address, Viewaro connects only to that address, just as it connects to your provider.",
-            "If the playlist has no guide address, Viewaro automatically looks for a public guide when the playlist is first opened and when you refresh the guide. It requests country-specific XMLTV files from open-epg.com and iptv-epg.org.",
             "Those publishers receive standard network information such as your IP address, request time, and the requested country file. Viewaro does not send them your provider address, credentials, channel names, or viewing history. Programme matching happens locally on your Mac, and each publisher's own privacy policy and terms apply.",
           ],
         },
@@ -198,7 +215,7 @@ const en: Dictionary = {
         },
         {
           paragraphs: [
-            "This information is used for purchase validation, fraud prevention, subscription functionality, and aggregate subscription analytics. Viewaro does not send playlist addresses, provider credentials, channel names, or viewing history to RevenueCat. We do not use RevenueCat data for cross-app advertising tracking.",
+            "This information is used for purchase validation, fraud prevention, subscription functionality, and aggregate subscription analytics. Viewaro does not send source addresses, provider credentials, channel names, or viewing history to RevenueCat. We do not use RevenueCat data for cross-app advertising tracking.",
             "See [RevenueCat's Privacy Policy](https://www.revenuecat.com/privacy) for its processing, retention, and international-transfer practices.",
           ],
         },
@@ -236,8 +253,8 @@ const en: Dictionary = {
         {
           heading: "Your choices and rights",
           paragraphs: [
-            "You can remove playlists and other local app data using Viewaro's controls. You can manage or cancel an Apple subscription in your Apple Account settings. You can contact us to ask about support information we hold about you or to exercise rights available under applicable privacy law.",
-            "Because playlist and playback data remain on your Mac, we generally cannot access, export, or delete that local data remotely.",
+            "You can remove sources and other local app data using Viewaro's controls. You can manage or cancel an Apple subscription in your Apple Account settings. You can contact us to ask about support information we hold about you or to exercise rights available under applicable privacy law.",
+            "Because source and playback data remain on your Mac, we generally cannot access, export, or delete that local data remotely.",
           ],
         },
         {
@@ -249,7 +266,7 @@ const en: Dictionary = {
         {
           heading: "Security",
           paragraphs: [
-            "We use technical measures designed to protect information, including the macOS App Sandbox, Keychain protection, and encrypted local storage for playlist secrets. No security measure can guarantee absolute protection.",
+            "We use technical measures designed to protect information, including the macOS App Sandbox, Keychain protection, and encrypted local storage for playlist addresses and account secrets. No security measure can guarantee absolute protection.",
           ],
         },
         {
@@ -269,7 +286,7 @@ const en: Dictionary = {
     terms: {
       title: "Terms of Use",
       metaDescription: "Terms of use for the Viewaro app.",
-      updated: "August 5, 2026",
+      updated: "September 24, 2026",
       sections: [
         {
           paragraphs: [
@@ -285,13 +302,13 @@ const en: Dictionary = {
         {
           heading: "Bring your own content",
           paragraphs: [
-            "Viewaro is a media player. It does not provide, host, sell, recommend, or verify television channels, playlists, media subscriptions, or access credentials.",
+            "Viewaro is a media player. It does not provide, host, sell, recommend, or verify television channels, movie or series catalogs, playlists, media subscriptions, or access credentials.",
             "You may use Viewaro only with sources and content that you are legally authorized to access. You are responsible for:",
           ],
         },
         {
           list: [
-            "the legality and accuracy of playlist addresses and credentials you enter",
+            "the legality and accuracy of the playlist, provider and server addresses and the credentials you enter",
             "obtaining all necessary subscriptions, licenses, and permissions",
             "complying with your provider's terms and applicable law",
             "ensuring that content is appropriate for each person using your Mac",

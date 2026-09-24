@@ -122,7 +122,7 @@ const fr: Dictionary = {
     privacy: {
       title: "Politique de confidentialité",
       metaDescription: "Comment Viewaro traite vos données.",
-      updated: "7 août 2026",
+      updated: "24 septembre 2026",
       sections: [
         {
           paragraphs: [
@@ -138,7 +138,7 @@ const fr: Dictionary = {
         {
           heading: "Résumé",
           paragraphs: [
-            "Viewaro est un lecteur IPTV où vous apportez votre propre contenu. L'application ne fournit ni chaînes, ni playlists, ni abonnements média. Les données de playlist et les préférences de lecture sont stockées localement sur votre Mac. Nous n'utilisons pas de traceurs publicitaires et ne vendons pas de données personnelles.",
+            "Viewaro est un lecteur IPTV où vous apportez votre propre contenu. L'application ne fournit ni chaînes, ni catalogues de films ou de séries, ni playlists, ni comptes de fournisseur, ni abonnements média. Les données des sources et les préférences de lecture sont stockées localement sur votre Mac. Nous n'utilisons pas de traceurs publicitaires et ne vendons pas de données personnelles.",
             "Si les abonnements sont activés dans la version que vous utilisez, Apple traite le paiement et RevenueCat traite des informations limitées d'achat et techniques pour valider l'achat et déterminer si les fonctionnalités Premium sont disponibles.",
           ],
         },
@@ -148,31 +148,48 @@ const fr: Dictionary = {
         },
         {
           list: [
-            "les noms et adresses de playlist que vous saisissez",
-            "les identifiants ou jetons de playlist contenus dans ces adresses",
-            "les informations du catalogue de chaînes importé",
-            "les paramètres de l'app et les préférences liées à la lecture",
+            "les noms des sources, ainsi que les adresses de playlist, de fournisseur Xtream et de serveur Tvheadend que vous saisissez",
+            "les identifiants ou jetons contenus dans les adresses de playlist, ainsi que les noms d'utilisateur et mots de passe que vous saisissez pour les fournisseurs Xtream et les serveurs Tvheadend",
+            "les informations du catalogue importé de chaînes, films, séries, saisons et épisodes, avec les adresses d'images et les descriptions transmises par votre fournisseur",
+            "les données du guide TV téléchargées et toute adresse de guide que vous saisissez",
+            "les favoris, la progression de visionnage, les paramètres de l'app et les préférences liées à la lecture",
             "un identifiant d'abonnement anonyme et l'état de droit mis en cache lorsque les abonnements sont activés",
           ],
         },
         {
           paragraphs: [
-            "Les adresses de playlist sensibles sont stockées dans un coffre local chiffré. La clé du coffre est protégée par le Trousseau (Keychain) de macOS. Ces informations ne sont pas envoyées aux serveurs de Viewaro ou d'ITQuotes.",
+            "Les adresses de playlist sensibles, les comptes de fournisseur et de serveur ainsi que les adresses de guide sont stockés dans un coffre local chiffré. La clé du coffre est protégée par le Trousseau (Keychain) de macOS. Ces informations ne sont pas envoyées aux serveurs de Viewaro ou d'ITQuotes.",
             "Vous pouvez supprimer les sources importées depuis l'application. macOS peut conserver des éléments du Trousseau après la suppression d'une application ; désinstaller l'app n'est donc pas une méthode garantie pour effacer tous les éléments du Trousseau.",
+          ],
+        },
+        {
+          heading: "Journal système de macOS",
+          paragraphs: [
+            "macOS peut enregistrer dans le journal système du Mac les adresses des flux que Viewaro ouvre. Ces entrées sont écrites par les composants réseau propres à Apple, et non par Viewaro, et Viewaro ne peut pas les supprimer. Les fournisseurs Xtream placent votre nom d'utilisateur et votre mot de passe dans chaque adresse de flux, et certaines playlists placent un jeton ou un mot de passe dans leurs adresses ; pour ces sources, l'adresse enregistrée contient ces informations de compte.",
+            "Le journal système reste sur votre Mac. Toute personne disposant d'un compte administrateur sur ce Mac peut le lire, et il est inclus dans les rapports de diagnostic que vous choisissez de créer et de partager, par exemple avec Apple. Viewaro ne nous envoie pas le journal système.",
           ],
         },
         {
           heading: "Connexions réseau vers votre fournisseur",
           paragraphs: [
-            "Lorsque vous importez une playlist ou lisez un flux, votre Mac se connecte directement à l'adresse que vous avez fournie. Ce fournisseur peut recevoir les informations normalement incluses dans une connexion réseau, telles que votre adresse IP, l'heure de la requête, le chemin demandé et tout identifiant inclus dans l'URL du fournisseur.",
-            "Nous ne contrôlons pas votre fournisseur et ne recevons pas ces requêtes. La politique de confidentialité et les conditions de votre fournisseur s'appliquent. Viewaro privilégie HTTPS. Lorsqu'une adresse de fournisseur utilise HTTP, Viewaro avertit que la connexion peut exposer des identifiants et essaie d'abord le même hôte en HTTPS. Si le fournisseur ne prend pas HTTPS en charge, Viewaro peut utiliser l'adresse HTTP d'origine non chiffrée pour une playlist, un guide, une image ou un flux fournis par l'utilisateur. Utilisez HTTPS chaque fois que votre fournisseur le propose.",
+            "Lorsque vous importez une source, chargez ses images ou son guide, ou lisez un flux, votre Mac se connecte directement à l'adresse que vous avez fournie et aux adresses d'images que ce fournisseur renvoie. Ces hôtes peuvent recevoir les informations normalement incluses dans une connexion réseau, telles que votre adresse IP, l'heure de la requête, le chemin demandé et tout identifiant que le fournisseur exige dans la requête.",
+            "Un serveur Tvheadend reçoit les informations de compte que vous avez saisies pour lui : Viewaro s'authentifie lorsque le serveur le demande et les envoie avec chaque chaîne que vous lisez. Si le serveur se trouve sur votre réseau local, macOS vous demande votre autorisation avant que Viewaro puisse l'atteindre.",
+            "Nous ne contrôlons pas votre fournisseur et ne recevons pas ces requêtes. La politique de confidentialité et les conditions de votre fournisseur s'appliquent. Viewaro privilégie HTTPS. Lorsqu'une adresse de fournisseur utilise HTTP, Viewaro avertit que la connexion peut exposer des identifiants et essaie d'abord le même hôte en HTTPS. Si le fournisseur ne prend pas HTTPS en charge, Viewaro peut utiliser l'adresse HTTP d'origine non chiffrée pour une playlist, un guide, une image ou un flux fournis par l'utilisateur. Viewaro utilise l'adresse d'un serveur Tvheadend exactement telle que vous la saisissez, souvent une adresse http:// sur un réseau domestique ; avec une telle adresse, le mot de passe que vous avez saisi est envoyé sans chiffrement chaque fois qu'une chaîne est lue, et Viewaro le signale avant l'importation. Utilisez HTTPS chaque fois que votre fournisseur ou votre serveur le propose.",
           ],
         },
         {
-          heading: "Sources publiques du guide TV",
+          heading: "Sources du guide TV",
+          paragraphs: ["La provenance du guide dépend de la source :"],
+        },
+        {
+          list: [
+            "**Une adresse de guide que vous avez saisie, ou l'adresse de guide XMLTV propre à une playlist :** Viewaro se connecte uniquement à cette adresse, comme il le fait avec votre fournisseur.",
+            "**Un serveur Tvheadend :** Viewaro télécharge le guide propre au serveur avec les informations de compte que vous avez saisies et ne contacte pour cela aucun éditeur de guides publics.",
+            "**Une playlist sans adresse de guide propre, ou un fournisseur Xtream :** Viewaro recherche automatiquement un guide public lors de la première utilisation de la source et lorsque vous actualisez le guide. Il demande des fichiers XMLTV par pays à open-epg.com et iptv-epg.org. Viewaro ne demande pas de guide au fournisseur Xtream.",
+          ],
+        },
+        {
           paragraphs: [
-            "Si votre playlist contient sa propre adresse de guide XMLTV, Viewaro se connecte uniquement à cette adresse, comme il le fait avec votre fournisseur.",
-            "Si la playlist n'a pas d'adresse de guide, Viewaro recherche automatiquement un guide public lors de sa première ouverture et lorsque vous actualisez le guide. Il demande des fichiers XMLTV par pays à open-epg.com et iptv-epg.org.",
             "Ces éditeurs reçoivent les données réseau habituelles, comme votre adresse IP, l'heure de la requête et le fichier pays demandé. Viewaro ne leur transmet ni l'adresse du fournisseur, ni identifiants, ni noms de chaînes, ni historique de visionnage. La correspondance des programmes s'effectue localement sur votre Mac ; la politique de confidentialité et les conditions de chaque éditeur s'appliquent.",
           ],
         },
@@ -198,7 +215,7 @@ const fr: Dictionary = {
         },
         {
           paragraphs: [
-            "Ces informations sont utilisées pour la validation des achats, la prévention de la fraude, la fonctionnalité d'abonnement et l'analyse agrégée des abonnements. Viewaro n'envoie pas les adresses de playlist, les identifiants de fournisseur, les noms de chaînes ni l'historique de visionnage à RevenueCat. Nous n'utilisons pas les données de RevenueCat pour le suivi publicitaire entre applications.",
+            "Ces informations sont utilisées pour la validation des achats, la prévention de la fraude, la fonctionnalité d'abonnement et l'analyse agrégée des abonnements. Viewaro n'envoie pas les adresses des sources, les identifiants de fournisseur, les noms de chaînes ni l'historique de visionnage à RevenueCat. Nous n'utilisons pas les données de RevenueCat pour le suivi publicitaire entre applications.",
             "Consultez la [politique de confidentialité de RevenueCat](https://www.revenuecat.com/privacy) pour ses pratiques de traitement, de conservation et de transfert international.",
           ],
         },
@@ -236,8 +253,8 @@ const fr: Dictionary = {
         {
           heading: "Vos choix et droits",
           paragraphs: [
-            "Vous pouvez supprimer des playlists et d'autres données locales de l'app à l'aide des commandes de Viewaro. Vous pouvez gérer ou annuler un abonnement Apple dans les paramètres de votre compte Apple. Vous pouvez nous contacter pour demander des informations sur les données d'assistance que nous détenons à votre sujet ou pour exercer les droits disponibles en vertu de la loi de confidentialité applicable.",
-            "Comme les données de playlist et de lecture restent sur votre Mac, nous ne pouvons généralement pas y accéder, les exporter ni les supprimer à distance.",
+            "Vous pouvez supprimer des sources et d'autres données locales de l'app à l'aide des commandes de Viewaro. Vous pouvez gérer ou annuler un abonnement Apple dans les paramètres de votre compte Apple. Vous pouvez nous contacter pour demander des informations sur les données d'assistance que nous détenons à votre sujet ou pour exercer les droits disponibles en vertu de la loi de confidentialité applicable.",
+            "Comme les données des sources et de lecture restent sur votre Mac, nous ne pouvons généralement pas y accéder, les exporter ni les supprimer à distance.",
           ],
         },
         {
@@ -249,7 +266,7 @@ const fr: Dictionary = {
         {
           heading: "Sécurité",
           paragraphs: [
-            "Nous utilisons des mesures techniques conçues pour protéger les informations, notamment l'App Sandbox de macOS, la protection du Trousseau et le stockage local chiffré pour les secrets de playlist. Aucune mesure de sécurité ne peut garantir une protection absolue.",
+            "Nous utilisons des mesures techniques conçues pour protéger les informations, notamment l'App Sandbox de macOS, la protection du Trousseau et le stockage local chiffré pour les adresses de playlist et les secrets de compte. Aucune mesure de sécurité ne peut garantir une protection absolue.",
           ],
         },
         {
@@ -269,7 +286,7 @@ const fr: Dictionary = {
     terms: {
       title: "Conditions d'utilisation",
       metaDescription: "Conditions d'utilisation de l'application Viewaro.",
-      updated: "5 août 2026",
+      updated: "24 septembre 2026",
       sections: [
         {
           paragraphs: [
@@ -285,13 +302,13 @@ const fr: Dictionary = {
         {
           heading: "Apportez votre propre contenu",
           paragraphs: [
-            "Viewaro est un lecteur multimédia. Il ne fournit, n'héberge, ne vend, ne recommande ni ne vérifie de chaînes de télévision, playlists, abonnements média ou identifiants d'accès.",
+            "Viewaro est un lecteur multimédia. Il ne fournit, n'héberge, ne vend, ne recommande ni ne vérifie de chaînes de télévision, catalogues de films ou de séries, playlists, abonnements média ou identifiants d'accès.",
             "Vous ne pouvez utiliser Viewaro qu'avec des sources et du contenu auxquels vous êtes légalement autorisé à accéder. Vous êtes responsable de :",
           ],
         },
         {
           list: [
-            "la légalité et l'exactitude des adresses de playlist et identifiants que vous saisissez",
+            "la légalité et l'exactitude des adresses de playlist, de fournisseur et de serveur et des identifiants que vous saisissez",
             "l'obtention de tous les abonnements, licences et autorisations nécessaires",
             "le respect des conditions de votre fournisseur et de la loi applicable",
             "veiller à ce que le contenu soit approprié pour chaque personne utilisant votre Mac",
