@@ -21,12 +21,12 @@ export const metadata: Metadata = {
 const reviewChecks = [
   ["Home", "Browse the active source. With the Xtream demo, Home also shows the films and the series."],
   ["Search", "Search for Cinema with any demo, or for Sintel with the Xtream demo."],
-  ["Live TV", "Open a channel and inspect its current and upcoming guide data."],
+  ["Live TV", "Open a channel from the M3U or Tvheadend demo and inspect its current and upcoming guide data."],
   ["Movies and Series", "With the Xtream demo, open a film, then the series and one of its episodes."],
   ["Favorites", "Mark any demo channel as a favorite and open the Favorites section."],
   ["Player", "Play a channel, a film, or an episode."],
   ["Settings → Playback", "Choose the default player: Automatic, System Player, or Compatibility Player."],
-  ["Settings → TV Guide", "Review the current guide, its channel coverage, and the guide countries."],
+  ["Settings → TV Guide", "See where each source's guide comes from and how many channels it covers."],
 ] as const;
 
 function StepHeading({
@@ -173,9 +173,9 @@ export default function AppReviewPage() {
           <Address label="Server address" value={tvheadendURL} />
 
           <p className="mt-4 text-sm leading-6 text-zinc-500">
-            A real Tvheadend 4.3 server with four channels, numbered 1 to 4, in the categories
-            Movies, Animation, and Test, and the server&apos;s own programme guide. The guide
-            matches what is on screen.
+            A real Tvheadend 4.3 server with four channels in the categories Movies, Animation,
+            and Test, and the server&apos;s own programme guide. The guide matches what is on
+            screen.
           </p>
         </section>
 
@@ -194,10 +194,12 @@ export default function AppReviewPage() {
           <Address label="Server URL" value={xtreamURL} />
 
           <p className="mt-4 text-sm leading-6 text-zinc-500">
-            The same four live channels with their guide, plus four films under Movies and one
-            series, “Blender Open Movie Collection”, with four episodes under Series. This is the
-            only demo that fills Movies and Series: playlists and Tvheadend servers carry live
-            channels only.
+            Four films under Movies and one series, “Blender Open Movie Collection”, with four
+            episodes under Series, plus the same four live channels. This is the only demo that
+            fills Movies and Series: playlists and Tvheadend servers carry live channels only.
+            The live channels show no programme guide here. Viewaro builds Xtream guides from
+            public per-country feeds, and these demo channels belong to no country. The M3U and
+            Tvheadend demos show the guide.
           </p>
         </section>
 
