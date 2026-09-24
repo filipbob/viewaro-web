@@ -21,9 +21,19 @@ the paths themselves are part of the app contract and must not change:
 | `/privacy` | Privacy policy (required by the Mac App Store) |
 | `/terms` | Terms of use / EULA (required for subscriptions) |
 | `/support` | Support page (required by the Mac App Store) |
-| `/app-review` | Non-indexed App Review instructions and public demo-feed links |
+| `/app-review` | Non-indexed App Review instructions for the three demo sources |
 
-The review page links to generated fixtures at
+The review page walks App Review through one demo per source type: the M3U
+playlist below, and the Tvheadend and Xtream Codes-compatible servers from
+[`deploy/tvheadend-demo/`](deploy/tvheadend-demo/README.md). It gives their
+addresses and form steps but never the account: the two servers share one
+review login, which the owner gives Apple only in App Store Connect's App
+Review Information, so the page refers the reviewer there. It also says that
+the free tier holds one source at a time, and that the default player must
+stay on Automatic, because only the Compatibility Player opens the Tvheadend
+demo's MPEG-TS.
+
+The M3U part links to generated fixtures at
 `/app-review/viewaro-demo.m3u8` and `/app-review/viewaro-demo.xml`. The
 playlist contains six fictional channels and points only to Apple's public HLS
 developer sample; it includes the XMLTV address in its `x-tvg-url` header. Run
