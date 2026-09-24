@@ -174,3 +174,38 @@ docker exec viewaro-web nginx -s reload
 A tagged deploy can `git checkout` cleanly even with `pausal.conf` and
 `viewaro.conf` modified in place, as long as a release does not change those two
 files — change the `.tls-template` files instead, then re-run the cp above.
+
+## Tvheadend review demo behind this nginx
+
+`tvh.conf` (bootstrap) and `tvh.conf.tls-template` are the vhost for the
+Tvheadend server App Review uses to try Viewaro's Tvheadend source kind. The
+server itself is its own compose stack in `~/app/tvheadend-demo`, synced from
+`deploy/tvheadend-demo/` in this repo; its README is the runbook for the
+container, the media and the review account.
+
+- Network: this container joins `tvh-demo` as well as `proxy`. Only nginx and
+  `tvheadend-demo` are on it, so the demo server cannot reach the pausal
+  containers. Create it once, before the first deploy that carries it:
+  `docker network create --subnet 172.30.40.0/24 tvh-demo`.
+- DNS: `tvh.viewaro.itquotes.hr` is an A record to this server, **DNS only**
+  (grey cloud). Cloudflare's self-serve CDN terms do not allow video through
+  the proxy, and this host streams it. The cost is that the server's address
+  is public under that name.
+- Cert: issued through the same webroot as the others, once the bootstrap vhost
+  is live and the name resolves here:
+
+  ```sh
+  sudo certbot certonly --webroot -w ~/app/certbot-webroot -d tvh.viewaro.itquotes.hr
+  cd ~/app/viewaro-web
+  cp deploy/nginx/tvh.conf.tls-template deploy/nginx/tvh.conf
+  docker exec viewaro-web nginx -t && docker exec viewaro-web nginx -s reload
+  ```
+
+  Renewal rides on the existing timer and `reload-viewaro.sh` hook.
+- What is forwarded: only the six paths Viewaro's Tvheadend client uses.
+  Tvheadend's web UI, its imagecache and every write endpoint answer 404 here;
+  the channel icons are plain files on this site, under
+  `/app-review/tvheadend/`. Access is logged to `tvh.access.log`, not the
+  fail2ban-parsed `access.log`.
+- The vhost resolves `tvheadend-demo` per request, so nginx still starts when
+  the demo stack is down; those requests get a 502 instead.

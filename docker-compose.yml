@@ -28,8 +28,15 @@ services:
       # deploy/nginx/pausal.conf reaches it over this shared network by the
       # aliases `pausal-api` / `pausal-web`.
       proxy: {}
+      # And for the Tvheadend review demo (deploy/tvheadend-demo), on a network
+      # of its own so that container cannot reach the pausal stacks on `proxy`.
+      # deploy/nginx/tvh.conf reaches it by the name `tvheadend-demo`.
+      tvh-demo: {}
 
 networks:
   # Created by neither stack — once, by hand: docker network create proxy
   proxy:
+    external: true
+  # Created once, by hand: docker network create --subnet 172.30.40.0/24 tvh-demo
+  tvh-demo:
     external: true
