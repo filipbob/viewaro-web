@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+"""Stream one demo channel as live MPEG-TS on stdout.
+
+Tvheadend runs this through an IPTV `pipe://` mux whenever someone tunes the
+channel, and stops it when they leave. The channel is a fixed cycle of films
+anchored to a fixed instant, so the script starts at the point of the cycle
+that matches the wall clock. That is the same arithmetic the XMLTV grabber
+uses, which is why the guide's "now" is what is actually on screen.
+
+The list repeats the cycle for about 30 hours (see prepare_media.py) rather
+than looping with -stream_loop, which breaks timestamps when combined with
+the starting offset. If a stream ever reaches the end, Tvheadend respawns
+this script and it starts again from the wall clock.
+
+Usage: viewaro-demo-channel <channel id from channels.json>
+"""
+
+import json
+import os
+import sys
+import time
+
+RUNTIME = "/demo/media/runtime"
+
+
+def main():
+    channel_id = sys.argv[1]
+    with open(os.path.join(RUNTIME, "schedule.json"), encoding="utf-8") as handle:
+        schedule = json.load(handle)
+    channel = next(c for c in schedule["channels"] if c["id"] == channel_id)
+    now_ms = int(time.time() * 1000)
+    offset_ms = (now_ms - schedule["anchorMs"]) % channel["cycleMs"]
+    os.execvp("ffmpeg", [
+        "ffmpeg", "-hide_banner", "-nostdin", "-loglevel", "error",
+        "-re", "-ss", f"{offset_ms / 1000:.3f}",
+        "-f", "concat", "-safe", "0",
+        "-i", os.path.join(RUNTIME, f"{channel_id}.ffconcat"),
+        "-map", "0:v:0", "-map", "0:a:0", "-c", "copy",
+        "-metadata", "service_provider=Viewaro Demo",
+        "-metadata", f"service_name={channel['name']}",
+        "-mpegts_service_id", str(channel["serviceId"]),
+        "-f", "mpegts", "pipe:1",
+    ])
+
+
+if __name__ == "__main__":
+    main()

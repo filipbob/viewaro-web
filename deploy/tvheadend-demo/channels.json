@@ -1,0 +1,102 @@
+{
+  "anchor": "2026-01-01T00:00:00Z",
+  "tags": [
+    { "name": "Movies", "index": 1 },
+    { "name": "Animation", "index": 2 },
+    { "name": "Test", "index": 3 }
+  ],
+  "channels": [
+    {
+      "id": "cinema",
+      "number": 1,
+      "name": "Demo Cinema",
+      "tag": "Movies",
+      "serviceId": 101,
+      "programmes": ["bbb", "sintel", "tos", "ed"]
+    },
+    {
+      "id": "animation",
+      "number": 2,
+      "name": "Demo Animation",
+      "tag": "Animation",
+      "serviceId": 102,
+      "programmes": ["ed", "bbb", "sintel"]
+    },
+    {
+      "id": "replay",
+      "number": 3,
+      "name": "Demo Replay",
+      "tag": "Movies",
+      "serviceId": 103,
+      "programmes": ["tos", "ed", "sintel", "bbb"]
+    },
+    {
+      "id": "testcard",
+      "number": 4,
+      "name": "Demo Test Card",
+      "tag": "Test",
+      "serviceId": 104,
+      "programmes": ["testcard"],
+      "guideBlockMinutes": 60
+    }
+  ],
+  "media": {
+    "bbb": {
+      "title": "Big Buck Bunny",
+      "year": 2008,
+      "category": "Animation",
+      "description": "A good-natured giant rabbit gets even with three rodents who spoil his day. Open movie from the Blender Foundation's Peach project.",
+      "attribution": "Big Buck Bunny (c) 2008 Blender Foundation, peach.blender.org. Licensed under CC BY 3.0 (creativecommons.org/licenses/by/3.0). Re-encoded for this demo.",
+      "source": {
+        "url": "https://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_720p_h264.mov.zip",
+        "file": "big_buck_bunny_720p_h264.mov.zip",
+        "sha256": "b0c9ade80b086179feee41514929de583966eec87c703575d97f051f88b33b67",
+        "member": "big_buck_bunny_720p_h264.mov"
+      }
+    },
+    "sintel": {
+      "title": "Sintel",
+      "year": 2010,
+      "category": "Animation",
+      "description": "A lone young woman crosses a harsh land to find the baby dragon she once rescued. Open movie from the Blender Foundation's Durian project.",
+      "attribution": "Sintel (c) 2010 Blender Foundation, durian.blender.org. Licensed under CC BY 3.0 (creativecommons.org/licenses/by/3.0). Re-encoded for this demo.",
+      "source": {
+        "url": "https://download.blender.org/durian/movies/Sintel.2010.720p.mkv.zip",
+        "file": "Sintel.2010.720p.mkv.zip",
+        "sha256": "d252f898641b20f51c64206f31063e659c28b152a9d988936736d1b56e6e4db3",
+        "member": "Sintel.2010.720p.mkv"
+      }
+    },
+    "tos": {
+      "title": "Tears of Steel",
+      "year": 2012,
+      "category": "Science fiction",
+      "description": "In a future Amsterdam, warriors and scientists replay a decades-old break-up to stop an army of robots. Live-action open movie from the Blender Foundation's Mango project.",
+      "attribution": "Tears of Steel (c) 2012 Blender Foundation, mango.blender.org. Licensed under CC BY 3.0 (creativecommons.org/licenses/by/3.0). Re-encoded for this demo.",
+      "source": {
+        "url": "https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov",
+        "file": "tears_of_steel_720p.mov",
+        "sha256": "efa9062d9cdb7a338e40ad530dfdf234806743f29ae6a1a136b97ece4e588e8f"
+      }
+    },
+    "ed": {
+      "title": "Elephants Dream",
+      "year": 2006,
+      "category": "Animation",
+      "description": "Two men wander through an endless, living machine and disagree about what it is. The first open movie, from the Orange Open Movie Project.",
+      "attribution": "Elephants Dream (c) 2006 Blender Foundation / Netherlands Media Art Institute, orange.blender.org. Licensed under CC BY 2.5 (creativecommons.org/licenses/by/2.5). Re-encoded for this demo.",
+      "source": {
+        "url": "https://download.blender.org/ED/elephantsdream-1024-h264-st-aac.mov",
+        "file": "elephantsdream-1024-h264-st-aac.mov",
+        "sha256": "a462c56d921fb24bbdde02470b34ee4ca8e866bde938090791e13207db39136c"
+      }
+    },
+    "testcard": {
+      "title": "Test Card",
+      "category": "Test",
+      "description": "Moving test pattern with a 1 kHz tone, generated for the Viewaro review demo.",
+      "attribution": "Generated for the Viewaro review demo.",
+      "generate": { "seconds": 600 }
+    }
+  }
+}

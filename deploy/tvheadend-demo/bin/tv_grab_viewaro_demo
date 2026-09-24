@@ -1,0 +1,110 @@
+#!/usr/bin/env python3
+"""XMLTV grabber for the demo channels, in Tvheadend's internal grabber form.
+
+Tvheadend finds it on PATH, asks for --description and --capabilities, then
+runs it on its EPG cron and reads XMLTV from stdout. The schedule is computed,
+not stored: every channel repeats a fixed cycle from a fixed anchor, the same
+arithmetic viewaro-demo-channel uses to pick the starting point, so the guide
+always matches the picture. It covers six hours back and --days ahead.
+"""
+
+import argparse
+import json
+import os
+import sys
+import time
+from datetime import datetime, timezone
+from xml.sax.saxutils import escape, quoteattr
+
+RUNTIME = "/demo/media/runtime"
+HOUR_MS = 3_600_000
+DAY_MS = 24 * HOUR_MS
+
+
+def xmltv_time(ms):
+    moment = datetime.fromtimestamp(ms / 1000, tz=timezone.utc)
+    return moment.strftime("%Y%m%d%H%M%S +0000")
+
+
+def xmltv_id(channel):
+    return f"{channel['id']}.viewaro-demo"
+
+
+def programmes(channel, anchor_ms, start_ms, end_ms):
+    """Yield (start, stop, item) covering [start_ms, end_ms)."""
+    block = channel.get("guideBlockMs")
+    if block:
+        first = anchor_ms + (start_ms - anchor_ms) // block * block
+        for begin in range(first, end_ms, block):
+            yield begin, begin + block, channel["items"][0]
+        return
+    cycle = channel["cycleMs"]
+    begin = anchor_ms + (start_ms - anchor_ms) // cycle * cycle
+    while begin < end_ms:
+        for item in channel["items"]:
+            stop = begin + item["durationMs"]
+            if stop > start_ms:
+                yield begin, stop, item
+            begin = stop
+
+
+def render(schedule, start_ms, end_ms):
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<!DOCTYPE tv SYSTEM "xmltv.dtd">',
+        '<tv generator-info-name="tv_grab_viewaro_demo">',
+    ]
+    for channel in schedule["channels"]:
+        lines.append(f"  <channel id={quoteattr(xmltv_id(channel))}>")
+        lines.append(f"    <display-name>{escape(channel['name'])}</display-name>")
+        lines.append("  </channel>")
+    for channel in schedule["channels"]:
+        for begin, stop, item in programmes(channel, schedule["anchorMs"],
+                                            start_ms, end_ms):
+            lines.append(
+                f"  <programme start=\"{xmltv_time(begin)}\" "
+                f"stop=\"{xmltv_time(stop)}\" "
+                f"channel={quoteattr(xmltv_id(channel))}>")
+            lines.append(f"    <title lang=\"en\">{escape(item['title'])}</title>")
+            lines.append(f"    <desc lang=\"en\">{escape(item['description'])}</desc>")
+            if item.get("year"):
+                lines.append(f"    <date>{item['year']}</date>")
+            lines.append(f"    <category lang=\"en\">{escape(item['category'])}</category>")
+            lines.append("  </programme>")
+    lines.append("</tv>")
+    return "\n".join(lines) + "\n"
+
+
+def main():
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("--description", action="store_true")
+    parser.add_argument("--capabilities", action="store_true")
+    parser.add_argument("--version", action="store_true")
+    parser.add_argument("--days", type=int, default=7)
+    parser.add_argument("--output")
+    # Tvheadend and XMLTV tooling pass flags such as --quiet; ignore them.
+    args, _ = parser.parse_known_args()
+
+    if args.description:
+        print("Viewaro review demo schedule")
+        return
+    if args.capabilities:
+        print("baseline")
+        return
+    if args.version:
+        print("tv_grab_viewaro_demo 1")
+        return
+
+    with open(os.path.join(RUNTIME, "schedule.json"), encoding="utf-8") as handle:
+        schedule = json.load(handle)
+    now_ms = int(time.time() * 1000)
+    document = render(schedule, now_ms - 6 * HOUR_MS, now_ms + args.days * DAY_MS)
+    if args.output:
+        with open(args.output, "w", encoding="utf-8") as handle:
+            handle.write(document)
+    else:
+        sys.stdout.write(document)
+
+
+if __name__ == "__main__":
+    main()

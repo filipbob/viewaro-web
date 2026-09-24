@@ -1,0 +1,3 @@
+# Server state: Tvheadend configuration (holds the review account) and the
+# downloaded and encoded films. Neither belongs in git.
+/data/
