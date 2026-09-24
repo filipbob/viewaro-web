@@ -8,9 +8,10 @@ Runs inside the container, where requests come from 127.0.0.1:
 The image starts Tvheadend with --firstrun, which leaves one wildcard admin
 entry open to every address until something replaces it. This script narrows
 that entry to 127.0.0.1 (so provisioning and the health check keep working
-from inside the container) and adds the App Review account with streaming
-rights only. The account's password is never handled here: the owner sets it
-with set-review-password.sh, which feeds it to --set-review-password on stdin.
+from inside the container) and adds the App Review account, which can stream
+and read the API but has no admin or recording rights. The account's password
+is never handled here: the owner sets it with set-review-password.sh, which
+feeds it to --set-review-password on stdin.
 """
 
 import argparse
@@ -203,19 +204,26 @@ def ensure_access():
         save(entry["uuid"], prefix=LOCAL_ONLY,
              comment="Local admin: provisioning and health check from inside "
                      "the container only")
+    # Both are needed: Tvheadend refuses every /api call from an account
+    # without the web-interface right (403), and applies nothing from an entry
+    # whose `change` list is empty. The web UI itself stays unreachable,
+    # because nginx forwards only the paths the Viewaro client uses.
     review = {"enabled": True, "username": REVIEW_USER,
-              "prefix": "0.0.0.0/0,::/0", "change": [], "uilevel": 0,
+              "prefix": "0.0.0.0/0,::/0",
+              "change": ["change_rights", "change_profiles",
+                         "change_conn_limit"],
+              "uilevel": 0,
               "streaming": ["basic"], "profile": [pass_profile], "dvr": [],
-              "webui": False, "admin": False, "conn_limit_type": 1,
+              "webui": True, "admin": False, "conn_limit_type": 1,
               "conn_limit": REVIEW_CONNECTIONS, "channel_tag": [],
-              "comment": "App Review account: streaming only. Password is set "
-                         "with set-review-password.sh."}
+              "comment": "App Review account: streaming and API reads only. "
+                         "Password is set with set-review-password.sh."}
     existing = [entry for entry in entries if entry.get("username") == REVIEW_USER]
     if existing:
         save(existing[0]["uuid"], **review)
     else:
         call("access/entry/create", conf=review)
-    log(f"access: wildcard admin limited to {LOCAL_ONLY}; {REVIEW_USER} streaming only")
+    log(f"access: wildcard admin limited to {LOCAL_ONLY}; {REVIEW_USER} streams and reads the API only")
 
 
 def set_review_password():
@@ -252,6 +260,8 @@ def main():
     channels = ensure_channels(schedule, services, tags)
     ensure_guide(schedule, channels)
     ensure_access()
+    log("restart the container now (docker compose restart tvheadend): "
+        "Tvheadend applies changed access rights reliably only after a restart")
 
 
 if __name__ == "__main__":
