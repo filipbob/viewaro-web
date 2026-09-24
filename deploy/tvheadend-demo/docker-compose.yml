@@ -1,6 +1,7 @@
-# Tvheadend server for App Review: a real Tvheadend 4.3 with four channels of
-# openly licensed films, reached only through the viewaro-web nginx on
-# tvh.viewaro.itquotes.hr. README.md in this folder is the runbook.
+# Review demo servers for App Review, over the same openly licensed films:
+# a real Tvheadend 4.3 (tvh.viewaro.itquotes.hr) and an Xtream Codes-compatible
+# server (xtream.viewaro.itquotes.hr), both reached only through the
+# viewaro-web nginx. README.md in this folder is the runbook.
 name: tvheadend-demo
 
 # Pinned by digest so the ffmpeg that encodes the media is the one that
@@ -39,6 +40,44 @@ services:
       timeout: 10s
       retries: 3
 
+  # Xtream Codes-compatible server over the same media, for the Xtream flow
+  # (movies, series, live). Same image, for its Python and ffmpeg.
+  xtream:
+    image: *image
+    container_name: xtream-demo
+    restart: unless-stopped
+    init: true
+    user: "1001:1001"
+    entrypoint: ["python3", "/demo/bin/xtream_demo.py"]
+    environment:
+      XTREAM_DEMO_PUBLIC_URL: https://xtream.viewaro.itquotes.hr
+    volumes:
+      # Only what it needs: not ./data/config, which holds Tvheadend's accounts.
+      - ./channels.json:/demo/app/channels.json:ro
+      - ./xtream.json:/demo/app/xtream.json:ro
+      - ./bin:/demo/bin:ro
+      - ./data/media:/demo/media:ro
+      - ./data/xtream:/demo/xtream
+    tmpfs:
+      # Live HLS segments, rewritten every few seconds; never on disk.
+      - /demo/hls:size=128m,uid=1001,gid=1001,mode=0755
+    ports:
+      # Loopback only, for checks on the host and SSH tunnels; never public.
+      - "127.0.0.1:19982:8080"
+    networks:
+      tvh-demo:
+        ipv4_address: 172.30.40.11
+    cpus: 1.0
+    mem_limit: 512m
+    pids_limit: 128
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "-o", "/dev/null", "http://127.0.0.1:8080/health"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+
   # One-off media job: docker compose run --rm prepare
   prepare:
     image: *image
@@ -50,8 +89,8 @@ services:
       - ./data/media:/demo/media
 
 networks:
-  # Shared only by this container and the viewaro-web nginx, so the demo
-  # server cannot reach the pausal stacks on the `proxy` network. Created by
+  # Shared only by these containers and the viewaro-web nginx, so the demo
+  # servers cannot reach the pausal stacks on the `proxy` network. Created by
   # hand once, like `proxy`:
   #   docker network create --subnet 172.30.40.0/24 tvh-demo
   tvh-demo:

@@ -19,12 +19,13 @@ with the picture.
 import argparse
 import hashlib
 import json
+import math
 import os
+import re
 import subprocess
 import sys
 import urllib.request
 import zipfile
-import math
 from datetime import datetime
 
 APP = "/demo/app"
@@ -33,6 +34,7 @@ SOURCES = os.path.join(MEDIA, "src")
 WORK = os.path.join(MEDIA, "work")
 OUT = os.path.join(MEDIA, "out")
 RUNTIME = os.path.join(MEDIA, "runtime")
+ART = os.path.join(MEDIA, "art")
 
 VIDEO_FILTER = (
     "scale=1280:720:force_original_aspect_ratio=decrease,"
@@ -108,6 +110,39 @@ def generate_test_card(seconds, output):
             "-vf", "format=yuv420p,setsar=1", *ENCODE, output])
 
 
+def picture_box(path, at):
+    """The picture inside the letterbox bars the uniform encode added."""
+    probe = subprocess.run(
+        ["ffmpeg", "-hide_banner", "-nostdin", "-ss", str(at), "-i", path,
+         "-t", "2", "-vf", "cropdetect=limit=24:round=2:reset=0",
+         "-f", "null", "-"],
+        check=True, capture_output=True, text=True)
+    boxes = re.findall(r"crop=(\d+:\d+:\d+:\d+)", probe.stderr)
+    return boxes[-1] if boxes else "iw:ih:0:0"
+
+
+def generate_art(xtream, force):
+    """Poster (2:3) and backdrop (16:9) for each Xtream film, from one frame
+    of the film itself, so the artwork carries the film's own licence."""
+    os.makedirs(ART, exist_ok=True)
+    for movie in xtream.get("movies", []):
+        media_id = movie["media"]
+        backdrop = os.path.join(ART, f"{media_id}-backdrop.jpg")
+        poster = os.path.join(ART, f"{media_id}-poster.jpg")
+        if not force and os.path.exists(backdrop) and os.path.exists(poster):
+            continue
+        source = os.path.join(OUT, f"{media_id}.mp4")
+        at = str(movie["frameAt"])
+        box = picture_box(source, at)
+        log(f"art {media_id} at {at}s, picture {box}")
+        for output, fit in (
+            (backdrop, "scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720"),
+            (poster, "scale=-2:720,crop=480:720"),
+        ):
+            ffmpeg(["-ss", at, "-i", source, "-frames:v", "1",
+                    "-vf", f"crop={box},{fit}", "-q:v", "3", output])
+
+
 def duration_ms(path):
     probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -139,6 +174,11 @@ def main():
             os.replace(partial, output)
         durations[media_id] = duration_ms(output)
         log(f"{media_id}: {durations[media_id]} ms")
+
+    xtream_path = os.path.join(APP, "xtream.json")
+    if os.path.exists(xtream_path):
+        with open(xtream_path, encoding="utf-8") as handle:
+            generate_art(json.load(handle), args.force)
 
     anchor = datetime.fromisoformat(config["anchor"].replace("Z", "+00:00"))
     channels = []

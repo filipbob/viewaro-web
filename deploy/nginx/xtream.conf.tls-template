@@ -1,0 +1,87 @@
+# TLS vhost for the Xtream review demo (xtream.viewaro.itquotes.hr).
+#
+# Activate after certbot has issued the certificate (see deploy/README.md):
+#   cp deploy/nginx/xtream.conf.tls-template deploy/nginx/xtream.conf
+#   docker exec viewaro-web nginx -t && docker exec viewaro-web nginx -s reload
+#
+# Only the Xtream paths Viewaro's client uses, plus public artwork, are
+# forwarded; everything else is a 404 here. Xtream puts the account in the
+# query string and in stream paths, so the access log below never records
+# either: the query is dropped and the credential segments are masked.
+
+# http-level names must be unique across every file in this directory.
+limit_req_zone $binary_remote_addr zone=xtream_demo:10m rate=10r/s;
+
+map $uri $xtream_demo_log_uri {
+    "~^/(?<kind>live|movie|series)/[^/]+/[^/]+/(?<rest>.*)$" "/$kind/-/-/$rest";
+    default $uri;
+}
+
+log_format xtream_demo_masked '$remote_addr [$time_local] '
+                              '"$request_method $xtream_demo_log_uri $server_protocol" '
+                              '$status $body_bytes_sent "$http_user_agent" $request_time';
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name xtream.viewaro.itquotes.hr;
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    http2 on;
+    server_name xtream.viewaro.itquotes.hr;
+
+    ssl_certificate     /etc/letsencrypt/live/xtream.viewaro.itquotes.hr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/xtream.viewaro.itquotes.hr/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 1d;
+
+    access_log /var/log/nginx/xtream.access.log xtream_demo_masked;
+    server_tokens off;
+    add_header Strict-Transport-Security "max-age=31536000" always;
+    add_header X-Content-Type-Options "nosniff" always;
+
+    # Resolved per request, so nginx still starts without the demo stack.
+    resolver 127.0.0.11 valid=30s ipv6=off;
+    set $xtream http://xtream-demo:8080;
+
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header Connection "";
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-For $remote_addr;
+
+    location = /player_api.php { limit_except GET { deny all; } limit_req zone=xtream_demo burst=40 nodelay; proxy_pass $xtream$request_uri; }
+    location = /xmltv.php      { limit_except GET { deny all; } limit_req zone=xtream_demo burst=10 nodelay; proxy_pass $xtream$request_uri; }
+
+    location ^~ /art/ {
+        limit_except GET { deny all; }
+        proxy_pass $xtream$request_uri;
+    }
+
+    # Live HLS, films and episodes: streamed straight through, ranges intact.
+    location ~ ^/(live|movie|series)/ {
+        limit_except GET { deny all; }
+        proxy_pass $xtream$request_uri;
+        proxy_buffering off;
+        proxy_request_buffering off;
+        proxy_max_temp_file_size 0;
+        proxy_read_timeout 1h;
+        proxy_send_timeout 1h;
+    }
+
+    location / {
+        return 404;
+    }
+}
