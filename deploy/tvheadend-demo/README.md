@@ -72,6 +72,7 @@ cd ~/app/tvheadend-demo
 docker compose run --rm prepare         # ~20 min on the 2-core server, niced
 docker compose up -d tvheadend
 docker exec tvheadend-demo python3 /demo/bin/provision.py
+docker compose restart tvheadend        # applies the access entries' rights
 ```
 
 The image starts Tvheadend with `--firstrun`, which creates a wildcard admin
@@ -79,7 +80,16 @@ entry open to every address. Nothing can reach the container at that point:
 it publishes only `127.0.0.1:19981`, and nginx does not route to it until the
 TLS vhost is in place. `provision.py` narrows that entry to `127.0.0.1` inside
 the container and adds `appreview` with basic streaming, the `pass` profile
-only, no DVR, no web UI, no admin and at most two concurrent streams.
+only, no DVR, no admin and at most two concurrent streams. Two settings are
+needed for the account to work at all, and a missing one shows up as 403 on
+every call even with the right password: the entry must list what it applies
+in `change` (rights, profiles, connection limit), because Tvheadend 4.3
+applies nothing from an entry whose `change` is empty; and it must carry the
+web-interface right, because Tvheadend refuses every `/api` call without it.
+The web UI itself stays unreachable, since nginx forwards only the six paths
+Viewaro uses. A save that touches only `webui` does not recompute the
+entry's rights, and neither does a full save reliably: restart the container
+after any change to access entries, then test.
 
 Then the owner sets the password, from a terminal. The path is relative on
 purpose: an unquoted `~` would be expanded by the local shell, not the server.
@@ -109,7 +119,8 @@ add the server to `~/.viewaro-tvheadend.env` under a free suffix and run
 
 - Logs: `docker logs tvheadend-demo`; nginx side in `~/app/nginx-logs/tvh.access.log`.
 - Guide: Tvheadend re-runs the grabber every six hours and at start-up. To
-  force it, re-run `provision.py`, which also re-links the guide.
+  force it, re-run `provision.py`, which also re-links the guide, then restart
+  the container.
 - New password: run `set-review-password.sh` again.
 - New image: update the digest in `docker-compose.yml`, then
   `docker compose run --rm prepare --force` so the media is re-encoded by the
