@@ -122,7 +122,7 @@ const zh: Dictionary = {
     privacy: {
       title: "隐私政策",
       metaDescription: "Viewaro 如何处理你的数据。",
-      updated: "2026年9月24日",
+      updated: "2026年9月25日",
       sections: [
         {
           paragraphs: [
@@ -185,7 +185,7 @@ const zh: Dictionary = {
           list: [
             "**你输入的节目单地址，或播放列表自带的 XMLTV 节目单地址：**Viewaro 只会连接该地址，与连接你的提供商相同。",
             "**Tvheadend 服务器：**Viewaro 会使用你输入的账户信息下载该服务器自己的节目单，不会为此联系任何公共节目单发布方。",
-            "**没有自带节目单地址的播放列表，或 Xtream 提供商：**Viewaro 会在首次使用该源以及刷新节目单时自动查找公共节目单，并从 open-epg.com 和 iptv-epg.org 请求按国家划分的 XMLTV 文件。Viewaro 不会向 Xtream 提供商请求其节目单。",
+            "**没有自带节目单地址的播放列表，或 Xtream 提供商：**Viewaro 会在首次使用该源以及刷新节目单时自动查找公共节目单，并从 open-epg.com 和 iptv-epg.org 请求按国家划分的 XMLTV 文件。在 Viewaro 运行期间，如果已下载的节目单已超过 12 小时或即将到期，或之前的尝试未找到节目单，Viewaro 也会再次查找。Viewaro 不会向 Xtream 提供商请求其节目单。",
           ],
         },
         {

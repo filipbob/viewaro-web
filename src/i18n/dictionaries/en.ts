@@ -122,7 +122,7 @@ const en: Dictionary = {
     privacy: {
       title: "Privacy Policy",
       metaDescription: "How Viewaro handles your data.",
-      updated: "September 24, 2026",
+      updated: "September 25, 2026",
       sections: [
         {
           paragraphs: [
@@ -185,7 +185,7 @@ const en: Dictionary = {
           list: [
             "**A guide address you entered, or a playlist's own XMLTV guide address:** Viewaro connects only to that address, just as it connects to your provider.",
             "**A Tvheadend server:** Viewaro downloads the server's own guide with the account you entered and contacts no public guide publisher for it.",
-            "**A playlist without a guide address of its own, or an Xtream provider:** Viewaro automatically looks for a public guide when the source is first used and when you refresh the guide. It requests country-specific XMLTV files from open-epg.com and iptv-epg.org. Viewaro does not ask the Xtream provider for its guide.",
+            "**A playlist without a guide address of its own, or an Xtream provider:** Viewaro automatically looks for a public guide when the source is first used and when you refresh the guide. While Viewaro is open, it also looks again when the downloaded guide is more than 12 hours old or about to run out, or when an earlier attempt found none. It requests country-specific XMLTV files from open-epg.com and iptv-epg.org. Viewaro does not ask the Xtream provider for its guide.",
           ],
         },
         {

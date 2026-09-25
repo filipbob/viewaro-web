@@ -122,7 +122,7 @@ const hr: Dictionary = {
     privacy: {
       title: "Pravila privatnosti",
       metaDescription: "Kako Viewaro postupa s tvojim podacima.",
-      updated: "24. rujna 2026.",
+      updated: "25. rujna 2026.",
       sections: [
         {
           paragraphs: [
@@ -185,7 +185,7 @@ const hr: Dictionary = {
           list: [
             "**Adresa vodiča koju si unio ili vlastita adresa XMLTV vodiča iz playliste:** Viewaro se povezuje samo s tom adresom, jednako kao s tvojim providerom.",
             "**Tvheadend server:** Viewaro preuzima vlastiti vodič servera s podacima računa koje si unio i za taj izvor ne kontaktira nijednog izdavača javnog vodiča.",
-            "**Playlista bez vlastite adrese vodiča ili Xtream provider:** Viewaro automatski traži javni vodič pri prvom korištenju izvora i kada osvježiš vodič. Datoteke XMLTV-a po državama preuzima s open-epg.com i iptv-epg.org. Viewaro od Xtream providera ne traži njegov vodič.",
+            "**Playlista bez vlastite adrese vodiča ili Xtream provider:** Viewaro automatski traži javni vodič pri prvom korištenju izvora i kada osvježiš vodič. Dok je aplikacija otvorena, traži ga i ponovno kada je preuzeti vodič stariji od 12 sati ili uskoro istječe, ili kada ga raniji pokušaj nije pronašao. Datoteke XMLTV-a po državama preuzima s open-epg.com i iptv-epg.org. Viewaro od Xtream providera ne traži njegov vodič.",
           ],
         },
         {
