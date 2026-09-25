@@ -122,7 +122,7 @@ const de: Dictionary = {
     privacy: {
       title: "Datenschutzerklärung",
       metaDescription: "Wie Viewaro mit deinen Daten umgeht.",
-      updated: "24. September 2026",
+      updated: "25. September 2026",
       sections: [
         {
           paragraphs: [
@@ -185,7 +185,7 @@ const de: Dictionary = {
           list: [
             "**Eine von dir eingegebene Programmführer-Adresse oder die in der Playlist selbst angegebene XMLTV-Adresse:** Viewaro verbindet sich nur mit dieser Adresse — genauso wie mit deinem Anbieter.",
             "**Ein Tvheadend-Server:** Viewaro lädt den eigenen Programmführer des Servers mit den von dir eingegebenen Zugangsdaten herunter und kontaktiert dafür keinen öffentlichen Anbieter von Programmdaten.",
-            "**Eine Playlist ohne eigene Programmführer-Adresse oder ein Xtream-Anbieter:** Viewaro sucht automatisch nach einem öffentlichen Programmführer, wenn die Quelle zum ersten Mal verwendet wird und wenn du den Programmführer aktualisierst. Dafür werden länderspezifische XMLTV-Dateien von open-epg.com und iptv-epg.org abgerufen. Viewaro fordert beim Xtream-Anbieter keinen Programmführer an.",
+            "**Eine Playlist ohne eigene Programmführer-Adresse oder ein Xtream-Anbieter:** Viewaro sucht automatisch nach einem öffentlichen Programmführer, wenn die Quelle zum ersten Mal verwendet wird und wenn du den Programmführer aktualisierst. Solange die App geöffnet ist, sucht Viewaro außerdem erneut, wenn der heruntergeladene Programmführer älter als 12 Stunden ist oder bald ausläuft oder ein früherer Versuch keinen gefunden hat. Dafür werden länderspezifische XMLTV-Dateien von open-epg.com und iptv-epg.org abgerufen. Viewaro fordert beim Xtream-Anbieter keinen Programmführer an.",
           ],
         },
         {
