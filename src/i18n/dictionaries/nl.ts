@@ -302,7 +302,7 @@ const nl: Dictionary = {
         {
           heading: "Breng je eigen content mee",
           paragraphs: [
-            "Viewaro is een mediaspeler. De app biedt geen televisiezenders, film- of seriecatalogi, playlists, media-abonnementen of toegangsgegevens aan, verkoopt, beveelt of verifieert deze niet.",
+            "Viewaro is een mediaspeler. De app biedt geen televisiezenders, film- of seriecatalogi, playlists, media-abonnementen of toegangsgegevens aan en host, verkoopt, verifieert of beveelt deze ook niet aan.",
             "Je mag Viewaro alleen gebruiken met bronnen en content waartoe je wettelijk gemachtigd bent. Jij bent verantwoordelijk voor:",
           ],
         },

@@ -302,7 +302,7 @@ const de: Dictionary = {
         {
           heading: "Bring deine eigenen Inhalte mit",
           paragraphs: [
-            "Viewaro ist ein Medienplayer. Die App stellt keine Fernsehsender, Film- oder Serienkataloge, Playlists, Medienabonnements oder Zugangsdaten bereit, verkauft, empfiehlt oder überprüft sie nicht.",
+            "Viewaro ist ein Medienplayer. Die App stellt keine Fernsehsender, Film- oder Serienkataloge, Playlists, Medienabonnements oder Zugangsdaten bereit, hostet, verkauft, empfiehlt oder überprüft sie nicht.",
             "Du darfst Viewaro nur mit Quellen und Inhalten verwenden, zu deren Nutzung du rechtlich berechtigt bist. Du bist verantwortlich für:",
           ],
         },
