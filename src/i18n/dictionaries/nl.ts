@@ -122,7 +122,7 @@ const nl: Dictionary = {
     privacy: {
       title: "Privacybeleid",
       metaDescription: "Hoe Viewaro met je gegevens omgaat.",
-      updated: "24 september 2026",
+      updated: "25 september 2026",
       sections: [
         {
           paragraphs: [
@@ -185,7 +185,7 @@ const nl: Dictionary = {
           list: [
             "**Een gidsadres dat je hebt ingevoerd, of het eigen XMLTV-gidsadres dat de playlist bevat:** Viewaro maakt alleen verbinding met dat adres, net zoals met je aanbieder.",
             "**Een Tvheadend-server:** Viewaro downloadt de eigen gids van de server met de inloggegevens die je hebt ingevoerd en neemt daarvoor geen contact op met een openbare gidsuitgever.",
-            "**Een playlist zonder eigen gidsadres, of een Xtream-provider:** Viewaro zoekt automatisch naar een openbare gids wanneer de bron voor het eerst wordt gebruikt en wanneer je de gids vernieuwt. Het vraagt landspecifieke XMLTV-bestanden op bij open-epg.com en iptv-epg.org. Viewaro vraagt bij de Xtream-provider geen gids op.",
+            "**Een playlist zonder eigen gidsadres, of een Xtream-provider:** Viewaro zoekt automatisch naar een openbare gids wanneer de bron voor het eerst wordt gebruikt en wanneer je de gids vernieuwt. Zolang de app open is, zoekt Viewaro ook opnieuw wanneer de gedownloade gids ouder is dan 12 uur of bijna afloopt, of wanneer een eerdere poging er geen vond. Het vraagt landspecifieke XMLTV-bestanden op bij open-epg.com en iptv-epg.org. Viewaro vraagt bij de Xtream-provider geen gids op.",
           ],
         },
         {

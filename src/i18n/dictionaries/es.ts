@@ -122,7 +122,7 @@ const es: Dictionary = {
     privacy: {
       title: "Política de privacidad",
       metaDescription: "Cómo gestiona Viewaro tus datos.",
-      updated: "24 de septiembre de 2026",
+      updated: "25 de septiembre de 2026",
       sections: [
         {
           paragraphs: [
@@ -185,7 +185,7 @@ const es: Dictionary = {
           list: [
             "**Una dirección de guía que introdujiste, o la dirección de guía XMLTV propia de una lista:** Viewaro solo se conecta a esa dirección, igual que a tu proveedor.",
             "**Un servidor Tvheadend:** Viewaro descarga la guía propia del servidor con la cuenta que introdujiste y no contacta con ningún editor de guías públicas para ese servidor.",
-            "**Una lista sin dirección de guía propia, o un proveedor Xtream:** Viewaro busca automáticamente una guía pública cuando la fuente se usa por primera vez y cuando actualizas la guía. Solicita archivos XMLTV por país a open-epg.com e iptv-epg.org. Viewaro no solicita su guía al proveedor Xtream.",
+            "**Una lista sin dirección de guía propia, o un proveedor Xtream:** Viewaro busca automáticamente una guía pública cuando la fuente se usa por primera vez y cuando actualizas la guía. Mientras la app está abierta, también vuelve a buscar cuando la guía descargada tiene más de 12 horas o está a punto de agotarse, o cuando un intento anterior no encontró ninguna. Solicita archivos XMLTV por país a open-epg.com e iptv-epg.org. Viewaro no solicita su guía al proveedor Xtream.",
           ],
         },
         {
