@@ -126,13 +126,12 @@ const nl: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaro wordt aangeboden door **IT QUOTES, vl. Marina Blažon Bobinac** (\"Viewaro\", \"wij\" of \"ons\"). Dit privacybeleid legt uit hoe de Viewaro macOS-app en de Viewaro-supportwebsite met informatie omgaan.",
+            "Viewaro wordt aangeboden door **IT QUOTES** (\"Viewaro\", \"wij\" of \"ons\"). Dit privacybeleid legt uit hoe de Viewaro macOS-app en de Viewaro-supportwebsite met informatie omgaan.",
           ],
         },
         {
           list: [
             "E-mail: [support@itquotes.hr](mailto:support@itquotes.hr)",
-            "Postadres: Vukomerečka cesta 15, 10000 Zagreb, Kroatië",
           ],
         },
         {
@@ -278,7 +277,7 @@ const nl: Dictionary = {
         {
           heading: "Contact",
           paragraphs: [
-            "Vragen of privacyverzoeken kun je sturen naar [support@itquotes.hr](mailto:support@itquotes.hr) of naar IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Kroatië.",
+            "Vragen of privacyverzoeken kun je sturen naar [support@itquotes.hr](mailto:support@itquotes.hr).",
           ],
         },
       ],
@@ -290,7 +289,7 @@ const nl: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Deze gebruiksvoorwaarden (\"Voorwaarden\") zijn van toepassing op de Viewaro macOS-app en de bijbehorende supportwebsite, aangeboden door **IT QUOTES, vl. Marina Blažon Bobinac** (\"Viewaro\", \"wij\" of \"ons\").",
+            "Deze gebruiksvoorwaarden (\"Voorwaarden\") zijn van toepassing op de Viewaro macOS-app en de bijbehorende supportwebsite, aangeboden door **IT QUOTES** (\"Viewaro\", \"wij\" of \"ons\").",
           ],
         },
         {
@@ -382,7 +381,7 @@ const nl: Dictionary = {
         {
           heading: "Contact",
           paragraphs: [
-            "Vragen over deze Voorwaarden kun je sturen naar [support@itquotes.hr](mailto:support@itquotes.hr) of naar IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Kroatië.",
+            "Vragen over deze Voorwaarden kun je sturen naar [support@itquotes.hr](mailto:support@itquotes.hr).",
           ],
         },
       ],
@@ -400,8 +399,7 @@ const nl: Dictionary = {
           heading: "Contact",
           list: [
             "Support-e-mail: [support@itquotes.hr](mailto:support@itquotes.hr)",
-            "Aanbieder: IT QUOTES, vl. Marina Blažon Bobinac",
-            "Postadres: Vukomerečka cesta 15, 10000 Zagreb, Kroatië",
+            "Aanbieder: IT QUOTES",
           ],
         },
         {

@@ -126,13 +126,12 @@ const ja: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaroは**IT QUOTES, vl. Marina Blažon Bobinac**(「Viewaro」「当社」)が提供しています。本プライバシーポリシーは、Viewaro macOSアプリおよびViewaroサポートサイトがどのように情報を扱うかを説明します。",
+            "Viewaroは**IT QUOTES**(「Viewaro」「当社」)が提供しています。本プライバシーポリシーは、Viewaro macOSアプリおよびViewaroサポートサイトがどのように情報を扱うかを説明します。",
           ],
         },
         {
           list: [
             "メール:[support@itquotes.hr](mailto:support@itquotes.hr)",
-            "住所:Vukomerečka cesta 15, 10000 Zagreb, Croatia",
           ],
         },
         {
@@ -278,7 +277,7 @@ const ja: Dictionary = {
         {
           heading: "お問い合わせ",
           paragraphs: [
-            "プライバシーに関するご質問やご依頼は、[support@itquotes.hr](mailto:support@itquotes.hr)、または IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatiaまでお送りください。",
+            "プライバシーに関するご質問やご依頼は、[support@itquotes.hr](mailto:support@itquotes.hr)までお送りください。",
           ],
         },
       ],
@@ -290,7 +289,7 @@ const ja: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "本利用規約(以下「本規約」)は、**IT QUOTES, vl. Marina Blažon Bobinac**(「Viewaro」「当社」)が提供するViewaro macOSアプリおよび関連するサポートサイトに適用されます。",
+            "本利用規約(以下「本規約」)は、**IT QUOTES**(「Viewaro」「当社」)が提供するViewaro macOSアプリおよび関連するサポートサイトに適用されます。",
           ],
         },
         {
@@ -382,7 +381,7 @@ const ja: Dictionary = {
         {
           heading: "お問い合わせ",
           paragraphs: [
-            "本規約に関するご質問は、[support@itquotes.hr](mailto:support@itquotes.hr)、または IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatiaまでお送りください。",
+            "本規約に関するご質問は、[support@itquotes.hr](mailto:support@itquotes.hr)までお送りください。",
           ],
         },
       ],
@@ -400,8 +399,7 @@ const ja: Dictionary = {
           heading: "お問い合わせ",
           list: [
             "サポートメール:[support@itquotes.hr](mailto:support@itquotes.hr)",
-            "提供元:IT QUOTES, vl. Marina Blažon Bobinac",
-            "住所:Vukomerečka cesta 15, 10000 Zagreb, Croatia",
+            "提供元:IT QUOTES",
           ],
         },
         {
