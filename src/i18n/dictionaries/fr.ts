@@ -126,13 +126,12 @@ const fr: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaro est fourni par **IT QUOTES, vl. Marina Blažon Bobinac** (« Viewaro », « nous » ou « notre »). Cette politique de confidentialité explique comment l'application Viewaro pour macOS et le site d'assistance Viewaro traitent les informations.",
+            "Viewaro est fourni par **IT QUOTES** (« Viewaro », « nous » ou « notre »). Cette politique de confidentialité explique comment l'application Viewaro pour macOS et le site d'assistance Viewaro traitent les informations.",
           ],
         },
         {
           list: [
             "E-mail : [support@itquotes.hr](mailto:support@itquotes.hr)",
-            "Adresse postale : Vukomerečka cesta 15, 10000 Zagreb, Croatie",
           ],
         },
         {
@@ -278,7 +277,7 @@ const fr: Dictionary = {
         {
           heading: "Contact",
           paragraphs: [
-            "Les questions ou demandes relatives à la confidentialité peuvent être envoyées à [support@itquotes.hr](mailto:support@itquotes.hr) ou à IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatie.",
+            "Les questions ou demandes relatives à la confidentialité peuvent être envoyées à [support@itquotes.hr](mailto:support@itquotes.hr).",
           ],
         },
       ],
@@ -290,7 +289,7 @@ const fr: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Ces Conditions d'utilisation (« Conditions ») s'appliquent à l'application Viewaro pour macOS et au site d'assistance associé, fournis par **IT QUOTES, vl. Marina Blažon Bobinac** (« Viewaro », « nous » ou « notre »).",
+            "Ces Conditions d'utilisation (« Conditions ») s'appliquent à l'application Viewaro pour macOS et au site d'assistance associé, fournis par **IT QUOTES** (« Viewaro », « nous » ou « notre »).",
           ],
         },
         {
@@ -382,7 +381,7 @@ const fr: Dictionary = {
         {
           heading: "Contact",
           paragraphs: [
-            "Les questions relatives à ces Conditions peuvent être envoyées à [support@itquotes.hr](mailto:support@itquotes.hr) ou à IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatie.",
+            "Les questions relatives à ces Conditions peuvent être envoyées à [support@itquotes.hr](mailto:support@itquotes.hr).",
           ],
         },
       ],
@@ -400,8 +399,7 @@ const fr: Dictionary = {
           heading: "Contact",
           list: [
             "E-mail d'assistance : [support@itquotes.hr](mailto:support@itquotes.hr)",
-            "Fournisseur : IT QUOTES, vl. Marina Blažon Bobinac",
-            "Adresse postale : Vukomerečka cesta 15, 10000 Zagreb, Croatie",
+            "Fournisseur : IT QUOTES",
           ],
         },
         {

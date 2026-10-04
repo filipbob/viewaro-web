@@ -126,13 +126,12 @@ const zh: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "Viewaro 由 **IT QUOTES, vl. Marina Blažon Bobinac**(\"Viewaro\"、\"我们\")提供。本隐私政策说明 Viewaro macOS 应用和 Viewaro 支持网站如何处理信息。",
+            "Viewaro 由 **IT QUOTES**(\"Viewaro\"、\"我们\")提供。本隐私政策说明 Viewaro macOS 应用和 Viewaro 支持网站如何处理信息。",
           ],
         },
         {
           list: [
             "邮箱:[support@itquotes.hr](mailto:support@itquotes.hr)",
-            "通讯地址:Vukomerečka cesta 15, 10000 Zagreb, Croatia",
           ],
         },
         {
@@ -278,7 +277,7 @@ const zh: Dictionary = {
         {
           heading: "联系我们",
           paragraphs: [
-            "有关隐私的问题或请求可发送至 [support@itquotes.hr](mailto:support@itquotes.hr),或邮寄至 IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatia。",
+            "有关隐私的问题或请求可发送至 [support@itquotes.hr](mailto:support@itquotes.hr)。",
           ],
         },
       ],
@@ -290,7 +289,7 @@ const zh: Dictionary = {
       sections: [
         {
           paragraphs: [
-            "本使用条款(\"条款\")适用于由 **IT QUOTES, vl. Marina Blažon Bobinac**(\"Viewaro\"、\"我们\")提供的 Viewaro macOS 应用及相关支持网站。",
+            "本使用条款(\"条款\")适用于由 **IT QUOTES**(\"Viewaro\"、\"我们\")提供的 Viewaro macOS 应用及相关支持网站。",
           ],
         },
         {
@@ -382,7 +381,7 @@ const zh: Dictionary = {
         {
           heading: "联系我们",
           paragraphs: [
-            "对本条款有疑问?可发送至 [support@itquotes.hr](mailto:support@itquotes.hr),或邮寄至 IT QUOTES, vl. Marina Blažon Bobinac, Vukomerečka cesta 15, 10000 Zagreb, Croatia。",
+            "对本条款有疑问?可发送至 [support@itquotes.hr](mailto:support@itquotes.hr)。",
           ],
         },
       ],
@@ -400,8 +399,7 @@ const zh: Dictionary = {
           heading: "联系我们",
           list: [
             "支持邮箱:[support@itquotes.hr](mailto:support@itquotes.hr)",
-            "提供方:IT QUOTES, vl. Marina Blažon Bobinac",
-            "通讯地址:Vukomerečka cesta 15, 10000 Zagreb, Croatia",
+            "提供方:IT QUOTES",
           ],
         },
         {
